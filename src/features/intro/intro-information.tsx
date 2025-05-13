@@ -66,7 +66,7 @@ export function IntroInformation() {
         <Button variant="outline" size="lg" asChild>
           <Link
             href={resumeDownloadPath}
-            download={`${developer.name} - ${developer.title}.pdf`}
+            download="Tauhid Ahmed - Frontend Developer Resume.pdf"
             target="_blank"
             className="px-8 py-6"
           >
