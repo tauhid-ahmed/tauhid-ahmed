@@ -3,7 +3,7 @@
 import type React from "react";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Code, Layers, Search } from "lucide-react";
@@ -82,11 +82,6 @@ export function ProjectsShowcase() {
                     <motion.div
                       layoutId="background"
                       className="absolute rounded z-10 inset-0 bg-gradient-to-r from-primary to-purple-500"
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 30,
-                      }}
                     />
                   )}
 
@@ -98,47 +93,45 @@ export function ProjectsShowcase() {
               ))}
             </div>
 
-            <AnimatePresence mode="wait">
-              {filteredProjects.length <= 0 ? (
-                <motion.div
-                  className="text-center p-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <span className="text-muted-foreground gradient-text text-[clamp(3rem,4.5vw,6rem)] font-bold">
-                    No projects found
-                  </span>{" "}
-                  <br />
-                  <span className="inline-block underline underline-offset-4 capitalize px-4 py-2 text-sm text-primary">
-                    Coming soon
-                  </span>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key={activeCategory}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="-mx-8 px-4 flex flex-wrap justify-center">
-                    {filteredProjects.map((project, index) => (
-                      <div
-                        key={project.id}
-                        className="basis-1/1 lg:basis-1/3 shrink-0 p-4"
-                      >
-                        <ProjectCard project={project} index={index} />
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {filteredProjects.length <= 0 ? (
+              <motion.div
+                className="text-center p-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, easings: "linear" }}
+              >
+                <span className="text-muted-foreground gradient-text text-[clamp(3rem,4.5vw,6rem)] font-bold">
+                  No projects found
+                </span>{" "}
+                <br />
+                <span className="inline-block underline underline-offset-4 capitalize px-4 py-2 text-sm text-primary">
+                  Coming soon
+                </span>
+              </motion.div>
+            ) : (
+              <motion.div
+                key={activeCategory}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, easings: "linear" }}
+              >
+                <div className="-mx-8 px-4 flex flex-wrap justify-center">
+                  {filteredProjects.map((project, index) => (
+                    <div
+                      key={project.id}
+                      className="basis-1/1 lg:basis-1/3 shrink-0 p-4"
+                    >
+                      <ProjectCard project={project} index={index} />
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+            {/* </AnimatePresence> */}
 
             <motion.div
-              layout
               className="text-center"
               initial={{ opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
