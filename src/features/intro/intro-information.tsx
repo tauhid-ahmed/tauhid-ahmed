@@ -89,7 +89,7 @@ export function IntroInformation() {
         <Button variant="outline" size="lg" asChild>
           <Link
             href={resumeDownloadPath}
-            download="Tauhid Ahmed - Frontend Developer Resume.pdf"
+            download="Tauhid Ahmed - Fullstack Developer Resume.pdf"
             target="_blank"
             className="px-8 py-6"
           >

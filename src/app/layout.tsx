@@ -13,16 +13,19 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: `${env.NEXT_PUBLIC_AUTHOR_NAME} | Frontend Developer Portfolio`,
+  title: `${env.NEXT_PUBLIC_AUTHOR_NAME} | FullStack Developer & Team Leader`,
   description:
-    "Professional portfolio showcasing frontend development skills and projects",
+    "Professional portfolio of Tauhid Ahmed showcasing fullstack web development, engineering leadership, and high-impact applications with Next.js, React, Node.js, and TypeScript.",
   keywords: [
-    "frontend developer",
+    "fullstack developer",
+    "team lead",
     "react",
     "next.js",
+    "typescript",
+    "node.js",
     "portfolio",
     "web developer",
-    "fullstack developer",
+    "ai integration",
   ],
   authors: [{ name: env.NEXT_PUBLIC_AUTHOR_NAME }],
   creator: env.NEXT_PUBLIC_AUTHOR_NAME,

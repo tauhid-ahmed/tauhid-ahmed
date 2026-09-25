@@ -40,140 +40,175 @@ export const developer: Developer = {
 
 export const skills: Skill[] = [
   {
-    category: "Frontend Development",
+    category: "FullStack & Core Engineering",
     title: {
-      full: "Frontend Development",
-      short: "Frontend",
+      full: "FullStack & Core Engineering",
+      short: "FullStack",
     },
     icon: "Code",
-    items: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3"],
+    items: [
+      "TypeScript",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "Redux",
+    ],
     color: "from-violet-500 to-purple-500",
     description:
-      "Developing responsive, dynamic, and maintainable user interfaces using modern JavaScript frameworks and web technologies to deliver seamless digital experiences.",
+      "Architecting performant, scalable, and type-safe web applications using modern React, Next.js 15 App Router, Node.js, and TypeScript.",
   },
   {
-    category: "UI Frameworks & Component Libraries",
+    category: "Styling, Design & Motion",
     title: {
-      full: "UI Frameworks & Component Libraries",
-      short: "UI Libraries",
+      full: "Styling, Design & Motion",
+      short: "Design & UI",
     },
     icon: "Layers",
     items: [
       "Tailwind CSS",
-      "shadcn/ui",
-      "Material UI",
-      "Bootstrap",
-      "Chakra UI",
+      "Shadcn UI",
+      "SCSS",
+      "Motion for React",
+      "GSAP",
+      "Figma",
     ],
     color: "from-blue-500 to-cyan-400",
     description:
-      "Accelerating interface development with scalable component libraries and utility-first CSS frameworks to ensure consistency, flexibility, and design system alignment.",
+      "Crafting pixel-perfect, accessible component systems, micro-interactions, responsive layouts, and design tokens.",
   },
   {
-    category: "Web Animation & Interaction",
+    category: "Backend, APIs & Auth",
     title: {
-      full: "Web Animation & Interaction",
-      short: "Animation",
+      full: "Backend, APIs & Auth",
+      short: "Backend & APIs",
     },
-    icon: "Sparkles",
-    items: ["Framer Motion", "GSAP", "Three.js", "CSS Animations", "Lottie"],
+    icon: "Server",
+    items: [
+      "REST APIs",
+      "GraphQL",
+      "Hono",
+      "tRPC",
+      "Auth.js",
+      "Clerk",
+      "Custom Auth",
+    ],
     color: "from-amber-500 to-orange-400",
     description:
-      "Creating immersive and user experiences through animation, motion design, and real-time 3D rendering while ensuring performance and accessibility.",
+      "Building high-throughput APIs, role-based authentication, type-safe RPCs, and modern microservices.",
   },
   {
-    category: "Digital Design & Prototyping",
+    category: "Databases & ORM",
     title: {
-      full: "Digital Design & Prototyping",
-      short: "Design Tools",
+      full: "Databases & ORM",
+      short: "Databases",
     },
-    icon: "Palette",
-    items: ["Figma", "Adobe XD", "Photoshop", "Illustrator", "UI/UX Design"],
-    color: "from-pink-500 to-rose-400",
-    description:
-      "Transforming ideas into intuitive, user-centered interfaces by combining creative design tools with deep understanding of usability and visual communication.",
-  },
-  {
-    category: "Performance Optimization",
-    title: {
-      full: "Performance Optimization",
-      short: "Performance",
-    },
-    icon: "Zap",
-    items: ["Web Vitals", "Lighthouse", "Webpack", "Vite", "Code Splitting"],
+    icon: "Database",
+    items: [
+      "PostgreSQL",
+      "Neon Postgres",
+      "Redis",
+      "Drizzle ORM",
+      "Prisma",
+      "NoSQL",
+    ],
     color: "from-emerald-500 to-green-400",
     description:
-      "Ensuring high-performance web applications by monitoring core vitals, optimizing assets, and leveraging advanced bundling and loading strategies.",
+      "Designing relational and caching data layers with zero-cold-start edge databases and schema-first ORMs.",
   },
   {
-    category: "Mobile & Responsive Development",
+    category: "AI & Agentic Tools",
     title: {
-      full: "Mobile & Responsive Development",
-      short: "Mobile",
+      full: "AI & Agentic Tools",
+      short: "AI & Agents",
     },
-    icon: "Smartphone",
+    icon: "Bot",
     items: [
-      "React Native",
-      "Responsive Design",
-      "PWA",
-      "App Design",
-      "Touch Interfaces",
+      "Claude Code",
+      "Codex",
+      "GitHub Copilot",
+      "Cursor",
+      "LLM APIs & Integrations",
+    ],
+    color: "from-pink-500 to-rose-400",
+    description:
+      "Leveraging cutting-edge AI coding agents, autonomous workflows, and LLM APIs to multiply engineering velocity and product intelligence.",
+  },
+  {
+    category: "DevOps & Best Practices",
+    title: {
+      full: "DevOps & Best Practices",
+      short: "DevOps",
+    },
+    icon: "Zap",
+    items: [
+      "Vercel",
+      "Docker",
+      "Git",
+      "GitHub",
+      "CI/CD",
+      "Performance",
+      "SEO",
+      "Security",
     ],
     color: "from-indigo-500 to-blue-400",
     description:
-      "Delivering seamless mobile experiences through responsive layouts, progressive web app capabilities, and cross-platform development tools.",
+      "Ensuring seamless deployments, automated CI/CD pipelines, containerization, Core Web Vitals optimization, and security compliance.",
   },
 ];
 
 export const skillProficiency = {
-  // Frontend & Core
-  React: 80,
-  "Next.js": 80,
-  TypeScript: 70,
-  JavaScript: 80,
-  HTML5: 85,
-  CSS3: 85,
-  "Responsive Design": 90,
+  // Languages & Core
+  TypeScript: 90,
+  JavaScript: 95,
+  React: 95,
+  "Next.js": 95,
+  "Node.js": 85,
+  "Express.js": 85,
+  Redux: 85,
 
-  // UI Frameworks
+  // Styling & Design
   "Tailwind CSS": 95,
-  "shadcn/ui": 85,
-  "Material UI": 80,
-  Bootstrap: 80,
-  "Chakra UI": 85,
-  "Radix UI": 80,
+  "Shadcn UI": 95,
+  SCSS: 85,
+  "Motion for React": 90,
+  GSAP: 80,
+  Figma: 75,
 
-  // Animation
-  "Framer Motion": 80,
-  GSAP: 75,
-  "CSS Animations": 90,
-  "Three.js": 60,
-  Lottie: 65,
-
-  // Design
-  Figma: 65,
-  "Adobe XD": 65,
-  Photoshop: 50,
-  Illustrator: 50,
-  "UI/UX Design": 55,
-
-  // Performance & Tooling
-  "Web Vitals": 85,
-  Lighthouse: 80,
-  Webpack: 80,
-  Vite: 85,
-  "Code Splitting": 85,
-
-  // Mobile / Cross-platform
-  "React Native": 60,
-  PWA: 50,
-  "App Design": 55,
-  "Touch Interfaces": 60,
-
-  // Backend & Auth
-  ExpressJS: 85,
+  // Backend & APIs
+  "REST APIs": 95,
+  GraphQL: 80,
   Hono: 85,
-  NextAuth: 85,
+  tRPC: 85,
+  "Auth.js": 90,
+  Clerk: 85,
+  "Custom Auth": 85,
+
+  // Databases
+  PostgreSQL: 85,
+  "Neon Postgres": 85,
+  Redis: 80,
+  "Drizzle ORM": 90,
+  Prisma: 85,
+  NoSQL: 75,
+
+  // AI & Agentic Tools
+  "Claude Code": 95,
+  Codex: 90,
+  "GitHub Copilot": 95,
+  Cursor: 95,
+  "LLM APIs & Integrations": 90,
+
+  // DevOps & Best Practices
+  Vercel: 95,
+  Docker: 75,
+  Git: 90,
+  GitHub: 90,
+  "CI/CD": 85,
+  Performance: 95,
+  SEO: 90,
+  Security: 85,
 };
 
 export const projects: Project[] = [
@@ -181,23 +216,23 @@ export const projects: Project[] = [
     id: "E-commerce Platform",
     title: "E-Commerce Platform",
     description:
-      "A full-featured e-commerce system built with modern web technologies, featuring product creation, image uploads, real-time inventory, and secure authentication. Includes a performant dashboard for business insights.",
+      "A modern, scalable, and feature-rich e-commerce platform designed for optimal performance, elegant UX, and developer-grade extensibility. Features cascading filters, dark mode, NextAuth v5, Stripe/SSLCommerz payments, and admin dashboard.",
     image: "e-commerce",
     tags: [
-      "Next.js",
+      "Next.js 15",
+      "TypeScript",
       "Hono tRPC",
       "Drizzle ORM",
-      "Shadcn UI",
-      "Tailwindcss",
-      "Motion for React",
       "Neon Postgres",
-      "Redis",
-      "Auth.js",
+      "Tailwind CSS v4",
+      "Shadcn UI",
+      "Motion for React",
+      "Auth.js v5",
     ],
     demoUrl: "https://shop-ipsum.vercel.app/",
     githubUrl: "https://github.com/tauhid-ahmed/shop-ipsum",
     featured: true,
-    category: ["fullstack"],
+    category: ["fullstack", "frontend"],
   },
   {
     id: "Creative-Portfolio",
@@ -246,7 +281,7 @@ export const testimonials: Testimonial[] = [
     position: "Product Manager",
     company: "TechCorp Inc.",
     content:
-      "Tauhid is an exceptional frontend developer who consistently delivers high-quality work. His attention to detail and creative problem-solving skills make him a valuable asset to any team.",
+      "Tauhid is an exceptional developer and team leader who consistently delivers high-quality work. His attention to detail, fullstack architecture, and creative problem-solving make him a tremendous asset to any team.",
     avatar: "/placeholder.svg?height=100&width=100",
   },
   {
@@ -254,7 +289,7 @@ export const testimonials: Testimonial[] = [
     position: "CTO",
     company: "Digital Solutions",
     content:
-      "Working with Tauhid was a pleasure. He has a deep understanding of modern web technologies and always goes above and beyond to create exceptional user experiences.",
+      "Working with Tauhid was a pleasure. He has deep mastery over modern web technologies, AI integrations, and always goes above and beyond to architect exceptional user experiences.",
     avatar: "/placeholder.svg?height=100&width=100",
   },
   {
@@ -262,7 +297,7 @@ export const testimonials: Testimonial[] = [
     position: "Design Director",
     company: "Creative Agency",
     content:
-      "Tauhid has a rare combination of technical expertise and design sensibility. He can take complex designs and implement them flawlessly while adding his own creative touches.",
+      "Tauhid has a rare combination of technical fullstack expertise, team leadership, and design sensibility. He can take complex architectures and implement them flawlessly with elegance.",
     avatar: "/placeholder.svg?height=100&width=100",
   },
 ];
@@ -271,27 +306,43 @@ export const profileData: ResumeData = [
   {
     section: "about",
     content: [
-      "I am Tauhid Ahmed, a self-taught web developer with over 5 years of experience building fast, responsive, and accessible web applications using technologies like React, Next.js, and TypeScript.",
-      "My journey into development began during my university years, where I transitioned from a business background to software engineering through self-learning and hands-on practice.",
-      "I’ve completed multiple freelance projects, earned certifications from global platforms, and currently work professionally as a frontend developer at Softnio, contributing to real-world, production-level systems.",
-      "I care deeply about clean code, intuitive UI/UX, and continuous learning. My goal is to build impactful digital experiences that are user-focused and performance-driven.",
+      "Results-driven Fullstack Developer & Engineering Team Lead with 4+ years of experience architecting performant, accessible, and scalable web applications using React, Next.js, TypeScript, and Node.js.",
+      "Proven expertise in leading cross-functional teams, integrating state-of-the-art AI APIs and LLM tools, and delivering high-impact web products with modern UI/UX design standards.",
+      "Currently serving as FullStack Developer & Team Leader (Assistant Manager, Operation) at SM Technology, directing technical workflows, client communication, and delivery assurance.",
+      "Deeply committed to clean architecture, developer velocity, robust code quality, and continuous learning.",
     ],
   },
   {
     section: "experience",
     content: [
       {
-        company: "Softsync",
-        position: "Frontend Developer",
-        duration: "2024 – Present",
+        company: "SM Technology",
+        position: "FullStack Developer & Team Leader (Assistant Manager, Operation)",
+        duration: "2025 – Present",
         description:
-          "Building and maintaining scalable frontend applications. Collaborating with designers and backend engineers to deliver performant and user-friendly interfaces.",
+          "Lead end-to-end team management and cross-functional collaboration across engineering, AI research, and design teams. Manage client communication and requirements gathering. Oversee project deadline management and delivery assurance for complex web applications.",
+        technologies: [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Node.js",
+          "AI APIs & LLMs",
+          "Tailwind CSS",
+          "Team Leadership",
+        ],
+      },
+      {
+        company: "Softsync",
+        position: "FullStack Developer",
+        duration: "2024 – 2025",
+        description:
+          "Engineered enterprise web applications in collaboration with UI/UX designers and backend teams, accelerating feature delivery cycles by 25%. Developed reusable component libraries using React, TypeScript, and Tailwind CSS. Implemented rigorous testing and code quality practices.",
         technologies: [
           "React",
           "TypeScript",
-          "Next.js",
           "Tailwind CSS",
-          "Motion for React",
+          "Component Libraries",
+          "Testing & QA",
         ],
       },
       {
@@ -299,13 +350,14 @@ export const profileData: ResumeData = [
         position: "Frontend Developer",
         duration: "2020 – 2024",
         description:
-          "Designed, developed, and deployed full-stack web applications for clients across various industries. Handled everything from planning to production independently.",
+          "Directed full lifecycle web development for diverse international clients, delivering end-to-end web apps from initial architectural design to Vercel production deployments. Built modern fullstack solutions with Next.js, REST APIs, and automated CI/CD pipelines.",
         technologies: [
           "Next.js",
           "Node.js",
-          "SQL",
-          "Vercel",
+          "REST APIs",
+          "Tailwind CSS",
           "Motion for React",
+          "Vercel CI/CD",
         ],
       },
     ],
@@ -316,14 +368,14 @@ export const profileData: ResumeData = [
       {
         degree: "Professional Training in Web & Software Development",
         description:
-          "Completed online certifications and project-based courses in web development, JavaScript, React, and full-stack engineering.",
-        institution: "freeCodeCamp, Udemy, YouTube, and other platforms",
+          "Completed certifications and comprehensive project-based engineering coursework in web development, JavaScript, React, and full-stack software development.",
+        institution: "freeCodeCamp, Udemy, YouTube, and others",
         duration: "2017 – Present",
       },
       {
-        degree: "Bachelor of Business Administration (BBA)",
+        degree: "Bachelor of Business Administration (BBA) Studies",
         description:
-          "Completed core business and management coursework. Developed a strong interest in software development during this period and began transitioning into the tech field through self-guided learning.",
+          "Pursued studies in Bachelor of Business Administration before transitioning into software engineering through dedicated self-learning.",
         institution: "National University, Bangladesh",
         duration: "2014 – 2018",
       },

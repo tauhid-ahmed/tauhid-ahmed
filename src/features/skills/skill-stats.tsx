@@ -21,12 +21,15 @@ import { Heading } from "@/components/heading";
 import { TextReveal } from "@/components/text-reveal";
 
 const icons = {
-  Code: <Icons.LayersIcon />,
-  Layers: <Icons.PaletteIcon />,
+  Code: <Icons.CodeIcon />,
+  Layers: <Icons.LayersIcon />,
   Sparkles: <Icons.SparklesIcon />,
-  Palette: <Icons.CodeIcon />,
+  Palette: <Icons.PaletteIcon />,
   Zap: <Icons.ZapIcon />,
   Smartphone: <Icons.SmartphoneIcon />,
+  Server: <Icons.ServerIcon />,
+  Database: <Icons.DatabaseIcon />,
+  Bot: <Icons.BotIcon />,
 };
 
 export function SkillStats() {

@@ -54,8 +54,8 @@ export function AboutMe() {
               <TextReveal text="Know Me Better" />
             </SectionTitle>
             <SectionDescription>
-              A passionate frontend developer with a keen eye for design and a
-              love for creating seamless user experiences
+              Architecting performant, accessible web applications and leading
+              high-impact engineering teams
             </SectionDescription>
           </SectionHeader>
         </motion.div>
@@ -72,7 +72,7 @@ export function AboutMe() {
                 variants={itemVariants}
                 className="text-2xl font-bold gradient-text"
               >
-                <TextReveal text="Frontend Developer & UI/UX Enthusiast" />
+                <TextReveal text="FullStack Developer & Team Leader" />
               </motion.h3>
               <Information />
               <div className="hidden lg:block">

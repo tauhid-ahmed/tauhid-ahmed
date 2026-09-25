@@ -15,6 +15,9 @@ export {
   LucideFileSearch as FileSearchIcon,
   LucideGauge as GaugeIcon,
   LucideSend as SendIcon,
+  LucideServer as ServerIcon,
+  LucideDatabase as DatabaseIcon,
+  LucideBot as BotIcon,
 } from "lucide-react";
 
 import {
