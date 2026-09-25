@@ -9,7 +9,7 @@ type Props = React.HTMLAttributes<HTMLHeadingElement> & {
 };
 
 const classnames = (size: Props["size"]) => ({
-  "text-[clamp(2.25rem,3vw,4rem)] font-extrabold tracking-tight leading-tight":
+  "text-[clamp(1.9rem,3.2vw,3.25rem)] font-extrabold tracking-tight leading-[1.15]":
     size === "display",
   "text-[clamp(2rem,4.5vw,3.69rem)] font-bold tracking-tight": size === "h1",
   "text-[clamp(1.8rem,4vw,2.95rem)] font-bold tracking-tight": size === "h2",

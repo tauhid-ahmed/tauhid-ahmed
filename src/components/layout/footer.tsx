@@ -14,12 +14,12 @@ export function Footer() {
       <Container>
         <div className="grid gap-8 lg:grid-cols-3">
           <div className="space-y-4">
-            <Link href="/" className="text-2xl font-bold tracking-tighter ">
-              <span className="gradient-text">{developer.firstName}</span>
+            <Link href="/" className="text-2xl font-bold tracking-tight inline-flex items-center gap-1.5">
+              <span className="font-extrabold tracking-tight text-foreground">{developer.firstName}</span>
+              <span className="gradient-text font-extrabold">{developer.lastName}</span>
             </Link>
-            <p className="text-muted-foreground max-w-xs">
-              Creating exceptional digital experiences with modern web
-              technologies and a passion for design.
+            <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
+              Architecting performant, accessible web applications and leading high-impact engineering teams with Next.js, React, Node.js, and TypeScript.
             </p>
             <div className="flex gap-4">
               <SocialHandles />

@@ -92,11 +92,15 @@ export function Header() {
           >
             <Link href="#home" className="text-xl font-bold tracking-tight">
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                className="flex items-center"
+                className="flex items-center gap-1.5"
               >
-                <span className="gradient-text">{developer.firstName}</span>
+                <span className="font-extrabold tracking-tight text-foreground">{developer.firstName}</span>
+                <span className="gradient-text font-extrabold">{developer.lastName}</span>
+                <span className="hidden sm:inline-block ml-1.5 text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                  Lead
+                </span>
               </motion.div>
             </Link>
           </motion.div>

@@ -44,16 +44,15 @@ export function IntroInformation() {
           </motion.span>
         </div>
 
-        <Heading as="h1" size="display">
+        <Heading as="h1" size="display" gradient={false}>
           <TextWeave />
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="block text-primary"
+            className="block mt-3"
           >
-            as a{" "}
-            <span className="relative">
+            <span className="relative inline-block gradient-text">
               <span className="absolute -inset-1 rounded-lg bg-primary/10 blur-sm"></span>
               <span className="relative">{developer.title}</span>
             </span>
@@ -64,7 +63,7 @@ export function IntroInformation() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 0.8 }}
-        className="text-lg text-muted-foreground max-w-md mx-auto lg:mx-0"
+        className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed"
       >
         {developer.bio}
       </motion.p>

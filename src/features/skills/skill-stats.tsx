@@ -34,7 +34,7 @@ const icons = {
 
 export function SkillStats() {
   const [activeCategory, setActiveCategory] = useState<string>(
-    "Frontend Development"
+    skills[0]?.category || "FullStack & Core Engineering"
   );
 
   const activeSkill = useMemo(

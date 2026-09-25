@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 
-const titleText = "Bringing Interfaces to Life with Code";
+const titleText = "Building Scalable Web Products with Modern Architecture";
 const words = titleText.split(" ");
 const titleVariants = {
   hidden: { opacity: 0 },

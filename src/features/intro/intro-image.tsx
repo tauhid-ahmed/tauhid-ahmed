@@ -102,7 +102,7 @@ function FloatingInformation() {
         transition={{ delay: 1.5, type: "spring", stiffness: 200 }}
         className="absolute -bottom-5 -left-2 bg-background/80 backdrop-blur-sm rounded-full px-3 py-1.5 font-medium text-xs border border-primary/20 shadow-lg"
       >
-        React • Next.js • TypeScript
+        FullStack & Engineering Team Lead
       </motion.div>
       <TechIcons />
     </>
