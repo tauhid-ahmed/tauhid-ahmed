@@ -49,10 +49,10 @@ export function PremiumBackground() {
         const { width, height } = containerRef.current.getBoundingClientRect();
         setDimensions({ width, height });
 
-        // Create particles based on screen size
+        // Create particles based on screen size (balanced for performance & visuals)
         const particleCount = Math.min(
-          100,
-          Math.floor((width * height) / 15000)
+          65,
+          Math.floor((width * height) / 22000)
         );
 
         const newParticles: Particle[] = [];
@@ -68,11 +68,6 @@ export function PremiumBackground() {
           });
         }
         particlesRef.current = newParticles;
-
-        // Start the animation if it's the first time
-        if (!animationFrameIdRef.current && canvasRef.current) {
-          startAnimation();
-        }
       }
     };
 
@@ -90,14 +85,8 @@ export function PremiumBackground() {
   // Handle mouse movement
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current) return;
-
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      mouseX.set(x);
-      mouseY.set(y);
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
     };
 
     const handleMouseEnter = () => {
@@ -108,24 +97,14 @@ export function PremiumBackground() {
       isHoveringRef.current = false;
     };
 
-    if (containerRef.current) {
-      containerRef.current.addEventListener("mousemove", handleMouseMove);
-      containerRef.current.addEventListener("mouseenter", handleMouseEnter);
-      containerRef.current.addEventListener("mouseleave", handleMouseLeave);
-    }
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
+    document.addEventListener("mouseenter", handleMouseEnter);
+    document.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      if (containerRef.current) {
-        containerRef.current.removeEventListener("mousemove", handleMouseMove);
-        containerRef.current.removeEventListener(
-          "mouseenter",
-          handleMouseEnter
-        );
-        containerRef.current.removeEventListener(
-          "mouseleave",
-          handleMouseLeave
-        );
-      }
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseenter", handleMouseEnter);
+      document.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [mouseX, mouseY]);
 
@@ -186,21 +165,24 @@ export function PremiumBackground() {
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Draw connections
-        for (let j = i + 1; j < particles.length; j++) {
+        // Draw connections with max distance check without expensive Math.sqrt when out of range
+        let connections = 0;
+        for (let j = i + 1; j < particles.length && connections < 4; j++) {
           const otherParticle = particles[j];
           const dx = particle.x - otherParticle.x;
           const dy = particle.y - otherParticle.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (distance < 100) {
+          if (distSq < 7225) { // 85px max distance
+            const distance = Math.sqrt(distSq);
             ctx.strokeStyle = particle.color;
-            ctx.globalAlpha = (1 - distance / 100) * 0.15;
+            ctx.globalAlpha = (1 - distance / 85) * 0.12;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
             ctx.stroke();
+            connections++;
           }
         }
       }
@@ -209,7 +191,7 @@ export function PremiumBackground() {
     };
 
     render();
-  }, [dimensions]);
+  }, [dimensions, smoothMouseX, smoothMouseY]);
 
   // Start animation when dimensions change
   useEffect(() => {

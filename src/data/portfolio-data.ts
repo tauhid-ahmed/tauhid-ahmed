@@ -217,29 +217,27 @@ export const projects: Project[] = [
     featured: true,
     category: ["frontend", "design"],
   },
-  // {
-  //   id: "issue-tracker",
-  //   title: "Issue Tracker App",
-  //   description:
-  //     "A robust issue tracking system inspired by modern project management tools. Supports ticket creation, status updates, and team collaboration — built with the same tech stack as the e-commerce app.",
-  //   image: "issue-tracker",
-  //   tags: [
-  //     "Next.js",
-  //     "Prisma ORM",
-  //     "Auth.js",
-  //     "Tailwindcss",
-  //     "Redis",
-  //     "Redix UI",
-  //     "Neon Postgres",
-  //     "Shadcn UI",
-  //     "Motion for React",
-  //     "Hono tRPC",
-  //   ],
-  //   demoUrl: "#",
-  //   githubUrl: "#",
-  //   featured: false,
-  //   category: ["fullstack"],
-  // },
+  {
+    id: "issue-tracker",
+    title: "Issue Tracker App",
+    description:
+      "A robust issue tracking system inspired by modern project management tools. Supports ticket creation, status updates, and team collaboration with real-time feedback.",
+    image: "issue-tracker",
+    tags: [
+      "Next.js",
+      "Prisma ORM",
+      "Auth.js",
+      "Tailwindcss",
+      "Redis",
+      "Neon Postgres",
+      "Shadcn UI",
+      "Motion for React",
+    ],
+    demoUrl: "https://shop-ipsum.vercel.app/",
+    githubUrl: "https://github.com/tauhid-ahmed/shop-ipsum",
+    featured: false,
+    category: ["fullstack", "frontend"],
+  },
 ];
 
 export const testimonials: Testimonial[] = [

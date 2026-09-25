@@ -77,8 +77,10 @@ export function Header() {
         duration: 0.3,
         ease: "easeInOut",
       }}
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 backdrop-blur-xs bg-background overflow-hidden ${
-        scrolled ? "shadow-sm border-b border-border/50" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        scrolled
+          ? "bg-background/80 backdrop-blur-md shadow-sm border-b border-border/40"
+          : "bg-background/40 backdrop-blur-sm"
       }`}
     >
       <Container>

@@ -8,18 +8,41 @@ import Link from "next/link";
 import { resumeDownloadPath } from "@/paths";
 import { Heading } from "@/components/heading";
 
+import Image from "next/image";
+import me from "@/images/me/me.webp";
+
 export function IntroInformation() {
   return (
     <div className="space-y-8 text-center lg:text-left">
-      <motion.div initial="hidden" animate="visible" className="space-y-2">
-        <motion.span
+      <motion.div initial="hidden" animate="visible" className="space-y-4">
+        {/* Mobile portrait avatar */}
+        <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm"
+          transition={{ duration: 0.6 }}
+          className="lg:hidden mx-auto size-24 sm:size-28 rounded-full p-1 bg-gradient-to-tr from-primary to-purple-500 shadow-lg relative"
         >
-          {developer.name}
-        </motion.span>
+          <div className="relative size-full rounded-full overflow-hidden border-2 border-background">
+            <Image
+              src={me}
+              alt={developer.name}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </motion.div>
+
+        <div>
+          <motion.span
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm"
+          >
+            {developer.name}
+          </motion.span>
+        </div>
 
         <Heading as="h1" size="display">
           <TextWeave />
@@ -52,7 +75,7 @@ export function IntroInformation() {
         className="flex flex-wrap gap-4 justify-center lg:justify-start"
       >
         <Button size="lg" asChild>
-          <Link href="#projects" target="_blank" className="px-8 py-6">
+          <Link href="#projects" className="px-8 py-6">
             <span className="relative z-10 flex items-center gap-2">
               View Projects
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

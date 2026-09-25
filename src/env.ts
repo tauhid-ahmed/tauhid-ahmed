@@ -5,18 +5,24 @@ export const env = createEnv({
   server: {},
 
   client: {
-    NEXT_PUBLIC_AUTHOR_NAME: z.string().min(1),
-    NEXT_PUBLIC_AUTHOR_FIRST_NAME: z.string().min(1),
-    NEXT_PUBLIC_AUTHOR_LAST_NAME: z.string().min(1),
-    NEXT_PUBLIC_AUTHOR_TITLE: z.string().min(1),
-    NEXT_PUBLIC_AUTHOR_PHONE: z.string().min(1),
-    NEXT_PUBLIC_AUTHOR_EMAIL: z.string().min(1),
-    NEXT_PUBLIC_AUTHOR_LINKEDIN: z.string().min(1),
-    NEXT_PUBLIC_AUTHOR_GITHUB: z.string().min(1),
-    NEXT_PUBLIC_AUTHOR_X: z.string().min(1),
-    NEXT_PUBLIC_AUTHOR_LOCATION: z.string().min(1),
-    NEXT_PUBLIC_AUTHOR_BIO: z.string().min(1),
-    NEXT_PUBLIC_AUTHOR_LIVE_RESUME: z.string().min(1),
+    NEXT_PUBLIC_AUTHOR_NAME: z.string().default("Tauhid Ahmed"),
+    NEXT_PUBLIC_AUTHOR_FIRST_NAME: z.string().default("Tauhid"),
+    NEXT_PUBLIC_AUTHOR_LAST_NAME: z.string().default("Ahmed"),
+    NEXT_PUBLIC_AUTHOR_TITLE: z.string().default("Frontend Developer"),
+    NEXT_PUBLIC_AUTHOR_PHONE: z.string().default("+8801815152504"),
+    NEXT_PUBLIC_AUTHOR_EMAIL: z.string().default("tauhidahmed500@gmail.com"),
+    NEXT_PUBLIC_AUTHOR_LINKEDIN: z.string().default("https://linkedin.com/in/tauhid-ahmed"),
+    NEXT_PUBLIC_AUTHOR_GITHUB: z.string().default("https://github.com/tauhid-ahmed"),
+    NEXT_PUBLIC_AUTHOR_X: z.string().default("https://x.com/tauhid_ahmed"),
+    NEXT_PUBLIC_AUTHOR_LOCATION: z.string().default("Dhaka, Bangladesh"),
+    NEXT_PUBLIC_AUTHOR_BIO: z
+      .string()
+      .default(
+        "Crafting high-performance, modern, and accessible web experiences with React, Next.js, and TypeScript."
+      ),
+    NEXT_PUBLIC_AUTHOR_LIVE_RESUME: z
+      .string()
+      .default("/assets/my-resume.pdf"),
   },
 
   runtimeEnv: {
@@ -34,3 +40,4 @@ export const env = createEnv({
     NEXT_PUBLIC_AUTHOR_LIVE_RESUME: process.env.NEXT_PUBLIC_AUTHOR_LIVE_RESUME,
   },
 });
+

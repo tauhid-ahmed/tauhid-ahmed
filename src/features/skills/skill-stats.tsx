@@ -37,7 +37,7 @@ export function SkillStats() {
   const activeSkill = useMemo(
     () =>
       skills.find((skill) => skill.category === activeCategory) || skills[0],
-    [activeCategory, skills]
+    [activeCategory]
   );
 
   return (

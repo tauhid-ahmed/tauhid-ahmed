@@ -39,6 +39,30 @@
 
   /* Gradient text */
   .gradient-text {
-    @apply bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-purple-500 to-primary bg-clip-text text-transparent;
+  }
+
+  /* Glass panel utility */
+  .glass-panel {
+    @apply bg-background/60 backdrop-blur-md border border-border/40;
   }
 }
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--primary) 30%, transparent);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--primary) 60%, transparent);
+}
+

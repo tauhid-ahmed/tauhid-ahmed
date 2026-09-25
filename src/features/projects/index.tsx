@@ -117,11 +117,11 @@ export function ProjectsShowcase() {
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3, easings: "linear" }}
               >
-                <div className="-mx-8 px-4 flex flex-wrap justify-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {filteredProjects.map((project, index) => (
                     <div
                       key={project.id}
-                      className="basis-1/1 lg:basis-1/3 shrink-0 p-4"
+                      className="h-full"
                     >
                       <ProjectCard project={project} index={index} />
                     </div>

@@ -19,16 +19,25 @@ export function LenisProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const lenisInstance = new Lenis({ smoothWheel: true });
+    const lenisInstance = new Lenis({
+      smoothWheel: true,
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    });
+
+    let rafId: number;
     const raf = (time: number) => {
       lenisInstance.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     };
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
     setLenis(lenisInstance);
 
-    return () => lenisInstance.destroy();
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenisInstance.destroy();
+    };
   }, []);
 
   return (

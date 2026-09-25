@@ -1,9 +1,11 @@
 "use client";
+import { useState } from "react";
 import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
 import Card3D from "@/components/card-3d";
 import { useForm } from "react-hook-form";
+import { developer } from "@/data/portfolio-data";
 
 import { Heading } from "@/components/heading";
 import { InputField } from "@/components/input-field";
@@ -13,6 +15,7 @@ import { contactSchema } from "@/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
   const form = useForm({
     defaultValues: {
       name: "",
@@ -23,6 +26,18 @@ export function ContactForm() {
     reValidateMode: "onChange",
     resolver: zodResolver(contactSchema),
   });
+
+  const onSubmit = (data: { name: string; email: string; message: string }) => {
+    // Generate mailto link as reliable client-side contact action
+    const subject = encodeURIComponent(`Portfolio Inquiry from ${data.name}`);
+    const body = encodeURIComponent(
+      `Hi Tauhid,\n\n${data.message}\n\nFrom: ${data.name} (${data.email})`
+    );
+    window.open(`mailto:${developer.email}?subject=${subject}&body=${body}`, "_blank");
+    setSubmitted(true);
+    form.reset();
+  };
+
   return (
     <>
       <Form {...form}>
@@ -38,8 +53,15 @@ export function ContactForm() {
               <Heading as="h3" size="h4" align="left">
                 Send Me a Message
               </Heading>
+
+              {submitted && (
+                <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-sm">
+                  ✨ Thank you! Your email client has been opened with your pre-filled message.
+                </div>
+              )}
+
               <form
-                onSubmit={form.handleSubmit((data) => console.log(data))}
+                onSubmit={form.handleSubmit(onSubmit)}
                 className="space-y-6"
               >
                 <InputField label="Name" name="name" placeholder="Your name" />

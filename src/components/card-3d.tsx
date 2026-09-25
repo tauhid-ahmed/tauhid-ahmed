@@ -167,32 +167,31 @@ export default function Card3D({
     );
   }, [border, isHovered, theme, className]);
 
-  // Memoized glare effect
-  const glareElement = useMemo(() => {
-    if (!glare || !isHovered) return null;
+  const glareTop = useTransform(glareY, (y) => `${y - 100}%`);
+  const glareLeft = useTransform(glareX, (x) => `${x - 100}%`);
 
-    return (
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-[2]">
-        <div
-          className="absolute pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 50%)",
-            width: "200%",
-            height: "200%",
-            top: `${glareY.get() - 100}%`,
-            left: `${glareX.get() - 100}%`,
-          }}
-        />
-      </div>
-    );
-  }, [glare, isHovered, glareX, glareY]);
+  // Glare effect using reactive motion transforms (no re-renders)
+  const glareElement = glare && (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-[2] transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+      <motion.div
+        className="absolute pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at center, rgba(255, 255, 255, 0.12) 0%, transparent 50%)",
+          width: "200%",
+          height: "200%",
+          top: glareTop,
+          left: glareLeft,
+        }}
+      />
+    </div>
+  );
 
   return (
     <motion.div
       ref={cardRef}
       className={cn(
-        "relative overflow-hidden transition-colors duration-300 modern-card",
+        "group relative overflow-hidden transition-colors duration-300 modern-card",
         radiusClass,
         THEME_CLASSES[theme],
         shadowClass,
