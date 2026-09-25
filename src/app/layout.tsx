@@ -1,3 +1,4 @@
+import "@/lib/server-storage-polyfill";
 import type { Metadata, Viewport } from "next";
 import { Mona_Sans as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";

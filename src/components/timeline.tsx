@@ -12,12 +12,14 @@ function Root({ className, children, ...props }: BaseProps) {
   return (
     <div
       className={cn(
-        "relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5 before:bg-gradient-to-b before:from-primary before:to-primary/20 before:rounded-full before:-translate-x-1/2 after:absolute after:size-4 after:bg-primary after:rounded-full after:left-0 after:top-1.5 after:-translate-x-1/2 after:animate-pulse alternate before:bg-size-[200%_200%] before:animate-bg-y",
+        "relative pl-8 pb-8 last:pb-0 before:absolute before:left-0 before:top-2 before:bottom-0 before:w-[2px] before:bg-gradient-to-b before:from-primary/60 before:via-primary/30 before:to-transparent after:absolute after:size-3 after:bg-primary after:ring-4 after:ring-primary/20 after:rounded-full after:left-0 after:top-2 after:-translate-x-1/2 transition-all",
         className
       )}
       {...props}
     >
-      <div className="space-y-2">{children}</div>
+      <div className="space-y-2.5 p-4 rounded-xl border border-border/40 bg-card/30 hover:border-primary/30 hover:bg-card/50 transition-colors">
+        {children}
+      </div>
     </div>
   );
 }

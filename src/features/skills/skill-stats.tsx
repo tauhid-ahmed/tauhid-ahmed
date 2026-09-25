@@ -122,26 +122,42 @@ export function SkillStats() {
 function SkillDetails({ skill }: { skill: Skill }) {
   return (
     <Card3D>
-      <div className="space-y-6 p-6">
-        <div className="flex items-center gap-3">
-          <div
-            className={`flex items-center justify-center size-12 shrink-0 rounded-xl bg-gradient-to-r ${skill.color} text-white`}
-          >
-            {icons[skill.icon as keyof typeof icons]}
+      <div className="space-y-6 p-6 h-full flex flex-col justify-between">
+        <div className="space-y-4">
+          <div className="flex items-center gap-3">
+            <div
+              className={`flex items-center justify-center size-12 shrink-0 rounded-xl bg-gradient-to-r ${skill.color} text-white shadow-md`}
+            >
+              {icons[skill.icon as keyof typeof icons]}
+            </div>
+            <div>
+              <Heading className="leading-tight" as="h3" size="h4" align="left">
+                {skill.category}
+              </Heading>
+              <span className="text-xs font-semibold tracking-wider uppercase text-primary/80">
+                Core Competencies
+              </span>
+            </div>
           </div>
-          <Heading className="leading-tight" as="h3" size="h4" align="left">
-            {skill.category}
-          </Heading>
+
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+            {skill.description}
+          </p>
         </div>
 
-        <p className="text-muted-foreground text-base">{skill.description}</p>
-
-        <div className="flex flex-wrap gap-1 mt-auto">
-          {skill.items.map((item) => (
-            <Badge key={item} variant="outline">
-              {item}
-            </Badge>
-          ))}
+        <div className="pt-4 border-t border-border/40">
+          <span className="text-xs font-medium text-muted-foreground block mb-2">Technologies & Tooling:</span>
+          <div className="flex flex-wrap gap-1.5">
+            {skill.items.map((item) => (
+              <Badge
+                key={item}
+                variant="outline"
+                className="bg-card/60 hover:bg-primary/10 hover:text-primary transition-colors py-1 px-2.5 text-xs font-medium"
+              >
+                {item}
+              </Badge>
+            ))}
+          </div>
         </div>
       </div>
     </Card3D>

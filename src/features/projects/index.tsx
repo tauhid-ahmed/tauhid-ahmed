@@ -63,8 +63,8 @@ export function ProjectsShowcase() {
             <TextReveal text={"Featured Projects"} />
           </SectionTitle>
           <SectionDescription className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of my recent work showcasing my skills and expertise in
-            frontend development
+            Production-grade systems, high-concurrency architectures, and
+            polished client applications engineered with modern web technologies
           </SectionDescription>
         </SectionHeader>
 

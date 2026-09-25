@@ -82,27 +82,32 @@ export function ProjectCard({ project }: ProjectCardProps) {
                   )}
                 </motion.div>
 
-                <div className="space-y-4">
+                <div className="space-y-2">
                   <motion.div layoutId={`project-title-${project.id}`}>
                     <Heading
                       as="h3"
                       size="h5"
                       align="left"
-                      className="whitespace-nowrap line-clamp-1 text-ellipsis"
+                      className="font-bold text-foreground tracking-tight group-hover:text-primary transition-colors"
                     >
                       {project.title}
                     </Heading>
                   </motion.div>
                   <motion.p
-                    className="text-muted-foreground line-clamp-2"
+                    className="text-muted-foreground text-sm leading-relaxed line-clamp-2"
                     layoutId={`project-description-${project.id}`}
                   >
                     {project.description}
                   </motion.p>
                 </div>
-                <motion.div layoutId={`project-button-${project.id}`}>
-                  <Button onClick={() => setIsModalOpen(true)}>
-                    View Details
+                <motion.div layoutId={`project-button-${project.id}`} className="pt-2">
+                  <Button
+                    onClick={() => setIsModalOpen(true)}
+                    variant="outline"
+                    size="sm"
+                    className="w-full border-primary/30 hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200"
+                  >
+                    Explore Architecture & Details
                   </Button>
                 </motion.div>
               </div>

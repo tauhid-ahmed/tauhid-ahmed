@@ -35,9 +35,9 @@ export function IntroInformation() {
 
         <div>
           <motion.span
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
             className="inline-block px-4 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm"
           >
             {developer.name}
@@ -47,9 +47,9 @@ export function IntroInformation() {
         <Heading as="h1" size="display" gradient={false}>
           <TextWeave />
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
+            transition={{ delay: 0.4, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="block mt-3"
           >
             <span className="relative inline-block gradient-text">
@@ -60,17 +60,17 @@ export function IntroInformation() {
         </Heading>
       </motion.div>
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
+        transition={{ delay: 0.55, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="text-base sm:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed"
       >
         {developer.bio}
       </motion.p>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.8, duration: 0.8 }}
+        transition={{ delay: 0.7, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className="flex flex-wrap gap-4 justify-center lg:justify-start"
       >
         <Button size="lg" asChild>
@@ -100,7 +100,7 @@ export function IntroInformation() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.1, duration: 0.8 }}
+        transition={{ delay: 0.85, duration: 0.6 }}
       >
         <div className="hidden lg:block">
           <SocialHandles />

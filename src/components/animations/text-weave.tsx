@@ -2,54 +2,53 @@ import { motion } from "motion/react";
 
 const titleText = "Building Scalable Web Products with Modern Architecture";
 const words = titleText.split(" ");
-const titleVariants = {
+
+const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.08,
+      staggerChildren: 0.04,
+      delayChildren: 0.1,
     },
   },
 };
 
-const letterVariants = {
-  hidden: { y: 50, opacity: 0 },
+const wordVariants = {
+  hidden: {
+    y: "100%",
+    opacity: 0,
+    filter: "blur(6px)",
+  },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 100, damping: 12 },
+    filter: "blur(0px)",
+    transition: {
+      duration: 0.55,
+      ease: [0.16, 1, 0.3, 1],
+    },
   },
 };
 
 export function TextWeave() {
   return (
-    <motion.div
-      variants={titleVariants}
-      className="overflow-hidden flex flex-wrap space-x-3 justify-center lg:justify-start"
+    <motion.span
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="inline-flex flex-wrap gap-x-2.5 gap-y-1 justify-center lg:justify-start"
     >
       {words.map((word, index) => (
-        <motion.span className="inline-block" key={index}>
-          <Word>{word}</Word>
-        </motion.span>
+        <span key={index} className="inline-block overflow-hidden py-0.5">
+          <motion.span
+            variants={wordVariants}
+            className="inline-block"
+          >
+            {word}
+          </motion.span>
+        </span>
       ))}
-    </motion.div>
-  );
-}
-
-function Word({ children }: { children: string }) {
-  return (
-    <motion.span variants={letterVariants} className="leading-0">
-      {children.split("").map((letter, index) => (
-        <Letter key={index}>{letter}</Letter>
-      ))}
-    </motion.span>
-  );
-}
-
-function Letter({ children }: { children: string }) {
-  return (
-    <motion.span variants={letterVariants} className="inline-block">
-      {children}
     </motion.span>
   );
 }
