@@ -32,7 +32,7 @@ const themes: { value: ColorTheme; label: string; color: string }[] = [
   { value: "purple", label: "Purple", color: "bg-purple-500" },
 ];
 
-const DEFAULT_THEME = "rose";
+const DEFAULT_THEME = "default";
 
 export function ThemeSelector() {
   const [colorTheme, setColorTheme] = useState<ColorTheme | "">("");

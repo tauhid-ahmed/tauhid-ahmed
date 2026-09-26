@@ -2,7 +2,6 @@ import "@/lib/server-storage-polyfill";
 import type { Metadata, Viewport } from "next";
 import { Mona_Sans as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import { env } from "@/env";
 import { LenisProvider } from "@/components/animations/lenis";
 import { Analytics } from "@vercel/analytics/react";
 import "@/styles/globals.css";
@@ -14,22 +13,33 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: `${env.NEXT_PUBLIC_AUTHOR_NAME} | FullStack Developer & Team Leader`,
+  title: "Tauhid Ahmed — Full-Stack Developer | React, Next.js, Node.js, NestJS & AI",
   description:
-    "Professional portfolio of Tauhid Ahmed showcasing fullstack web development, engineering leadership, and high-impact applications with Next.js, React, Node.js, and TypeScript.",
+    "Full-Stack Developer building modern, high-performance web applications with React, Next.js, Node.js, NestJS, TypeScript, and AI integrations. Experienced in engineering leadership and scalable architectures.",
   keywords: [
-    "fullstack developer",
-    "team lead",
-    "react",
-    "next.js",
-    "typescript",
-    "node.js",
-    "portfolio",
-    "web developer",
-    "ai integration",
+    "Full-Stack Developer",
+    "Tauhid Ahmed",
+    "React",
+    "Next.js",
+    "Node.js",
+    "NestJS",
+    "TypeScript",
+    "Hono",
+    "tRPC",
+    "PostgreSQL",
+    "Drizzle ORM",
+    "AI Integration",
+    "Full-Stack Engineer",
   ],
-  authors: [{ name: env.NEXT_PUBLIC_AUTHOR_NAME }],
-  creator: env.NEXT_PUBLIC_AUTHOR_NAME,
+  authors: [{ name: "Tauhid Ahmed" }],
+  creator: "Tauhid Ahmed",
+  openGraph: {
+    title: "Tauhid Ahmed — Full-Stack Developer | React, Next.js, Node.js, NestJS & AI",
+    description:
+      "Full-Stack Developer building modern, high-performance web applications with React, Next.js, Node.js, NestJS, TypeScript, and AI integrations.",
+    type: "website",
+    locale: "en_US",
+  },
 };
 
 export const viewport: Viewport = {

@@ -8,7 +8,7 @@ export const env = createEnv({
     NEXT_PUBLIC_AUTHOR_NAME: z.string().default("Tauhid Ahmed"),
     NEXT_PUBLIC_AUTHOR_FIRST_NAME: z.string().default("Tauhid"),
     NEXT_PUBLIC_AUTHOR_LAST_NAME: z.string().default("Ahmed"),
-    NEXT_PUBLIC_AUTHOR_TITLE: z.string().default("FullStack Developer & Engineering Team Lead"),
+    NEXT_PUBLIC_AUTHOR_TITLE: z.string().default("Full-Stack Developer"),
     NEXT_PUBLIC_AUTHOR_PHONE: z.string().default("+8801815152504"),
     NEXT_PUBLIC_AUTHOR_EMAIL: z.string().default("tauhidxtauhid@gmail.com"),
     NEXT_PUBLIC_AUTHOR_LINKEDIN: z.string().default("https://linkedin.com/in/tauhidxahmed"),

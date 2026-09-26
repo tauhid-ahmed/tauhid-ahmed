@@ -8,6 +8,7 @@ export const homePath = "/";
 export const homeSectionPath = "#home";
 export const aboutSectionPath = "#about";
 export const skillsSectionPath = "#skills";
+export const stackSectionPath = "#stack";
 export const projectsSectionPath = "#projects";
 export const experienceSectionPath = "#experience";
 export const contactSectionPath = "#contact";

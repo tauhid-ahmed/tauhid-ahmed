@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { ThemeSelector } from "@/components/theme-selector";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { developer, navItems } from "@/data/portfolio-data";
 import { Container } from "./container";
 
@@ -18,25 +18,21 @@ export function Header() {
 
   const { scrollY } = useScroll();
 
-  // Track scroll direction to hide/show header
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
 
-    // Show header at the top of the page
     if (latest < 50) {
       setHidden(false);
       setScrolled(false);
       return;
     }
 
-    // Hide header when scrolling down, show when scrolling up
     if (latest > previous && latest > 150) {
       setHidden(true);
     } else {
       setHidden(false);
     }
 
-    // Add background when scrolled
     if (latest > 50) {
       setScrolled(true);
     } else {
@@ -45,16 +41,13 @@ export function Header() {
   });
 
   useEffect(() => {
-    // Determine active section based on scroll position
     const handleScroll = () => {
       const sections = navItems.map((item) => item.href.substring(1));
-
-      // Check sections from bottom to top
       for (const section of [...sections].reverse()) {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 100) {
+          if (rect.top <= 120) {
             setActiveSection(section);
             break;
           }
@@ -62,7 +55,7 @@ export function Header() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -74,95 +67,108 @@ export function Header() {
         opacity: 1,
       }}
       transition={{
-        duration: 0.3,
+        duration: 0.25,
         ease: "easeInOut",
       }}
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-md shadow-sm border-b border-border/40"
-          : "bg-background/40 backdrop-blur-sm"
+          ? "bg-background/90 backdrop-blur-md shadow-sm border-b border-border/70 py-2.5"
+          : "bg-transparent py-4"
       }`}
     >
-      <Container>
-        <div className="flex h-16 items-center justify-between px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+      <Container size="lg">
+        <div className="flex items-center justify-between">
+          {/* Logo / Personal Monogram */}
+          <Link
+            href="#home"
+            className="group flex items-center gap-2 font-bold tracking-tight text-foreground transition-opacity hover:opacity-90"
           >
-            <Link href="#home" className="text-xl font-bold tracking-tight">
-              <motion.div
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                className="flex items-center gap-1.5"
-              >
-                <span className="font-extrabold tracking-tight text-foreground">{developer.firstName}</span>
-                <span className="gradient-text font-extrabold">{developer.lastName}</span>
-                <span className="hidden sm:inline-block ml-1.5 text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
-                  Lead
-                </span>
-              </motion.div>
-            </Link>
-          </motion.div>
+            <span className="flex size-8 items-center justify-center rounded-lg bg-primary/10 border border-primary/25 text-primary text-xs font-mono font-bold group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+              TA
+            </span>
+            <div className="flex flex-col">
+              <span className="text-sm font-extrabold tracking-tight text-foreground leading-none">
+                {developer.name}
+              </span>
+              <span className="text-[10px] text-muted-foreground font-medium tracking-wide">
+                Full-Stack Developer
+              </span>
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navItems.map((item, index) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 + 0.1 }}
-              >
+          <nav className="hidden md:flex items-center gap-1 rounded-full border border-border/60 bg-card/60 backdrop-blur-md px-3 py-1 shadow-sm">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.substring(1);
+              return (
                 <Link
+                  key={item.name}
                   href={item.href}
-                  className={`relative px-3 py-1.5 text-sm font-medium transition-colors rounded-md ${
-                    activeSection === item.href.substring(1)
-                      ? "text-primary"
-                      : "text-foreground/70 hover:text-foreground"
+                  className={`relative px-3.5 py-1.5 text-xs font-semibold tracking-wide transition-colors rounded-full ${
+                    isActive
+                      ? "text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  {activeSection === item.href.substring(1) && (
+                  {isActive && (
                     <motion.span
-                      layoutId="activeSection"
-                      className="absolute inset-0 bg-primary/10 border border-primary/50 rounded-md -z-10"
+                      layoutId="activeNavPill"
+                      className="absolute inset-0 bg-primary rounded-full -z-10 shadow-sm"
                       transition={{
                         type: "spring",
-                        stiffness: 300,
+                        stiffness: 350,
                         damping: 30,
                       }}
                     />
                   )}
                   {item.name}
                 </Link>
-              </motion.div>
-            ))}
-
-            <div className="ml-2 flex items-center gap-2">
-              <ThemeSelector />
-              <ThemeToggle />
-            </div>
+              );
+            })}
           </nav>
 
-          {/* Mobile Menu Button */}
+          {/* Actions: Social + Theme */}
+          <div className="hidden md:flex items-center gap-2">
+            <Link
+              href={developer.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex size-8 items-center justify-center rounded-lg border border-border/60 text-muted-foreground hover:text-foreground hover:border-primary/40 hover:bg-card transition-all"
+              aria-label="GitHub Profile"
+            >
+              <FaGithub className="size-4" />
+            </Link>
+            <Link
+              href={developer.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex size-8 items-center justify-center rounded-lg border border-border/60 text-muted-foreground hover:text-foreground hover:border-primary/40 hover:bg-card transition-all"
+              aria-label="LinkedIn Profile"
+            >
+              <FaLinkedinIn className="size-3.5" />
+            </Link>
+            <div className="h-4 w-px bg-border/80 mx-1" />
+            <ThemeToggle />
+          </div>
+
+          {/* Mobile Actions & Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
-            <ThemeSelector />
             <ThemeToggle />
             <Button
-              variant="ghost"
+              variant="outline"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
-              className=""
+              className="size-9 border-border/70"
             >
               <motion.div
                 animate={{ rotate: mobileMenuOpen ? 90 : 0 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.15 }}
               >
                 {mobileMenuOpen ? (
-                  <X className="h-5 w-5" />
+                  <X className="size-4" />
                 ) : (
-                  <Menu className="h-5 w-5" />
+                  <Menu className="size-4" />
                 )}
               </motion.div>
             </Button>
@@ -170,41 +176,50 @@ export function Header() {
         </div>
       </Container>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Drawer */}
       <motion.div
-        initial={{ height: 0, opacity: 0 }}
+        initial={false}
         animate={{
           height: mobileMenuOpen ? "auto" : 0,
           opacity: mobileMenuOpen ? 1 : 0,
         }}
-        transition={{ duration: 0.3 }}
-        className="md:hidden overflow-hidden bg-background/60 border-b-2 border-primary/50"
+        transition={{ duration: 0.2 }}
+        className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl border-b border-border/80"
       >
-        <Container>
-          <nav className="flex flex-col gap-1 pb-6 -mx-6 border-b">
-            {navItems.map((item, index) => (
-              <motion.div
+        <Container size="lg">
+          <nav className="flex flex-col gap-1 py-4">
+            {navItems.map((item) => (
+              <Link
                 key={item.name}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{
-                  opacity: mobileMenuOpen ? 1 : 0,
-                  x: mobileMenuOpen ? 0 : -20,
-                }}
-                transition={{ delay: index * 0.05 }}
+                href={item.href}
+                className={`py-2.5 px-4 text-sm font-semibold rounded-lg transition-colors ${
+                  activeSection === item.href.substring(1)
+                    ? "bg-primary text-primary-foreground font-bold"
+                    : "text-muted-foreground hover:text-foreground hover:bg-card/70"
+                }`}
+                onClick={() => setMobileMenuOpen(false)}
               >
-                <Link
-                  href={item.href}
-                  className={`py-4 font-bold transition-colors block px-10 border ${
-                    activeSection === item.href.substring(1)
-                      ? "text-foreground bg-primary/5 border-primary/50"
-                      : "text-foreground/70 hover:text-foreground hover:bg-primary/5 border-transparent hover:border-primary/30 transition-colors duration-150"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              </motion.div>
+                {item.name}
+              </Link>
             ))}
+            <div className="flex items-center gap-3 pt-3 mt-2 border-t border-border/60 px-4">
+              <Link
+                href={developer.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs font-medium text-muted-foreground hover:text-foreground"
+              >
+                <FaGithub className="size-4" /> GitHub
+              </Link>
+              <Link
+                href={developer.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs font-medium text-muted-foreground hover:text-foreground"
+              >
+                <FaLinkedinIn className="size-4" /> LinkedIn
+              </Link>
+            </div>
           </nav>
         </Container>
       </motion.div>

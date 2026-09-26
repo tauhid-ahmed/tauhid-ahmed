@@ -1,90 +1,116 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { navItems, developer } from "@/data/portfolio-data";
 import { Container } from "@/components/layout/container";
-import { SocialHandles } from "@/components/social-handles";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { ArrowUp } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="border-t border-primary/10 relative overflow-hidden py-10 bg-background">
-      <Container>
-        <div className="grid gap-8 lg:grid-cols-3">
-          <div className="space-y-4">
-            <Link href="/" className="text-2xl font-bold tracking-tight inline-flex items-center gap-1.5">
-              <span className="font-extrabold tracking-tight text-foreground">{developer.firstName}</span>
-              <span className="gradient-text font-extrabold">{developer.lastName}</span>
+    <footer className="border-t border-border/80 bg-card/60 relative py-12">
+      <Container size="lg">
+        <div className="grid gap-10 md:grid-cols-12 items-start">
+          {/* Identity & positioning */}
+          <div className="md:col-span-6 space-y-4">
+            <Link
+              href="#home"
+              className="inline-flex items-center gap-2 font-bold tracking-tight text-foreground"
+            >
+              <span className="flex size-7 items-center justify-center rounded-lg bg-primary/10 border border-primary/20 text-primary text-xs font-mono font-bold">
+                TA
+              </span>
+              <span className="text-base font-extrabold text-foreground">
+                {developer.name}
+              </span>
             </Link>
-            <p className="text-muted-foreground text-sm max-w-sm leading-relaxed">
-              Architecting performant, accessible web applications and leading high-impact engineering teams with Next.js, React, Node.js, and TypeScript.
+
+            <p className="text-xs sm:text-sm text-muted-foreground max-w-md leading-relaxed">
+              Full-Stack Developer building modern, high-performance web applications with React, Next.js, Node.js, NestJS, and TypeScript.
             </p>
-            <div className="flex gap-4">
-              <SocialHandles />
+
+            <div className="flex items-center gap-3 pt-1">
+              <Link
+                href={developer.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex size-8 items-center justify-center rounded-lg border border-border/70 text-muted-foreground hover:text-foreground hover:border-primary/40 hover:bg-card transition-all"
+                aria-label="GitHub Profile"
+              >
+                <FaGithub className="size-4" />
+              </Link>
+              <Link
+                href={developer.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex size-8 items-center justify-center rounded-lg border border-border/70 text-muted-foreground hover:text-foreground hover:border-primary/40 hover:bg-card transition-all"
+                aria-label="LinkedIn Profile"
+              >
+                <FaLinkedinIn className="size-3.5" />
+              </Link>
             </div>
           </div>
 
-          <div className="grid grid-cols-[1fr_1fr] gap-12 lg:col-span-2 justify-between">
-            <div className="space-y-4">
-              <h3 className="text-sm font-medium gradient-text">Navigation</h3>
-              <nav className="flex flex-col space-y-2 text-sm">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="text-muted-foreground hover:text-primary transition-colors "
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </nav>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="text-sm font-medium gradient-text">Contact</h3>
-              <div className="flex flex-col space-y-2 text-sm">
-                <a
-                  href={`mailto:${developer.email}`}
-                  className="text-muted-foreground hover:text-primary transition-colors "
-                >
-                  {developer.email}
-                </a>
-                <a
-                  href={`tel:${developer.phone.replace(/\s/g, "")}`}
+          {/* Quick Nav */}
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-foreground font-bold">
+              Navigation
+            </h4>
+            <nav className="flex flex-col space-y-2 text-xs font-medium">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {developer.phone}
-                </a>
-                <span className="text-muted-foreground">
-                  {developer.location}
-                </span>
-              </div>
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          {/* Direct channels */}
+          <div className="md:col-span-3 space-y-3">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-foreground font-bold">
+              Direct Contact
+            </h4>
+            <div className="flex flex-col space-y-2 text-xs font-mono text-muted-foreground">
+              <a
+                href={`mailto:${developer.email}`}
+                className="hover:text-primary transition-colors"
+              >
+                {developer.email}
+              </a>
+              <a
+                href={`tel:${developer.phone}`}
+                className="hover:text-primary transition-colors"
+              >
+                {developer.phone}
+              </a>
+              <span>{developer.location}</span>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-between items-center mt-12 pt-8 border-t border-primary/10">
-          <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} {developer.firstName}. All rights reserved.
+        {/* Bottom bar */}
+        <div className="flex flex-col sm:flex-row justify-between items-center mt-12 pt-6 border-t border-border/60 text-xs text-muted-foreground gap-4">
+          <p>
+            &copy; {currentYear} {developer.name}. All rights reserved. Designed & built with Next.js 15 & TypeScript.
           </p>
-          <div className="flex gap-4 mt-4 sm:mt-0">
-            <Button
-              variant="link"
-              size="sm"
-              className="text-xs text-muted-foreground hover:text-primary "
-            >
-              Privacy Policy
-            </Button>
-            <Button
-              variant="link"
-              size="sm"
-              className="text-xs text-muted-foreground hover:text-primary "
-            >
-              Terms of Service
-            </Button>
-          </div>
+
+          <button
+            onClick={scrollToTop}
+            className="inline-flex items-center gap-1.5 font-mono text-xs font-medium text-foreground hover:text-primary transition-colors cursor-pointer"
+          >
+            <span>Back to top</span>
+            <ArrowUp className="size-3.5" />
+          </button>
         </div>
       </Container>
     </footer>

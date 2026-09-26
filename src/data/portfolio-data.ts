@@ -3,9 +3,9 @@ import * as path from "@/paths";
 
 export const navItems: NavItem[] = [
   { name: "Home", href: path.homeSectionPath },
-  { name: "About", href: path.aboutSectionPath },
-  { name: "Skills", href: path.skillsSectionPath },
+  { name: "Experience", href: path.experienceSectionPath },
   { name: "Projects", href: path.projectsSectionPath },
+  { name: "Stack", href: path.stackSectionPath },
   { name: "Contact", href: path.contactSectionPath },
 ];
 
@@ -20,15 +20,20 @@ export const socialLinks: SocialLink[] = [
     url: env.NEXT_PUBLIC_AUTHOR_LINKEDIN,
     icon: "Linkedin",
   },
-  { platform: "X", url: env.NEXT_PUBLIC_AUTHOR_X, icon: "X" },
+  {
+    platform: "X",
+    url: env.NEXT_PUBLIC_AUTHOR_X,
+    icon: "X",
+  },
 ];
 
-export const developer: Developer = {
+export const developer = {
   name: env.NEXT_PUBLIC_AUTHOR_NAME,
   firstName: env.NEXT_PUBLIC_AUTHOR_FIRST_NAME,
   lastName: env.NEXT_PUBLIC_AUTHOR_LAST_NAME,
-  title: env.NEXT_PUBLIC_AUTHOR_TITLE,
-  bio: env.NEXT_PUBLIC_AUTHOR_BIO,
+  title: "Full-Stack Developer",
+  techStackText: "React • Next.js • Node.js • NestJS • TypeScript • AI",
+  bio: "Full-Stack Developer specializing in high-performance web applications, scalable backends with Node.js and NestJS, and modern AI/LLM integrations. Experienced in engineering leadership, cross-functional collaboration, and delivering production software for global users.",
   location: env.NEXT_PUBLIC_AUTHOR_LOCATION,
   email: env.NEXT_PUBLIC_AUTHOR_EMAIL,
   phone: env.NEXT_PUBLIC_AUTHOR_PHONE,
@@ -38,267 +43,377 @@ export const developer: Developer = {
   liveResume: env.NEXT_PUBLIC_AUTHOR_LIVE_RESUME,
 };
 
-export const skills: Skill[] = [
+export interface SnapshotItem {
+  number: string;
+  label: string;
+  detail: string;
+}
+
+export const professionalSnapshot: SnapshotItem[] = [
   {
-    category: "FullStack & Core Engineering",
-    title: {
-      full: "FullStack & Core Engineering",
-      short: "FullStack",
-    },
-    icon: "Code",
-    items: [
-      "TypeScript",
-      "JavaScript",
+    number: "4+ Years",
+    label: "Experience",
+    detail: "Full lifecycle web & enterprise development",
+  },
+  {
+    number: "Full-Stack",
+    label: "Engineering",
+    detail: "React & Next.js frontend to NestJS & Node.js backend",
+  },
+  {
+    number: "Frontend → Backend",
+    label: "Core Architecture",
+    detail: "Type-safe APIs, edge databases & secure authentication",
+  },
+  {
+    number: "AI / LLM",
+    label: "Integration",
+    detail: "Agentic workflows, model APIs & AI-augmented tooling",
+  },
+  {
+    number: "Client & Team",
+    label: "Collaboration",
+    detail: "Strategic client communication & delivery assurance",
+  },
+];
+
+export interface ExperienceRecord {
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  leadHighlight?: string;
+  responsibilities: string[];
+  technologies: string[];
+}
+
+export const workExperience: ExperienceRecord[] = [
+  {
+    company: "SM Technology",
+    role: "Full-Stack Developer & Team Leader (Assistant Manager, Operations)",
+    period: "2025 – Present",
+    location: "Dhaka, Bangladesh",
+    leadHighlight: "Leading cross-functional delivery & engineering strategy",
+    responsibilities: [
+      "Direct end-to-end team management and cross-functional collaboration across engineering, AI research, and design teams.",
+      "Lead client communication, technical requirements gathering, and strategic architectural proposals.",
+      "Manage project timelines, engineering milestones, and delivery assurance for mission-critical web applications.",
+      "Standardize full-stack development best practices, code review standards, and CI/CD deployment routines.",
+    ],
+    technologies: [
+      "Next.js",
       "React",
+      "Node.js",
+      "NestJS",
+      "TypeScript",
+      "AI APIs & LLMs",
+      "PostgreSQL",
+      "Team Leadership",
+    ],
+  },
+  {
+    company: "Softsync",
+    role: "Frontend Developer",
+    period: "2024 – 2025",
+    location: "Dhaka, Bangladesh",
+    responsibilities: [
+      "Engineered enterprise-grade web applications in close collaboration with UI/UX designers and backend teams.",
+      "Accelerated feature delivery cycles by 25% by architecting reusable React, TypeScript, and Tailwind CSS design systems.",
+      "Built resilient client-side state models and responsive UI components tested for high accessibility and cross-browser fidelity.",
+      "Enforced code quality standards with automated linting, unit testing, and structured PR reviews.",
+    ],
+    technologies: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "Component Architecture",
+      "REST APIs",
+      "Testing & QA",
+    ],
+  },
+  {
+    company: "Freelance Projects",
+    role: "Frontend Developer",
+    period: "2021 – 2024",
+    location: "Remote / International",
+    responsibilities: [
+      "Delivered full lifecycle web applications for diverse international clients from initial architectural design to live production deployment.",
+      "Constructed modern responsive user interfaces with Next.js, React, Node.js, and REST APIs backed by automated Vercel CI/CD pipelines.",
+      "Optimized Core Web Vitals, SEO metadata, and bundle sizes, consistently achieving high-performance Lighthouse scores.",
+      "Integrated secure authentication, third-party APIs, payment gateways, and content management workflows.",
+    ],
+    technologies: [
       "Next.js",
       "Node.js",
-      "Express.js",
-      "Redux",
-    ],
-    color: "from-violet-500 to-purple-500",
-    description:
-      "Architecting performant, scalable, and type-safe web applications using modern React, Next.js 15 App Router, Node.js, and TypeScript.",
-  },
-  {
-    category: "Styling, Design & Motion",
-    title: {
-      full: "Styling, Design & Motion",
-      short: "Design & UI",
-    },
-    icon: "Layers",
-    items: [
-      "Tailwind CSS",
-      "Shadcn UI",
-      "SCSS",
-      "Motion for React",
-      "GSAP",
-      "Figma",
-    ],
-    color: "from-blue-500 to-cyan-400",
-    description:
-      "Crafting pixel-perfect, accessible component systems, micro-interactions, responsive layouts, and design tokens.",
-  },
-  {
-    category: "Backend, APIs & Auth",
-    title: {
-      full: "Backend, APIs & Auth",
-      short: "Backend & APIs",
-    },
-    icon: "Server",
-    items: [
       "REST APIs",
-      "GraphQL",
-      "Hono",
-      "tRPC",
-      "Auth.js",
-      "Clerk",
-      "Custom Auth",
+      "TypeScript",
+      "Tailwind CSS",
+      "Motion for React",
+      "Vercel CI/CD",
     ],
-    color: "from-amber-500 to-orange-400",
+  },
+];
+
+export const educationHistory = [
+  {
+    degree: "Professional Training in Web & Software Development",
+    institution: "freeCodeCamp, Udemy, YouTube, and specialized coursework",
+    period: "2017 – Present",
     description:
-      "Building high-throughput APIs, role-based authentication, type-safe RPCs, and modern microservices.",
+      "Continuous self-directed engineering curriculum encompassing full-stack web architecture, distributed systems, modern JavaScript/TypeScript, and scalable backend design.",
+  },
+  {
+    degree: "Bachelor of Business Administration (BBA) Studies",
+    institution: "National University, Bangladesh",
+    period: "2014 – 2018",
+    description:
+      "Foundational business, operations, and analytical background prior to dedicated full-time transition into software engineering.",
+  },
+];
+
+export interface RealProject {
+  id: string;
+  index: string;
+  title: string;
+  tagline: string;
+  description: string;
+  image: string;
+  techStack: string[];
+  capabilities: string[];
+  liveUrl: string;
+  githubUrl: string;
+  architectureHighlights: string[];
+}
+
+export const flagshipProject: RealProject = {
+  id: "ecommerce-platform",
+  index: "01",
+  title: "E-Commerce Platform",
+  tagline: "High-Performance Edge Commerce with Type-Safe Architecture",
+  description:
+    "A modern, scalable, and feature-rich e-commerce platform designed for optimal performance, elegant UX, and developer-grade extensibility.",
+  image: "/images/projects/e-commerce.png",
+  techStack: [
+    "Next.js 15",
+    "App Router",
+    "TypeScript",
+    "Hono",
+    "tRPC",
+    "Drizzle ORM",
+    "Neon Postgres",
+    "Tailwind CSS v4",
+    "Shadcn UI",
+    "NextAuth.js v5",
+    "Motion for React",
+    "Vercel",
+  ],
+  capabilities: [
+    "Dynamic product catalog with instant category taxonomy navigation",
+    "Cascading multi-attribute filtering (price range, attributes, availability)",
+    "Authentication & Role-Based Access Control (RBAC)",
+    "Comprehensive Admin Dashboard for inventory, orders & sales analytics",
+    "Complete product, category, and order lifecycle management",
+    "Optimized cloud image upload & responsive media delivery",
+    "Secure payment gateway integration & checkout processing",
+    "Production SEO with dynamic metadata, OpenGraph, and automated sitemaps",
+  ],
+  architectureHighlights: [
+    "Server Components for zero-bundle data fetching",
+    "Hono & tRPC for end-to-end type safety between client and server",
+    "Drizzle ORM with Neon serverless PostgreSQL for edge performance",
+    "Sub-second page transitions with App Router streaming",
+  ],
+  liveUrl: "https://shop-ipsum.vercel.app",
+  githubUrl: "https://github.com/tauhid-ahmed/shop-ipsum",
+};
+
+export interface DomainExperience {
+  domain: string;
+  scope: string;
+  description: string;
+  architecturalFocus: string[];
+  keyTechnologies: string[];
+}
+
+export const domainExperiences: DomainExperience[] = [
+  {
+    domain: "CRM & Business Management",
+    scope: "Enterprise Operations",
+    description:
+      "Architected customer relation pipelines, role-based organizational hierarchies, audit trails, and multi-tenant admin dashboards to streamline enterprise operations.",
+    architecturalFocus: [
+      "Role-Based Access Control (RBAC)",
+      "Real-time pipeline analytics & KPI summaries",
+      "Granular data filtering & export pipelines",
+    ],
+    keyTechnologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
+  },
+  {
+    domain: "Logistics & Supply Operations",
+    scope: "Fulfillment & Tracking",
+    description:
+      "Engineered inventory reconciliation, multi-stage shipment status tracking, and automated reporting systems for high-throughput fulfillment workflows.",
+    architecturalFocus: [
+      "Shipment status state-machines",
+      "Automated inventory alerting & batch processing",
+      "High-reliability transactional integrity",
+    ],
+    keyTechnologies: ["Node.js", "NestJS", "PostgreSQL", "Redis", "TypeScript"],
+  },
+  {
+    domain: "Project Management & Collaboration",
+    scope: "Productivity Systems",
+    description:
+      "Developed agile tracking boards, task assignment workflows, time tracking, and team activity feeds inspired by modern developer productivity platforms.",
+    architecturalFocus: [
+      "Interactive Kanban state transitions",
+      "Optimistic UI updates for zero-latency interactions",
+      "Collaborative task assignment workflows",
+    ],
+    keyTechnologies: ["React", "Next.js", "TypeScript", "Drizzle ORM", "REST APIs"],
+  },
+  {
+    domain: "AI-Integrated Applications",
+    scope: "Agentic Workflows & LLMs",
+    description:
+      "Integrated modern LLM APIs, prompt engineering frameworks, and agentic workflows to build intelligent assistants, automated summarizers, and developer velocity tools.",
+    architecturalFocus: [
+      "Streaming LLM response handling & UI hydration",
+      "Structured output validation with Zod schemas",
+      "Agentic coding tool workflows (Claude Code, Cursor)",
+    ],
+    keyTechnologies: ["LLM APIs", "Agentic Workflows", "TypeScript", "Next.js", "Zod"],
+  },
+];
+
+export interface TechCategory {
+  category: string;
+  description: string;
+  highlighted?: boolean;
+  skills: { name: string; isPillar?: boolean }[];
+}
+
+export const technicalMatrix: TechCategory[] = [
+  {
+    category: "Languages",
+    description: "Type-safe, modern runtime foundations",
+    skills: [
+      { name: "TypeScript", isPillar: true },
+      { name: "JavaScript", isPillar: true },
+    ],
+  },
+  {
+    category: "Frontend",
+    description: "Accessible, high-performance user interfaces",
+    skills: [
+      { name: "React", isPillar: true },
+      { name: "Next.js (App Router)", isPillar: true },
+      { name: "Redux" },
+      { name: "Tailwind CSS", isPillar: true },
+      { name: "SCSS" },
+      { name: "Shadcn UI" },
+      { name: "Motion for React" },
+      { name: "GSAP" },
+      { name: "Figma" },
+    ],
+  },
+  {
+    category: "Backend",
+    description: "Robust enterprise services, microservices & APIs",
+    highlighted: true,
+    skills: [
+      { name: "NestJS", isPillar: true },
+      { name: "Node.js", isPillar: true },
+      { name: "Express.js", isPillar: true },
+    ],
+  },
+  {
+    category: "APIs & Architecture",
+    description: "Type-safe contracts, RPCs & distributed patterns",
+    skills: [
+      { name: "REST APIs", isPillar: true },
+      { name: "GraphQL" },
+      { name: "Hono", isPillar: true },
+      { name: "tRPC", isPillar: true },
+      { name: "API Integration" },
+      { name: "Component Architecture", isPillar: true },
+    ],
+  },
+  {
+    category: "Authentication & Security",
+    description: "Enterprise RBAC, identity & session management",
+    skills: [
+      { name: "Auth.js (NextAuth)", isPillar: true },
+      { name: "Clerk" },
+      { name: "Custom Authentication" },
+      { name: "Authorization & RBAC", isPillar: true },
+      { name: "Web Security Best Practices" },
+    ],
   },
   {
     category: "Databases & ORM",
-    title: {
-      full: "Databases & ORM",
-      short: "Databases",
-    },
-    icon: "Database",
-    items: [
-      "PostgreSQL",
-      "Neon Postgres",
-      "Redis",
-      "Drizzle ORM",
-      "Prisma",
-      "NoSQL",
+    description: "Relational modeling, edge caching & schema migrations",
+    skills: [
+      { name: "PostgreSQL", isPillar: true },
+      { name: "Neon Postgres", isPillar: true },
+      { name: "Redis", isPillar: true },
+      { name: "Drizzle ORM", isPillar: true },
+      { name: "Prisma" },
+      { name: "NoSQL" },
     ],
-    color: "from-emerald-500 to-green-400",
-    description:
-      "Designing relational and caching data layers with zero-cold-start edge databases and schema-first ORMs.",
   },
   {
-    category: "AI & Agentic Tools",
-    title: {
-      full: "AI & Agentic Tools",
-      short: "AI & Agents",
-    },
-    icon: "Bot",
-    items: [
-      "Claude Code",
-      "Codex",
-      "GitHub Copilot",
-      "Cursor",
-      "LLM APIs & Integrations",
+    category: "DevOps & Production",
+    description: "Continuous integration, deployment & containerization",
+    skills: [
+      { name: "Git", isPillar: true },
+      { name: "GitHub", isPillar: true },
+      { name: "Docker" },
+      { name: "Vercel CI/CD", isPillar: true },
+      { name: "Performance Optimization (CWV)" },
+      { name: "Production SEO" },
     ],
-    color: "from-pink-500 to-rose-400",
-    description:
-      "Leveraging cutting-edge AI coding agents, autonomous workflows, and LLM APIs to multiply engineering velocity and product intelligence.",
   },
   {
-    category: "DevOps & Best Practices",
-    title: {
-      full: "DevOps & Best Practices",
-      short: "DevOps",
-    },
-    icon: "Zap",
-    items: [
-      "Vercel",
-      "Docker",
-      "Git",
-      "GitHub",
-      "CI/CD",
-      "Performance",
-      "SEO",
-      "Security",
+    category: "AI & Agentic Engineering",
+    description: "Model integration, autonomous agents & velocity",
+    skills: [
+      { name: "LLM APIs & Streaming", isPillar: true },
+      { name: "AI API Integration" },
+      { name: "Agentic Workflows", isPillar: true },
+      { name: "Claude Code", isPillar: true },
+      { name: "Codex" },
+      { name: "GitHub Copilot" },
+      { name: "Cursor", isPillar: true },
     ],
-    color: "from-indigo-500 to-blue-400",
-    description:
-      "Ensuring seamless deployments, automated CI/CD pipelines, containerization, Core Web Vitals optimization, and security compliance.",
   },
 ];
 
-export const skillProficiency = {
-  // Languages & Core
-  TypeScript: 90,
-  JavaScript: 95,
-  React: 95,
-  "Next.js": 95,
-  "Node.js": 85,
-  "Express.js": 85,
-  Redux: 85,
-
-  // Styling & Design
-  "Tailwind CSS": 95,
-  "Shadcn UI": 95,
-  SCSS: 85,
-  "Motion for React": 90,
-  GSAP: 80,
-  Figma: 75,
-
-  // Backend & APIs
-  "REST APIs": 95,
-  GraphQL: 80,
-  Hono: 85,
-  tRPC: 85,
-  "Auth.js": 90,
-  Clerk: 85,
-  "Custom Auth": 85,
-
-  // Databases
-  PostgreSQL: 85,
-  "Neon Postgres": 85,
-  Redis: 80,
-  "Drizzle ORM": 90,
-  Prisma: 85,
-  NoSQL: 75,
-
-  // AI & Agentic Tools
-  "Claude Code": 95,
-  Codex: 90,
-  "GitHub Copilot": 95,
-  Cursor: 95,
-  "LLM APIs & Integrations": 90,
-
-  // DevOps & Best Practices
-  Vercel: 95,
-  Docker: 75,
-  Git: 90,
-  GitHub: 90,
-  "CI/CD": 85,
-  Performance: 95,
-  SEO: 90,
-  Security: 85,
-};
+// Compatibility exports
+export const skills = technicalMatrix.map((item) => ({
+  category: item.category,
+  title: {
+    full: item.category,
+    short: item.category.split(" ")[0],
+  },
+  icon: "Code",
+  items: item.skills.map((s) => s.name),
+  color: "from-primary to-indigo-500",
+  description: item.description,
+}));
 
 export const projects: Project[] = [
   {
-    id: "E-commerce Platform",
-    title: "E-Commerce Platform",
-    description:
-      "A modern, scalable, and feature-rich e-commerce platform designed for optimal performance, elegant UX, and developer-grade extensibility. Features cascading filters, dark mode, NextAuth v5, Stripe/SSLCommerz payments, and admin dashboard.",
-    image: "e-commerce",
-    tags: [
-      "Next.js 15",
-      "TypeScript",
-      "Hono tRPC",
-      "Drizzle ORM",
-      "Neon Postgres",
-      "Tailwind CSS v4",
-      "Shadcn UI",
-      "Motion for React",
-      "Auth.js v5",
-    ],
-    demoUrl: "https://shop-ipsum.vercel.app/",
-    githubUrl: "https://github.com/tauhid-ahmed/shop-ipsum",
+    id: flagshipProject.id,
+    title: flagshipProject.title,
+    description: flagshipProject.description,
+    image: flagshipProject.image,
+    tags: flagshipProject.techStack,
+    demoUrl: flagshipProject.liveUrl,
+    githubUrl: flagshipProject.githubUrl,
     featured: true,
     category: ["fullstack", "frontend"],
-  },
-  {
-    id: "Creative-Portfolio",
-    title: "Creative Portfolio",
-    description:
-      "A visually engaging portfolio site with smooth animations and modern UI components. Showcases creative work using motion effects and aesthetic design principles.",
-    image: "creative-portfolio",
-    tags: [
-      "Next.js",
-      "Motion for React",
-      "Shadcn UI",
-      "Tailwindcss",
-      "CSS Animations",
-    ],
-    demoUrl: "https://tauhidahmed.vercel.app/",
-    githubUrl: "https://github.com/tauhid-ahmed/creative-portfolio",
-    featured: true,
-    category: ["frontend", "design"],
-  },
-  {
-    id: "issue-tracker",
-    title: "Issue Tracker App",
-    description:
-      "A robust issue tracking system inspired by modern project management tools. Supports ticket creation, status updates, and team collaboration with real-time feedback.",
-    image: "issue-tracker",
-    tags: [
-      "Next.js",
-      "Prisma ORM",
-      "Auth.js",
-      "Tailwindcss",
-      "Redis",
-      "Neon Postgres",
-      "Shadcn UI",
-      "Motion for React",
-    ],
-    demoUrl: "https://shop-ipsum.vercel.app/",
-    githubUrl: "https://github.com/tauhid-ahmed/shop-ipsum",
-    featured: false,
-    category: ["fullstack", "frontend"],
-  },
-];
-
-export const testimonials: Testimonial[] = [
-  {
-    name: "Sarah Johnson",
-    position: "Product Manager",
-    company: "TechCorp Inc.",
-    content:
-      "Tauhid is an exceptional developer and team leader who consistently delivers high-quality work. His attention to detail, fullstack architecture, and creative problem-solving make him a tremendous asset to any team.",
-    avatar: "/placeholder.svg?height=100&width=100",
-  },
-  {
-    name: "Michael Chen",
-    position: "CTO",
-    company: "Digital Solutions",
-    content:
-      "Working with Tauhid was a pleasure. He has deep mastery over modern web technologies, AI integrations, and always goes above and beyond to architect exceptional user experiences.",
-    avatar: "/placeholder.svg?height=100&width=100",
-  },
-  {
-    name: "Emily Rodriguez",
-    position: "Design Director",
-    company: "Creative Agency",
-    content:
-      "Tauhid has a rare combination of technical fullstack expertise, team leadership, and design sensibility. He can take complex architectures and implement them flawlessly with elegance.",
-    avatar: "/placeholder.svg?height=100&width=100",
   },
 ];
 
@@ -306,112 +421,29 @@ export const profileData: ResumeData = [
   {
     section: "about",
     content: [
-      "Results-driven Fullstack Developer & Engineering Team Lead with 4+ years of experience architecting performant, accessible, and scalable web applications using React, Next.js, TypeScript, and Node.js.",
-      "Proven expertise in leading cross-functional teams, integrating state-of-the-art AI APIs and LLM tools, and delivering high-impact web products with modern UI/UX design standards.",
-      "Currently serving as FullStack Developer & Team Leader (Assistant Manager, Operation) at SM Technology, directing technical workflows, client communication, and delivery assurance.",
-      "Deeply committed to clean architecture, developer velocity, robust code quality, and continuous learning.",
+      "Results-driven Full-Stack Developer with 4+ years of professional experience architecting performant, accessible, and scalable web applications with React, Next.js, Node.js, NestJS, and TypeScript.",
+      "Proven track record in cross-functional engineering, modern API design, edge databases, and AI application integrations.",
+      "Serving at SM Technology as Full-Stack Developer & Team Leader (Assistant Manager, Operations), managing technical workflows, client communication, and delivery assurance.",
+      "Committed to clean architecture, developer velocity, robust code quality, and measurable business impact.",
     ],
   },
   {
     section: "experience",
-    content: [
-      {
-        company: "SM Technology",
-        position: "FullStack Developer & Team Leader (Assistant Manager, Operation)",
-        duration: "2025 – Present",
-        description:
-          "Lead end-to-end team management and cross-functional collaboration across engineering, AI research, and design teams. Manage client communication and requirements gathering. Oversee project deadline management and delivery assurance for complex web applications.",
-        technologies: [
-          "Next.js",
-          "React",
-          "TypeScript",
-          "Node.js",
-          "AI APIs & LLMs",
-          "Tailwind CSS",
-          "Team Leadership",
-        ],
-      },
-      {
-        company: "Softsync",
-        position: "FullStack Developer",
-        duration: "2024 – 2025",
-        description:
-          "Engineered enterprise web applications in collaboration with UI/UX designers and backend teams, accelerating feature delivery cycles by 25%. Developed reusable component libraries using React, TypeScript, and Tailwind CSS. Implemented rigorous testing and code quality practices.",
-        technologies: [
-          "React",
-          "TypeScript",
-          "Tailwind CSS",
-          "Component Libraries",
-          "Testing & QA",
-        ],
-      },
-      {
-        company: "Freelance Projects",
-        position: "Frontend Developer",
-        duration: "2020 – 2024",
-        description:
-          "Directed full lifecycle web development for diverse international clients, delivering end-to-end web apps from initial architectural design to Vercel production deployments. Built modern fullstack solutions with Next.js, REST APIs, and automated CI/CD pipelines.",
-        technologies: [
-          "Next.js",
-          "Node.js",
-          "REST APIs",
-          "Tailwind CSS",
-          "Motion for React",
-          "Vercel CI/CD",
-        ],
-      },
-    ],
+    content: workExperience.map((exp) => ({
+      company: exp.company,
+      position: exp.role,
+      duration: exp.period,
+      description: exp.responsibilities.join(" "),
+      technologies: exp.technologies,
+    })),
   },
   {
     section: "education",
-    content: [
-      {
-        degree: "Professional Training in Web & Software Development",
-        description:
-          "Completed certifications and comprehensive project-based engineering coursework in web development, JavaScript, React, and full-stack software development.",
-        institution: "freeCodeCamp, Udemy, YouTube, and others",
-        duration: "2017 – Present",
-      },
-      {
-        degree: "Bachelor of Business Administration (BBA) Studies",
-        description:
-          "Pursued studies in Bachelor of Business Administration before transitioning into software engineering through dedicated self-learning.",
-        institution: "National University, Bangladesh",
-        duration: "2014 – 2018",
-      },
-    ],
-  },
-];
-
-export const developmentProcess = [
-  {
-    title: "Discovery & Planning",
-    description:
-      "Collaborate with stakeholders to define goals, gather requirements, and outline a scalable technical architecture.",
-    icon: "FileSearch",
-  },
-  {
-    title: "Design & Prototyping",
-    description:
-      "Craft intuitive wireframes, refine UI/UX design systems, and prototype user flows for validation and feedback.",
-    icon: "Palette",
-  },
-  {
-    title: "Development",
-    description:
-      "Build robust, maintainable applications using modern frameworks, clean architecture, and industry best practices.",
-    icon: "Code",
-  },
-  {
-    title: "Testing & Optimization",
-    description:
-      "Implement rigorous testing, ensure cross-platform compatibility, and optimize performance for speed and accessibility.",
-    icon: "Gauge",
-  },
-  {
-    title: "Deployment & Lifecycle Management",
-    description:
-      "Deploy secure, production-ready builds, monitor real-world usage, and provide continuous updates and support.",
-    icon: "Rocket",
+    content: educationHistory.map((edu) => ({
+      degree: edu.degree,
+      institution: edu.institution,
+      duration: edu.period,
+      description: edu.description,
+    })),
   },
 ];
