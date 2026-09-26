@@ -12,30 +12,13 @@ import { Container } from "./container";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() || 0;
-    const diff = latest - previous;
-
-    if (latest < 40) {
-      setHidden(false);
-      setScrolled(false);
-      return;
-    }
-
-    setScrolled(true);
-
-    // Hysteresis threshold (10px) prevents rapid flickering on scroll deceleration
-    if (diff > 10 && latest > 150) {
-      setHidden(true);
-    } else if (diff < -10) {
-      setHidden(false);
-    }
+    setScrolled(latest > 40);
   });
 
   useEffect(() => {
@@ -62,18 +45,9 @@ export function Header() {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{
-        y: hidden ? -100 : 0,
-        opacity: 1,
-      }}
-      transition={{
-        duration: 0.25,
-        ease: "easeInOut",
-      }}
       className={`fixed top-0 left-0 right-0 z-100 transition-[background-color,border-color,box-shadow] duration-200 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-md shadow-sm border-b border-border/70 py-3"
+          ? "bg-background/30 backdrop-blur-md shadow-sm border-b border-border/70 py-3"
           : "bg-transparent py-3"
       }`}
     >
