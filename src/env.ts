@@ -9,20 +9,22 @@ export const env = createEnv({
     NEXT_PUBLIC_AUTHOR_FIRST_NAME: z.string().default("Tauhid"),
     NEXT_PUBLIC_AUTHOR_LAST_NAME: z.string().default("Ahmed"),
     NEXT_PUBLIC_AUTHOR_TITLE: z.string().default("Full-Stack Developer"),
-    NEXT_PUBLIC_AUTHOR_PHONE: z.string().default("+8801815152504"),
+    NEXT_PUBLIC_AUTHOR_PHONE: z.string().default("+8801670012716"),
     NEXT_PUBLIC_AUTHOR_EMAIL: z.string().default("tauhidxtauhid@gmail.com"),
-    NEXT_PUBLIC_AUTHOR_LINKEDIN: z.string().default("https://linkedin.com/in/tauhidxahmed"),
-    NEXT_PUBLIC_AUTHOR_GITHUB: z.string().default("https://github.com/tauhid-ahmed"),
+    NEXT_PUBLIC_AUTHOR_LINKEDIN: z
+      .string()
+      .default("https://linkedin.com/in/tauhidxahmed"),
+    NEXT_PUBLIC_AUTHOR_GITHUB: z
+      .string()
+      .default("https://github.com/tauhid-ahmed"),
     NEXT_PUBLIC_AUTHOR_X: z.string().default("https://x.com/tauhid_ahmed"),
     NEXT_PUBLIC_AUTHOR_LOCATION: z.string().default("Pabna, Bangladesh"),
     NEXT_PUBLIC_AUTHOR_BIO: z
       .string()
       .default(
-        "Architecting performant, accessible, and scalable web applications using React, Next.js, TypeScript, and Node.js. Experienced in leading engineering teams, integrating AI tools/LLM APIs, and delivering high-impact products."
+        "Architecting performant, accessible, and scalable web applications using React, Next.js, TypeScript, and Node.js. Experienced in leading engineering teams, integrating AI tools/LLM APIs, and delivering high-impact products.",
       ),
-    NEXT_PUBLIC_AUTHOR_LIVE_RESUME: z
-      .string()
-      .default("/assets/my-resume.pdf"),
+    NEXT_PUBLIC_AUTHOR_LIVE_RESUME: z.string().default("/assets/my-resume.pdf"),
   },
 
   runtimeEnv: {
@@ -40,4 +42,3 @@ export const env = createEnv({
     NEXT_PUBLIC_AUTHOR_LIVE_RESUME: process.env.NEXT_PUBLIC_AUTHOR_LIVE_RESUME,
   },
 });
-

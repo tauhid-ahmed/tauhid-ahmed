@@ -56,7 +56,9 @@ export function Contact() {
             Get In Touch
           </h2>
           <p className="text-base text-muted-foreground max-w-2xl leading-relaxed">
-            Whether exploring full-stack engineering opportunities, discussing high-scale web applications, or inquiring about technical collaboration.
+            Whether exploring full-stack engineering opportunities, discussing
+            high-scale web applications, or inquiring about technical
+            collaboration.
           </p>
         </div>
 
@@ -189,12 +191,19 @@ export function Contact() {
                     Message Sent Successfully
                   </h4>
                   <p className="text-xs text-muted-foreground max-w-sm mx-auto">
-                    Thank you for reaching out. I will respond to your inquiry directly at {formData.email || "your email"} as soon as possible.
+                    Thank you for reaching out. I will respond to your inquiry
+                    directly at {formData.email || "your email"} as soon as
+                    possible.
                   </p>
                   <button
                     onClick={() => {
                       setSubmitted(false);
-                      setFormData({ name: "", email: "", subject: "", message: "" });
+                      setFormData({
+                        name: "",
+                        email: "",
+                        subject: "",
+                        message: "",
+                      });
                     }}
                     className="mt-4 px-4 py-2 rounded-lg border border-border/70 text-xs font-semibold text-foreground hover:bg-card transition-all"
                   >
@@ -219,7 +228,7 @@ export function Contact() {
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
-                        placeholder="e.g. Sarah Jenkins"
+                        placeholder="e.g. John Doe"
                         className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-border/80 bg-background text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
                       />
                     </div>
@@ -239,7 +248,7 @@ export function Contact() {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        placeholder="s.jenkins@company.com"
+                        placeholder="[EMAIL_ADDRESS]"
                         className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-border/80 bg-background text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
                       />
                     </div>
