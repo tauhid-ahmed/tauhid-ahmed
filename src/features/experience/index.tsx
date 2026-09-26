@@ -3,7 +3,13 @@
 import { motion } from "motion/react";
 import { workExperience, educationHistory } from "@/data/portfolio-data";
 import { Container } from "@/components/layout/container";
-import { Briefcase, Calendar, CheckCircle2, GraduationCap, MapPin } from "lucide-react";
+import {
+  Briefcase,
+  Calendar,
+  CheckCircle2,
+  GraduationCap,
+  MapPin,
+} from "lucide-react";
 
 export function Experience() {
   return (
@@ -19,7 +25,9 @@ export function Experience() {
             Professional Experience
           </h2>
           <p className="text-base text-muted-foreground max-w-2xl leading-relaxed">
-            A track record of engineering full-stack production systems, leading cross-functional teams, and delivering reliable software for international businesses.
+            A track record of engineering full-stack production systems, leading
+            cross-functional teams, and delivering reliable software for
+            international businesses.
           </p>
         </div>
 
@@ -30,10 +38,14 @@ export function Experience() {
             return (
               <motion.article
                 key={exp.company}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ amount: 0.15, once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.04,
+                  ease: "easeOut",
+                }}
                 className={`relative rounded-2xl border p-6 sm:p-8 transition-all ${
                   isCurrent
                     ? "border-primary/50 bg-card shadow-lg ring-1 ring-primary/20"
@@ -83,7 +95,10 @@ export function Experience() {
                   </h4>
                   <ul className="grid md:grid-cols-2 gap-3 text-sm text-foreground/90">
                     {exp.responsibilities.map((resp, i) => (
-                      <li key={i} className="flex items-start gap-2.5 leading-relaxed">
+                      <li
+                        key={i}
+                        className="flex items-start gap-2.5 leading-relaxed"
+                      >
                         <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
                         <span>{resp}</span>
                       </li>

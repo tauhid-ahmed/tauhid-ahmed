@@ -218,7 +218,7 @@ export function Stack() {
     >
       <Container size="lg">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 text-left">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 text-left">
           <div className="space-y-3 max-w-2xl">
             <div className="section-eyebrow">
               <Cpu className="size-3.5" />
@@ -228,31 +228,12 @@ export function Stack() {
               Technologies & Engineering Stack
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed">
-              A production-tested blueprint of backend runtimes, interface architectures,
-              resilient data pipelines, and agentic workflows.
+              A production-tested blueprint of backend runtimes, interface
+              architectures, resilient data pipelines, and agentic workflows.
             </p>
           </div>
 
           {/* Interactive Category Filter Pills */}
-          <div className="flex flex-wrap gap-1.5 p-1 rounded-xl bg-card/80 border border-border/70 backdrop-blur-sm self-start md:self-auto">
-            {FILTER_TABS.map((tab) => {
-              const isActive = activeFilter === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveFilter(tab.id)}
-                  className={cn(
-                    "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer",
-                    isActive
-                      ? "bg-primary text-primary-foreground shadow-sm shadow-primary/25"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                  )}
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div>
         </div>
 
         {/* Bento Grid Technical Matrix */}
@@ -278,10 +259,14 @@ export function Stack() {
             return (
               <motion.div
                 key={item.category}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.4, delay: index * 0.04 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ amount: 0.15, once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.04,
+                  ease: "easeOut",
+                }}
                 className={cn(
                   visual.bentoClass,
                   "relative rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
@@ -289,15 +274,15 @@ export function Stack() {
                   isBackend
                     ? "border-primary/60 bg-gradient-to-br from-card via-card to-primary/5 shadow-xl shadow-primary/5 ring-1 ring-primary/25"
                     : isAI
-                    ? "border-purple-500/40 bg-gradient-to-br from-card via-card to-purple-500/5 shadow-lg shadow-purple-500/5"
-                    : "border-border/80 bg-card/65 hover:bg-card hover:border-border hover:shadow-lg hover:shadow-black/5"
+                      ? "border-purple-500/40 bg-gradient-to-br from-card via-card to-purple-500/5 shadow-lg shadow-purple-500/5"
+                      : "border-border/80 bg-card/65 hover:bg-card hover:border-border hover:shadow-lg hover:shadow-black/5",
                 )}
               >
                 {/* Ambient Top Glow Plate */}
                 <div
                   className={cn(
                     "absolute -top-12 -right-12 size-36 rounded-full bg-gradient-to-bl blur-3xl opacity-30 pointer-events-none group-hover:opacity-60 transition-opacity duration-500",
-                    visual.accentGlow
+                    visual.accentGlow,
                   )}
                 />
 
@@ -308,7 +293,7 @@ export function Stack() {
                       <div
                         className={cn(
                           "size-9 rounded-xl flex items-center justify-center border shadow-xs transition-transform duration-300 group-hover:scale-105",
-                          visual.iconWrap
+                          visual.iconWrap,
                         )}
                       >
                         <Icon className="size-4.5" />
@@ -354,7 +339,8 @@ export function Stack() {
                           NestJS Enterprise Architecture
                         </span>
                         <p className="text-[11px] text-muted-foreground">
-                          Scalable microservices, dependency injection & REST/RPC modules
+                          Scalable microservices, dependency injection &
+                          REST/RPC modules
                         </p>
                       </div>
                     </div>
@@ -368,7 +354,8 @@ export function Stack() {
                         Strict Type Safety by Default
                       </span>
                       <p className="text-[11px] text-muted-foreground leading-relaxed">
-                        End-to-end typed contracts spanning front-to-back runtimes without any runtime drift.
+                        End-to-end typed contracts spanning front-to-back
+                        runtimes without any runtime drift.
                       </p>
                     </div>
                   )}
@@ -388,8 +375,8 @@ export function Stack() {
                             isNest
                               ? "bg-primary text-primary-foreground font-bold border-primary/50 shadow-md shadow-primary/25 scale-[1.04]"
                               : skill.isPillar
-                              ? "bg-card text-foreground font-semibold border-primary/35 shadow-2xs hover:border-primary hover:bg-card/90 hover:scale-[1.02]"
-                              : "bg-background/80 text-muted-foreground hover:text-foreground border-border/70 hover:border-border hover:bg-card hover:scale-[1.02]"
+                                ? "bg-card text-foreground font-semibold border-primary/35 shadow-2xs hover:border-primary hover:bg-card/90 hover:scale-[1.02]"
+                                : "bg-background/80 text-muted-foreground hover:text-foreground border-border/70 hover:border-border hover:bg-card hover:scale-[1.02]",
                           )}
                         >
                           {SkillIcon && (
@@ -398,7 +385,7 @@ export function Stack() {
                                 "size-3.5 shrink-0 transition-transform duration-200 group-hover/pill:scale-115",
                                 isNest
                                   ? "text-primary-foreground"
-                                  : meta?.color || "text-foreground"
+                                  : meta?.color || "text-foreground",
                               )}
                             />
                           )}
@@ -419,8 +406,8 @@ export function Stack() {
                     {isBackend
                       ? "Enterprise Ready"
                       : isAI
-                      ? "Agentic Stack"
-                      : "Production Tested"}
+                        ? "Agentic Stack"
+                        : "Production Tested"}
                   </span>
                 </div>
               </motion.div>
@@ -439,8 +426,9 @@ export function Stack() {
                 AI Engineering & Autonomous Tooling Velocity
               </h4>
               <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
-                Seamlessly orchestrating LLM APIs, prompt engineering, structured validation,
-                and next-generation AI coding tools (Claude Code, Cursor) into production development.
+                Seamlessly orchestrating LLM APIs, prompt engineering,
+                structured validation, and next-generation AI coding tools
+                (Claude Code, Cursor) into production development.
               </p>
             </div>
           </div>

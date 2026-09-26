@@ -17,10 +17,14 @@ export function ProfessionalSnapshot() {
             return (
               <motion.div
                 key={item.label}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ amount: 0.15, once: true }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.04,
+                  ease: "easeOut",
+                }}
                 className="group p-4 rounded-xl border border-border/60 bg-card/60 hover:bg-card hover:border-primary/40 transition-all flex flex-col justify-between"
               >
                 <div className="flex items-center justify-between mb-2">
