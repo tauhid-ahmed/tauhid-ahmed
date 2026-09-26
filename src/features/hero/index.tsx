@@ -16,7 +16,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-svh flex items-center justify-center pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden"
+      className="relative items-center justify-center pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden"
     >
       {/* Full Screen Box Grid Pattern with Ambient Lighting */}
       <div
