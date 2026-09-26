@@ -8,11 +8,15 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { developer } from "@/data/portfolio-data";
 import { resumeDownloadPath } from "@/paths";
 import { Container } from "@/components/layout/container";
-import meImg from "@/images/me/me.jpg";
+import { useTheme } from "next-themes";
+import meImgDark from "@/images/me/me.jpg";
+import meImgLight from "@/images/me/me-light.jpeg";
 
 const techPills = ["React", "Next.js", "Node.js", "NestJS", "TypeScript", "AI"];
 
 export function Hero() {
+  const { resolvedTheme } = useTheme();
+  const meImg = resolvedTheme === "light" ? meImgLight : meImgDark;
   return (
     <section
       id="home"
