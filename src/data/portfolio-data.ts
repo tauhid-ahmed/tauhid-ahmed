@@ -186,47 +186,47 @@ export interface RealProject {
   architectureHighlights: string[];
 }
 
-export const flagshipProject: RealProject = {
-  id: "ecommerce-platform",
-  index: "01",
-  title: "E-Commerce Platform",
-  tagline: "High-Performance Edge Commerce with Type-Safe Architecture",
-  description:
-    "A modern, scalable, and feature-rich e-commerce platform designed for optimal performance, elegant UX, and developer-grade extensibility.",
-  image: "/images/projects/e-commerce.png",
-  techStack: [
-    "Next.js 15",
-    "App Router",
-    "TypeScript",
-    "Hono",
-    "tRPC",
-    "Drizzle ORM",
-    "Neon Postgres",
-    "Tailwind CSS v4",
-    "Shadcn UI",
-    "NextAuth.js v5",
-    "Motion for React",
-    "Vercel",
-  ],
-  capabilities: [
-    "Dynamic product catalog with instant category taxonomy navigation",
-    "Cascading multi-attribute filtering (price range, attributes, availability)",
-    "Authentication & Role-Based Access Control (RBAC)",
-    "Comprehensive Admin Dashboard for inventory, orders & sales analytics",
-    "Complete product, category, and order lifecycle management",
-    "Optimized cloud image upload & responsive media delivery",
-    "Secure payment gateway integration & checkout processing",
-    "Production SEO with dynamic metadata, OpenGraph, and automated sitemaps",
-  ],
-  architectureHighlights: [
-    "Server Components for zero-bundle data fetching",
-    "Hono & tRPC for end-to-end type safety between client and server",
-    "Drizzle ORM with Neon serverless PostgreSQL for edge performance",
-    "Sub-second page transitions with App Router streaming",
-  ],
-  liveUrl: "https://shop-ipsum.vercel.app",
-  githubUrl: "https://github.com/tauhid-ahmed/shop-ipsum",
-};
+// export const flagshipProject: RealProject = {
+//   id: "ecommerce-platform",
+//   index: "01",
+//   title: "E-Commerce Platform",
+//   tagline: "High-Performance Edge Commerce with Type-Safe Architecture",
+//   description:
+//     "A modern, scalable, and feature-rich e-commerce platform designed for optimal performance, elegant UX, and developer-grade extensibility.",
+//   image: "/images/projects/e-commerce.png",
+//   techStack: [
+//     "Next.js 15",
+//     "App Router",
+//     "TypeScript",
+//     "Hono",
+//     "tRPC",
+//     "Drizzle ORM",
+//     "Neon Postgres",
+//     "Tailwind CSS v4",
+//     "Shadcn UI",
+//     "NextAuth.js v5",
+//     "Motion for React",
+//     "Vercel",
+//   ],
+//   capabilities: [
+//     "Dynamic product catalog with instant category taxonomy navigation",
+//     "Cascading multi-attribute filtering (price range, attributes, availability)",
+//     "Authentication & Role-Based Access Control (RBAC)",
+//     "Comprehensive Admin Dashboard for inventory, orders & sales analytics",
+//     "Complete product, category, and order lifecycle management",
+//     "Optimized cloud image upload & responsive media delivery",
+//     "Secure payment gateway integration & checkout processing",
+//     "Production SEO with dynamic metadata, OpenGraph, and automated sitemaps",
+//   ],
+//   architectureHighlights: [
+//     "Server Components for zero-bundle data fetching",
+//     "Hono & tRPC for end-to-end type safety between client and server",
+//     "Drizzle ORM with Neon serverless PostgreSQL for edge performance",
+//     "Sub-second page transitions with App Router streaming",
+//   ],
+//   liveUrl: "https://shop-ipsum.vercel.app",
+//   githubUrl: "https://github.com/tauhid-ahmed/shop-ipsum",
+// };
 
 export interface DomainExperience {
   domain: string;
@@ -247,7 +247,13 @@ export const domainExperiences: DomainExperience[] = [
       "Real-time pipeline analytics & KPI summaries",
       "Granular data filtering & export pipelines",
     ],
-    keyTechnologies: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Tailwind CSS"],
+    keyTechnologies: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Tailwind CSS",
+    ],
   },
   {
     domain: "Logistics & Supply Operations",
@@ -271,7 +277,13 @@ export const domainExperiences: DomainExperience[] = [
       "Optimistic UI updates for zero-latency interactions",
       "Collaborative task assignment workflows",
     ],
-    keyTechnologies: ["React", "Next.js", "TypeScript", "Drizzle ORM", "REST APIs"],
+    keyTechnologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Drizzle ORM",
+      "REST APIs",
+    ],
   },
   {
     domain: "AI-Integrated Applications",
@@ -283,7 +295,13 @@ export const domainExperiences: DomainExperience[] = [
       "Structured output validation with Zod schemas",
       "Agentic coding tool workflows (Claude Code, Cursor)",
     ],
-    keyTechnologies: ["LLM APIs", "Agentic Workflows", "TypeScript", "Next.js", "Zod"],
+    keyTechnologies: [
+      "LLM APIs",
+      "Agentic Workflows",
+      "TypeScript",
+      "Next.js",
+      "Zod",
+    ],
   },
 ];
 
@@ -403,19 +421,19 @@ export const skills = technicalMatrix.map((item) => ({
   description: item.description,
 }));
 
-export const projects: Project[] = [
-  {
-    id: flagshipProject.id,
-    title: flagshipProject.title,
-    description: flagshipProject.description,
-    image: flagshipProject.image,
-    tags: flagshipProject.techStack,
-    demoUrl: flagshipProject.liveUrl,
-    githubUrl: flagshipProject.githubUrl,
-    featured: true,
-    category: ["fullstack", "frontend"],
-  },
-];
+// export const projects: Project[] = [
+//   {
+//     id: flagshipProject.id,
+//     title: flagshipProject.title,
+//     description: flagshipProject.description,
+//     image: flagshipProject.image,
+//     tags: flagshipProject.techStack,
+//     demoUrl: flagshipProject.liveUrl,
+//     githubUrl: flagshipProject.githubUrl,
+//     featured: true,
+//     category: ["fullstack", "frontend"],
+//   },
+// ];
 
 export const profileData: ResumeData = [
   {

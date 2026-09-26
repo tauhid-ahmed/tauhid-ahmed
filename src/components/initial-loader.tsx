@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, type Transition } from "motion/react";
 import { developer } from "@/data/portfolio-data";
 
 const name = developer.firstName ?? "Anonymous";
@@ -8,7 +8,7 @@ const letterVariants = {
   initial: { y: "100%" },
   animate: { y: 0 },
 };
-const getLetterTransition = (index: number) => ({
+const getLetterTransition = (index: number): Transition => ({
   duration: 0.3,
   delay: (index + 1) * 0.1,
   ease: "linear",

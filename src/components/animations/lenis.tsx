@@ -32,9 +32,12 @@ export function LenisProvider({ children }: { children: ReactNode }) {
     };
 
     rafId = requestAnimationFrame(raf);
-    setLenis(lenisInstance);
+    const timer = setTimeout(() => {
+      setLenis(lenisInstance);
+    }, 0);
 
     return () => {
+      clearTimeout(timer);
       cancelAnimationFrame(rafId);
       lenisInstance.destroy();
     };

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useMemo } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion, useMotionValue, useSpring, useTransform, type TargetAndTransition } from "motion/react";
 import { cn } from "@/lib/utils";
 
 type Theme = "light" | "dark" | "glass" | "accent" | "muted";
@@ -22,12 +22,12 @@ interface Card3DProps extends React.ComponentProps<typeof motion.div> {
 
 // Constants extracted outside component to prevent recreations
 const SPRING_CONFIG = { damping: 40, stiffness: 180, mass: 0.5 };
-const FLOAT_ANIMATION = {
+const FLOAT_ANIMATION: TargetAndTransition = {
   y: [0, -8, 0],
   transition: {
     duration: 5,
     repeat: Infinity,
-    repeatType: "reverse" as const,
+    repeatType: "reverse",
     ease: "easeInOut",
   },
 };

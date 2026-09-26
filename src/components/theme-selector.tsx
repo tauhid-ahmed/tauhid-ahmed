@@ -41,35 +41,37 @@ export function ThemeSelector() {
     if (typeof window === "undefined" || !window.localStorage) return;
     try {
       const savedColorTheme = window.localStorage.getItem("color-theme") as ColorTheme;
-      const root = document.documentElement;
-      if (
-        savedColorTheme &&
-        themes.some((theme) => theme.value === savedColorTheme)
-      ) {
-        setColorTheme(savedColorTheme);
-        root.dataset.theme = savedColorTheme;
-      } else {
-        setColorTheme(DEFAULT_THEME);
-        root.dataset.theme = DEFAULT_THEME;
-        window.localStorage.setItem("color-theme", DEFAULT_THEME);
-      }
+      const themeToSet =
+        savedColorTheme && themes.some((theme) => theme.value === savedColorTheme)
+          ? savedColorTheme
+          : DEFAULT_THEME;
+      const timer = setTimeout(() => {
+        setColorTheme(themeToSet);
+      }, 0);
+      return () => clearTimeout(timer);
     } catch {
-      setColorTheme(DEFAULT_THEME);
+      const timer = setTimeout(() => {
+        setColorTheme(DEFAULT_THEME);
+      }, 0);
+      return () => clearTimeout(timer);
     }
   }, []);
 
-  const handleThemeChange = (theme: ColorTheme) => {
-    setColorTheme(theme);
-    if (typeof document !== "undefined") {
-      document.documentElement.dataset.theme = theme;
-    }
-    if (typeof window !== "undefined" && window.localStorage) {
-      try {
-        window.localStorage.setItem("color-theme", theme);
-      } catch {
-        // ignore
+  useEffect(() => {
+    if (colorTheme && typeof document !== "undefined") {
+      document.documentElement.dataset.theme = colorTheme;
+      if (typeof window !== "undefined" && window.localStorage) {
+        try {
+          window.localStorage.setItem("color-theme", colorTheme);
+        } catch {
+          // ignore
+        }
       }
     }
+  }, [colorTheme]);
+
+  const handleThemeChange = (theme: ColorTheme) => {
+    setColorTheme(theme);
   };
 
   return (

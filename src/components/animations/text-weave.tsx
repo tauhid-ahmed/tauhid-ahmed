@@ -1,9 +1,9 @@
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 
 const titleText = "Building Scalable Web Products with Modern Architecture";
 const words = titleText.split(" ");
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -14,7 +14,7 @@ const containerVariants = {
   },
 };
 
-const wordVariants = {
+const wordVariants: Variants = {
   hidden: {
     y: "100%",
     opacity: 0,

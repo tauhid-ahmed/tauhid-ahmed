@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 
 interface TextRevealProps {
@@ -20,7 +20,7 @@ export function TextReveal({
   const words = text.split(" ");
 
   // Animation variants
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
@@ -31,7 +31,7 @@ export function TextReveal({
     }),
   };
 
-  const wordVariants = {
+  const wordVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
@@ -40,7 +40,7 @@ export function TextReveal({
     },
   };
 
-  const characterVariants = {
+  const characterVariants: Variants = {
     hidden: {
       opacity: 0,
       y: 20,

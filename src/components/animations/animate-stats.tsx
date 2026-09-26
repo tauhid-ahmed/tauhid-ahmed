@@ -22,13 +22,14 @@ export function AnimateStats({
 
   useEffect(() => {
     if (!data.inView) return;
-    const controls = animate(data.from, data.to, {
+    const fromVal = data.from ?? 0;
+    const controls = animate(fromVal, data.to, {
       duration: data.duration ?? 2,
       onUpdate: (latest) => {
         if (nodeRef.current && latest !== undefined) {
-          nodeRef.current.textContent = latest.toFixed(0);
-          if (latest === data.to) {
-            nodeRef.current.textContent += data.suffix;
+          const text = latest.toFixed(0);
+          nodeRef.current.textContent = data.suffix ? `${text}${data.suffix}` : text;
+          if (Math.round(latest) === data.to) {
             controls.stop();
           }
         }
