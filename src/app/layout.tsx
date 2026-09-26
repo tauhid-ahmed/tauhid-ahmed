@@ -13,7 +13,8 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Tauhid Ahmed — Full-Stack Developer | React, Next.js, Node.js, NestJS & AI",
+  title:
+    "Tauhid Ahmed — Full-Stack Developer | React, Next.js, Node.js, NestJS & AI",
   description:
     "Full-Stack Developer building modern, high-performance web applications with React, Next.js, Node.js, NestJS, TypeScript, and AI integrations. Experienced in engineering leadership and scalable architectures.",
   keywords: [
@@ -34,7 +35,8 @@ export const metadata: Metadata = {
   authors: [{ name: "Tauhid Ahmed" }],
   creator: "Tauhid Ahmed",
   openGraph: {
-    title: "Tauhid Ahmed — Full-Stack Developer | React, Next.js, Node.js, NestJS & AI",
+    title:
+      "Tauhid Ahmed — Full-Stack Developer | React, Next.js, Node.js, NestJS & AI",
     description:
       "Full-Stack Developer building modern, high-performance web applications with React, Next.js, Node.js, NestJS, TypeScript, and AI integrations.",
     type: "website",
