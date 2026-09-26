@@ -20,34 +20,34 @@ export function Header() {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
+    const diff = latest - previous;
 
-    if (latest < 50) {
+    if (latest < 40) {
       setHidden(false);
       setScrolled(false);
       return;
     }
 
-    if (latest > previous && latest > 150) {
-      setHidden(true);
-    } else {
-      setHidden(false);
-    }
+    setScrolled(true);
 
-    if (latest > 50) {
-      setScrolled(true);
-    } else {
-      setScrolled(false);
+    // Hysteresis threshold (10px) prevents rapid flickering on scroll deceleration
+    if (diff > 10 && latest > 150) {
+      setHidden(true);
+    } else if (diff < -10) {
+      setHidden(false);
     }
   });
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = navItems.map((item) => item.href.substring(1));
+      const scrollPosition = window.scrollY + 160;
+
       for (const section of [...sections].reverse()) {
         const element = document.getElementById(section);
         if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 120) {
+          const top = element.offsetTop;
+          if (scrollPosition >= top) {
             setActiveSection(section);
             break;
           }
@@ -56,6 +56,7 @@ export function Header() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -70,10 +71,10 @@ export function Header() {
         duration: 0.25,
         ease: "easeInOut",
       }}
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-[background-color,border-color,box-shadow] duration-200 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-md shadow-sm border-b border-border/70 py-2.5"
-          : "bg-transparent py-4"
+          ? "bg-background/90 backdrop-blur-md shadow-sm border-b border-border/70 py-3"
+          : "bg-transparent py-3"
       }`}
     >
       <Container size="lg">
@@ -97,7 +98,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 rounded-full border border-border/60 bg-card/60 backdrop-blur-md px-3 py-1 shadow-sm">
+          <nav className="relative hidden md:flex items-center gap-1 rounded-full border border-border/60 bg-card/60 backdrop-blur-md px-3 py-1 shadow-sm">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
               return (
@@ -116,12 +117,13 @@ export function Header() {
                       className="absolute inset-0 bg-primary rounded-full -z-10 shadow-sm"
                       transition={{
                         type: "spring",
-                        stiffness: 350,
-                        damping: 30,
+                        stiffness: 400,
+                        damping: 32,
+                        mass: 0.5,
                       }}
                     />
                   )}
-                  {item.name}
+                  <span className="relative z-10">{item.name}</span>
                 </Link>
               );
             })}
