@@ -2,7 +2,8 @@ export const githubPath = "https://github.com/tauhid-ahmed";
 export const linkedinPath = "https://www.linkedin.com/in/tauhidxahmed/";
 export const xPath = "https://x.com";
 export const resumePath = "https://bit.ly/42JPmEg";
-export const resumeDownloadPath = "/assets/my-resume.pdf";
+export const resumeDownloadPath =
+  "/assets/Tauhid Ahmed - Full-Stack Developer.pdf";
 
 export const homePath = "/";
 export const homeSectionPath = "#home";
