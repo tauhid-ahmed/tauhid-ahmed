@@ -10,27 +10,5 @@ import { PremiumBackground } from "@/components/animations/premium-background";
 import { SectionAnimation } from "@/components/animations/section-animation";
 
 export default async function Home() {
-  return (
-    <>
-      <Header />
-      <main className="min-h-screen">
-        <SectionAnimation />
-        <PremiumBackground />
-        <Suspense
-          fallback={
-            <div className="min-h-screen flex items-center justify-center">
-              Loading...
-            </div>
-          }
-        >
-          <Intro />
-          <AboutMe />
-          <Skills />
-          <ProjectsShowcase />
-          <Contact />
-        </Suspense>
-      </main>
-      <Footer />
-    </>
-  );
+  return <></>;
 }
