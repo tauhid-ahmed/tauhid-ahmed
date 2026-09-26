@@ -16,15 +16,27 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden"
+      className="relative min-h-svh flex items-center justify-center pt-24 pb-16 md:pt-28 md:pb-20 overflow-hidden"
     >
-      {/* Subtle ambient lighting */}
+      {/* Full Screen Box Grid Pattern with Ambient Lighting */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-primary/10 rounded-full blur-[120px] -z-10"
-      />
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      >
+        {/* Primary Ambient Lighting Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-130 bg-primary/15 rounded-full blur-[160px] opacity-80 dark:opacity-60" />
 
-      <Container size="lg">
+        {/* Secondary Color Glow */}
+        <div className="absolute top-1/3 -right-20 w-125 h-100 bg-primary/10 rounded-full blur-[140px] opacity-60 dark:opacity-40" />
+
+        {/* Full-bleed Box Grid Layer */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[44px_44px] mask-[radial-gradient(ellipse_120%_90%_at_50%_40%,#000_65%,transparent_100%)] opacity-70 dark:opacity-45" />
+
+        {/* Smooth Bottom Fade Transition */}
+        <div className="absolute inset-x-0 bottom-0 h-36 bg-linear-to-t from-background to-transparent" />
+      </div>
+
+      <Container size="lg" className="w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Editorial Information */}
           <div className="lg:col-span-7 space-y-6 text-left">
@@ -165,40 +177,40 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-full max-w-[340px] sm:max-w-[380px]"
+              className="relative w-full max-w-140"
             >
-              {/* Decorative background plate */}
-              <div className="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-primary/20 via-primary/5 to-transparent blur-xl -z-10" />
+              {/* Decorative background plate glow */}
+              <div className="absolute -inset-3 rounded-3xl bg-linear-to-tr from-primary/30 via-primary/10 to-transparent blur-2xl -z-10" />
 
-              <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card p-2 shadow-2xl">
+              <div className="relative overflow-hidden rounded-3xl border border-border/80 bg-card/90 p-2.5 sm:p-3.5 shadow-2xl backdrop-blur-xs">
                 {/* Photo frame */}
-                <div className="relative aspect-4/5 w-full overflow-hidden rounded-xl bg-muted/40">
+                <div className="relative aspect-4/5 w-full overflow-hidden rounded-2xl bg-muted/40 shadow-inner">
                   <Image
                     src={meImg}
                     alt={developer.name}
                     fill
                     priority
-                    sizes="(max-width: 768px) 340px, 380px"
-                    className="object-cover object-top filter contrast-[1.02]"
+                    sizes="(max-width: 640px) 380px, (max-width: 1024px) 440px, 510px"
+                    className="object-cover object-top filter contrast-[1.02] transition-transform duration-500 hover:scale-[1.02]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/15 to-transparent" />
 
                   {/* Overlaid caption */}
-                  <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg border border-border/70 bg-card/85 backdrop-blur-md">
+                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-3.5 sm:p-4 rounded-xl border border-border/70 bg-card/90 backdrop-blur-md shadow-lg">
                     <div className="flex items-center justify-between">
                       <div>
-                        <p className="text-xs font-bold text-foreground">
+                        <p className="text-xs sm:text-sm font-bold text-foreground">
                           {developer.name}
                         </p>
-                        <p className="text-[11px] text-primary font-semibold">
+                        <p className="text-[11px] sm:text-xs text-primary font-semibold">
                           Full-Stack Developer
                         </p>
                       </div>
                       <div className="text-right">
-                        <p className="font-mono text-[10px] text-muted-foreground uppercase">
+                        <p className="font-mono text-[10px] sm:text-[11px] text-muted-foreground uppercase">
                           Stack
                         </p>
-                        <p className="font-mono text-[11px] font-bold text-foreground">
+                        <p className="font-mono text-[11px] sm:text-xs font-bold text-foreground">
                           Next.js • NestJS
                         </p>
                       </div>
