@@ -8,16 +8,9 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { developer } from "@/data/portfolio-data";
 import { resumeDownloadPath } from "@/paths";
 import { Container } from "@/components/layout/container";
-import meImg from "@/images/me/me.webp";
+import meImg from "@/images/me/me.jpg";
 
-const techPills = [
-  "React",
-  "Next.js",
-  "Node.js",
-  "NestJS",
-  "TypeScript",
-  "AI",
-];
+const techPills = ["React", "Next.js", "Node.js", "NestJS", "TypeScript", "AI"];
 
 export function Hero() {
   return (
@@ -160,7 +153,9 @@ export function Hero() {
                 <span>LinkedIn</span>
               </Link>
               <span className="text-border">•</span>
-              <span className="font-mono text-muted-foreground">Pabna, Bangladesh</span>
+              <span className="font-mono text-muted-foreground">
+                Pabna, Bangladesh
+              </span>
             </motion.div>
           </div>
 
