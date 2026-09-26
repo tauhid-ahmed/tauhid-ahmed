@@ -28,9 +28,9 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const developer = {
-  name: env.NEXT_PUBLIC_AUTHOR_NAME,
-  firstName: env.NEXT_PUBLIC_AUTHOR_FIRST_NAME,
-  lastName: env.NEXT_PUBLIC_AUTHOR_LAST_NAME,
+  name: env.NEXT_PUBLIC_AUTHOR_NAME || "Tauhid Ahmed",
+  firstName: env.NEXT_PUBLIC_AUTHOR_FIRST_NAME || "Tauhid",
+  lastName: env.NEXT_PUBLIC_AUTHOR_LAST_NAME || "Ahmed",
   title: "Full-Stack Developer",
   techStackText: "React • Next.js • Node.js • NestJS • TypeScript • AI",
   bio: "Full-Stack Developer specializing in high-performance web applications, scalable backends with Node.js and NestJS, and modern AI/LLM integrations. Experienced in engineering leadership, cross-functional collaboration, and delivering production software for global users.",
