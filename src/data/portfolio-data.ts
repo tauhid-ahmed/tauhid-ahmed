@@ -34,13 +34,15 @@ export const developer = {
   title: "Full-Stack Developer",
   techStackText: "React • Next.js • Node.js • NestJS • TypeScript • AI",
   bio: "Full-Stack Developer specializing in high-performance web applications, scalable backends with Node.js and NestJS, and modern AI/LLM integrations. Experienced in engineering leadership, cross-functional collaboration, and delivering production software for global users.",
-  location: env.NEXT_PUBLIC_AUTHOR_LOCATION,
-  email: env.NEXT_PUBLIC_AUTHOR_EMAIL,
-  phone: env.NEXT_PUBLIC_AUTHOR_PHONE,
-  linkedin: env.NEXT_PUBLIC_AUTHOR_LINKEDIN,
-  github: env.NEXT_PUBLIC_AUTHOR_GITHUB,
-  x: env.NEXT_PUBLIC_AUTHOR_X,
-  liveResume: env.NEXT_PUBLIC_AUTHOR_LIVE_RESUME,
+  location: env.NEXT_PUBLIC_AUTHOR_LOCATION || "Pabna, Bangladesh",
+  email: env.NEXT_PUBLIC_AUTHOR_EMAIL || "tauhidxtauhid@gmail.com",
+  phone: env.NEXT_PUBLIC_AUTHOR_PHONE || "+8801670012716",
+  linkedin:
+    env.NEXT_PUBLIC_AUTHOR_LINKEDIN ||
+    "https://www.linkedin.com/in/tauhidxahmed/",
+  github: env.NEXT_PUBLIC_AUTHOR_GITHUB || "https://github.com/tauhidxahmed",
+  x: env.NEXT_PUBLIC_AUTHOR_X || "https://x.com/tauhidxahmed",
+  liveResume: env.NEXT_PUBLIC_AUTHOR_LIVE_RESUME || "https://bit.ly/42JPmEg",
 };
 
 export interface SnapshotItem {
