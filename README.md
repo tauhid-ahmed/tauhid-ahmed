@@ -22,16 +22,6 @@ Results-oriented Full-Stack Developer with 4+ years of professional experience e
 
 ---
 
-### Project & Domain Experience
-
-- **E-Commerce Platform:** High-performance edge commerce with Next.js 15, App Router, TypeScript, Hono, tRPC, Drizzle ORM, Neon Postgres, NextAuth v5, and Stripe payments ([Live Demo](https://shop-ipsum.vercel.app) • [Repository](https://github.com/tauhid-ahmed/shop-ipsum))
-- **CRM & Business Management:** Role-based access control (RBAC), customer pipelines, data export, and executive metric dashboards.
-- **Logistics & Supply Operations:** Multi-stage shipment tracking state machines, automated inventory alerting, and fulfillment reporting.
-- **Project Management Systems:** Real-time task boards, optimistic UI updates, and agile team collaboration workflows.
-- **AI-Integrated Applications:** Streaming LLM response workflows, structured schema output parsing with Zod, and autonomous agent tooling.
-
----
-
 ### Connect
 
 - **Portfolio:** [tauhidahmed.vercel.app](https://tauhidahmed.vercel.app)

@@ -1,13 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "motion/react";
-import { CheckCircle2, Layers, ArrowUpRight } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
-import { flagshipProject, domainExperiences } from "@/data/portfolio-data";
+import { Layers } from "lucide-react";
+import { domainExperiences } from "@/data/portfolio-data";
 import { Container } from "@/components/layout/container";
-import ecommercePreview from "@/images/projects/e-commerce.png";
 
 export function Projects() {
   return (
