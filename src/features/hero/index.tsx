@@ -61,7 +61,7 @@ export function Hero() {
       <Container size="lg" className="w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Editorial Information */}
-          <div className="lg:col-span-7 space-y-6 text-left mx-auto">
+          <div className="lg:col-span-7 space-y-6 text-left max-lg:mx-auto">
             {/* Status indicator badge */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
