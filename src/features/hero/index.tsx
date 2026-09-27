@@ -38,7 +38,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative items-center justify-center overflow-hidden py-12 md:py-20 lg:py-28"
+      className="relative items-center justify-center overflow-hidden pb-10 pt-20 lg:py-28"
     >
       {/* Full Screen Box Grid Pattern with Ambient Lighting */}
       <div
@@ -81,7 +81,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-2"
+              className="space-y-2 hidden lg:block"
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-foreground uppercase">
                 Tauhid Ahmed

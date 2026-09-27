@@ -53,7 +53,7 @@ export function Header() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-100 transition-[background-color,border-color,box-shadow] duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-[999] transition-[background-color,border-color,box-shadow] duration-200 ${
         scrolled
           ? "bg-background/30 backdrop-blur-md shadow-sm border-b border-border/70 py-3"
           : "bg-transparent py-3"
