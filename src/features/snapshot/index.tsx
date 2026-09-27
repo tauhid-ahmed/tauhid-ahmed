@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { professionalSnapshot } from "@/data/portfolio-data";
 import { Container } from "@/components/layout/container";
 import { Layers, Terminal, Sparkles, Users, Cpu } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const icons = [Layers, Terminal, Cpu, Sparkles, Users];
 
@@ -25,7 +26,11 @@ export function ProfessionalSnapshot() {
                   delay: index * 0.04,
                   ease: "easeOut",
                 }}
-                className="group p-4 rounded-xl border border-border/60 bg-card/60 hover:bg-card hover:border-primary/40 transition-all flex flex-col justify-between"
+                className={cn(
+                  "group p-4 rounded-xl border border-border/60 bg-card/60 hover:bg-card hover:border-primary/40 transition-all flex flex-col justify-between",
+                  index === professionalSnapshot.length - 1 &&
+                    "col-span-2 lg:col-span-1",
+                )}
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm font-extrabold text-foreground group-hover:text-primary transition-colors tracking-tight">

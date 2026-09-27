@@ -72,7 +72,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="relative hidden md:flex items-center gap-1 rounded-full border border-border/60 bg-card/60 backdrop-blur-md px-3 py-1 shadow-sm">
+          <nav className="relative hidden md:flex items-center gap-1 rounded-full border border-border/60 bg-card/60 backdrop-blur-md px-4 py-1 shadow-sm">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
               return (
@@ -141,11 +141,7 @@ export function Header() {
                 animate={{ rotate: mobileMenuOpen ? 90 : 0 }}
                 transition={{ duration: 0.15 }}
               >
-                {mobileMenuOpen ? (
-                  <X className="size-4" />
-                ) : (
-                  <Menu className="size-4" />
-                )}
+                {mobileMenuOpen ? <X /> : <Menu />}
               </motion.div>
             </Button>
           </div>
