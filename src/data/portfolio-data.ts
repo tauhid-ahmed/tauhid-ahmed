@@ -114,7 +114,7 @@ export const workExperience: ExperienceRecord[] = [
     ],
   },
   {
-    company: "Softsync",
+    company: "Softsync Inc",
     role: "Frontend Developer",
     period: "2024 – 2025",
     location: "Dhaka, Bangladesh",
