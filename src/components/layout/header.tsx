@@ -26,13 +26,13 @@ export function Header() {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setScrolled(latest > 40);
+    setScrolled(latest > 30);
   });
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = navItems.map((item) => item.href.substring(1));
-      const scrollPosition = window.scrollY + 160;
+      const scrollPosition = window.scrollY + 100;
 
       for (const section of [...sections].reverse()) {
         const element = document.getElementById(section);
