@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Mona_Sans as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { LenisProvider } from "@/components/animations/lenis";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import "@/styles/globals.css";
 
 const fontSans = FontSans({
