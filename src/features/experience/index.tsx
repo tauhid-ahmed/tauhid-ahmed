@@ -10,20 +10,20 @@ import {
   GraduationCap,
   MapPin,
 } from "lucide-react";
+import SectionTitle from "@/components/section-title";
 
 export function Experience() {
   return (
     <section id="experience" className="py-10 md:py-16 relative">
       <Container size="lg">
         {/* Section Header */}
-        <div className="space-y-3 mb-14 text-left">
+        <div className="space-y-2 mb-10 text-left">
           <div className="section-eyebrow">
             <Briefcase className="size-3.5" />
             <span>Career History & Visual CV</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground">
-            Professional Experience
-          </h2>
+          <SectionTitle>Professional Experience</SectionTitle>
+
           <p className="text-base text-muted-foreground max-w-2xl leading-relaxed">
             A track record of engineering full-stack production systems, leading
             cross-functional teams, and delivering reliable software for
@@ -127,11 +127,12 @@ export function Experience() {
 
         {/* Education & Continuous Learning */}
         <div className="mt-14 pt-12 border-t border-border/70">
-          <div className="flex items-center gap-2.5 mb-6 text-foreground font-bold">
+          <div className="section-eyebrow">
             <GraduationCap className="size-5 text-primary" />
-            <h3 className="text-lg font-bold tracking-tight">
-              Education & Engineering Development
-            </h3>
+            <span>Learning & Growth</span>
+          </div>
+          <div className="flex items-center gap-2.5 mb-6 text-foreground font-bold">
+            <SectionTitle>Education & Engineering Development</SectionTitle>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">

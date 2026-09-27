@@ -4,20 +4,19 @@ import { motion } from "motion/react";
 import { Layers } from "lucide-react";
 import { domainExperiences } from "@/data/portfolio-data";
 import { Container } from "@/components/layout/container";
+import SectionTitle from "@/components/section-title";
 
 export function Projects() {
   return (
     <section id="projects" className="py-10 md:py-16 relative">
       <Container size="lg">
         {/* Section Header */}
-        <div className="space-y-3 mb-14 text-left">
+        <div className="space-y-2 mb-10 text-left">
           <div className="section-eyebrow">
             <Layers className="size-3.5" />
             <span>Engineering Showcase</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground">
-            Selected Projects & Domain Experience
-          </h2>
+          <SectionTitle>Selected Projects & Domain Experience</SectionTitle>
           <p className="text-base text-muted-foreground max-w-2xl leading-relaxed">
             Visual evidence of production web applications, edge architectures,
             and real-world domain engineering across enterprise domains.

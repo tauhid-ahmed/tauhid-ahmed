@@ -56,6 +56,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import SectionTitle from "@/components/section-title";
 
 type IconComponent = IconType | LucideIcon;
 
@@ -224,9 +225,7 @@ export function Stack() {
               <Cpu className="size-3.5" />
               <span>Technical Architecture</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-foreground">
-              Technologies & Engineering Stack
-            </h2>
+            <SectionTitle>Technologies & Engineering Stack</SectionTitle>
             <p className="text-base text-muted-foreground leading-relaxed">
               A production-tested blueprint of backend runtimes, interface
               architectures, resilient data pipelines, and agentic workflows.
