@@ -170,7 +170,7 @@ export function Hero() {
                 <span>LinkedIn</span>
               </Link>
               <span className="text-border">•</span>
-              <span className="font-mono text-muted-foreground">
+              <span className="font-mono text-muted-foreground whitespace-nowrap">
                 Pabna, Bangladesh
               </span>
             </motion.div>
