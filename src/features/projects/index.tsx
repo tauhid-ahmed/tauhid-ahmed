@@ -7,7 +7,7 @@ import { Container } from "@/components/layout/container";
 
 export function Projects() {
   return (
-    <section id="projects" className="py-20 md:py-28 relative">
+    <section id="projects" className="py-10 md:py-16 relative">
       <Container size="lg">
         {/* Section Header */}
         <div className="space-y-3 mb-14 text-left">

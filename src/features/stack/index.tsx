@@ -214,7 +214,7 @@ export function Stack() {
   return (
     <section
       id="stack"
-      className="py-20 md:py-28 relative bg-card/25 border-y border-border/60"
+      className="py-10 md:py-16 relative bg-card/25 border-y border-border/60"
     >
       <Container size="lg">
         {/* Section Header */}
