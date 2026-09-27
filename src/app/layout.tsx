@@ -88,8 +88,17 @@ export const metadata: Metadata = {
   /* Icons */
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      {
+        url: "/favicon-light.png",
+        media: "(prefers-color-scheme: light)",
+        type: "image/png",
+      },
+      {
+        url: "/favicon-dark.png",
+        media: "(prefers-color-scheme: dark)",
+        type: "image/png",
+      },
+      { url: "/favicon.ico", sizes: "any" }, // fallback
     ],
     apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
     shortcut: "/favicon.ico",

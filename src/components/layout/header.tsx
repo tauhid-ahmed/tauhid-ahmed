@@ -66,7 +66,7 @@ export function Header() {
             href="#home"
             className="group flex items-center gap-2 font-bold tracking-tight text-foreground transition-opacity hover:opacity-90"
           >
-            <span className="flex size-8 items-center justify-center rounded-lg bg-primary/10 border border-primary/25 group-hover:bg-border-primary -translate-y-0.5">
+            <span className="flex size-8 items-center justify-center rounded-full -translate-y-0.5 overflow-hidden shadow-inner">
               <Image src={meImg} alt="logo" />
             </span>
             <div className="flex flex-col">
