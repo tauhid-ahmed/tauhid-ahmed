@@ -11,6 +11,7 @@ import { Container } from "@/components/layout/container";
 import { useTheme } from "next-themes";
 import meImgDark from "@/images/me/me-dark.jpg";
 import meImgLight from "@/images/me/me-light.jpeg";
+import { Button } from "@/components/ui/button";
 
 const techPills = ["React", "Next.js", "Node.js", "NestJS", "TypeScript", "AI"];
 
@@ -111,32 +112,32 @@ export function Hero() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-wrap items-center gap-3 pt-2"
             >
-              <Link
-                href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition-all shadow-md group"
-              >
-                <span>View Projects</span>
-                <ArrowRight className="size-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <Button asChild>
+                <Link className="group" href="#projects">
+                  <span>View Projects</span>
+                  <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
 
-              <Link
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border/90 bg-card hover:bg-muted/70 text-foreground font-semibold text-sm transition-all shadow-xs"
-              >
-                <Mail className="size-4 text-primary" />
-                <span>Contact Me</span>
-              </Link>
+              <Button asChild variant={"outline"}>
+                <Link href="#contact" className="group">
+                  <Mail className="text-primary group-hover:scale-105" />
+                  <span>Contact Me</span>
+                </Link>
+              </Button>
 
-              <Link
-                href={resumeDownloadPath}
-                target="_blank"
-                download="Tauhid_Ahmed_Full_Stack_Developer.pdf"
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-lg border border-border/60 text-muted-foreground hover:text-foreground hover:border-primary/30 text-sm font-medium transition-all"
-                title="Download Resume"
-              >
-                <Download className="size-4" />
-                <span className="hidden sm:inline">Resume</span>
-              </Link>
+              <Button asChild variant="outline">
+                <Link
+                  href={resumeDownloadPath}
+                  target="_blank"
+                  download="Tauhid_Ahmed_Full_Stack_Developer.pdf"
+                  className="group"
+                  title="Download Resume"
+                >
+                  <Download className="group-hover:scale-105 group-hover:text-primary" />
+                  <span className="hidden sm:inline">Resume</span>
+                </Link>
+              </Button>
             </motion.div>
 
             {/* Direct Social Links */}
@@ -144,7 +145,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center gap-4 pt-2 text-xs text-muted-foreground"
+              className="flex items-center gap-2 md:gap-4 pt-2 text-xs text-muted-foreground"
             >
               <span className="font-mono uppercase tracking-wider text-[11px] text-muted-foreground/80">
                 Connect:
@@ -179,9 +180,9 @@ export function Hero() {
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
+              animate={{ opacity: 1, scale: 1.02 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-full max-w-140"
+              className="relative w-full max-w-150"
             >
               {/* Decorative background plate glow */}
               <div className="absolute -inset-3 rounded-3xl bg-linear-to-tr from-primary/30 via-primary/10 to-transparent blur-2xl -z-10" />
