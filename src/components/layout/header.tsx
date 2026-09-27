@@ -10,10 +10,18 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { developer, navItems } from "@/data/portfolio-data";
 import { Container } from "./container";
 
+import meImgDark from "@/images/me/me-dark.jpg";
+import meImgLight from "@/images/me/me-light.jpeg";
+import { useTheme } from "next-themes";
+import Image from "next/image";
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+
+  const { resolvedTheme } = useTheme();
+  const meImg = resolvedTheme === "light" ? meImgLight : meImgDark;
 
   const { scrollY } = useScroll();
 
@@ -58,8 +66,8 @@ export function Header() {
             href="#home"
             className="group flex items-center gap-2 font-bold tracking-tight text-foreground transition-opacity hover:opacity-90"
           >
-            <span className="flex size-8 items-center justify-center rounded-lg bg-primary/10 border border-primary/25 text-primary text-xs font-mono font-bold group-hover:bg-primary group-hover:text-primary-foreground transition-all">
-              TA
+            <span className="flex size-8 items-center justify-center rounded-lg bg-primary/10 border border-primary/25 group-hover:bg-border-primary -translate-y-0.5">
+              <Image src={meImg} alt="logo" />
             </span>
             <div className="flex flex-col">
               <span className="text-sm font-extrabold tracking-tight text-foreground leading-none">

@@ -32,7 +32,8 @@ export function Footer() {
             </Link>
 
             <p className="text-xs sm:text-sm text-muted-foreground max-w-md leading-relaxed">
-              Full-Stack Developer building modern, high-performance web applications with React, Next.js, Node.js, NestJS, and TypeScript.
+              Full-Stack Developer building modern, high-performance web
+              applications with React, Next.js, Node.js, NestJS, and TypeScript.
             </p>
 
             <div className="flex items-center gap-3 pt-1">
@@ -101,7 +102,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row justify-between items-center mt-12 pt-6 border-t border-border/60 text-xs text-muted-foreground gap-4">
           <p>
-            &copy; {currentYear} {developer.name}. All rights reserved. Designed & built with Next.js 15 & TypeScript.
+            &copy; {currentYear} {developer.name}.
           </p>
 
           <button
