@@ -57,9 +57,6 @@ export default function InitialLoader({
         <motion.div
           key="splash"
           className="fixed inset-0 z-[999] flex items-center justify-center bg-background text-foreground"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
         >
           {/* subtle radial vignette for depth */}
           <div
@@ -70,7 +67,13 @@ export default function InitialLoader({
             }}
           />
 
-          <div className="relative flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, y: "100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-300%" }}
+            transition={{ duration: 0.6, ease: [0.65, 0, 0.35, 1] }}
+            className="relative flex flex-col items-center"
+          >
             {/* Name — masked slide-up, one letter at a time */}
             <h1
               className="flex text-[clamp(3.5rem,8vw,6.5rem)] font-semibold leading-none tracking-[-0.04em]"
@@ -120,7 +123,7 @@ export default function InitialLoader({
             >
               {role}
             </motion.p>
-          </div>
+          </motion.div>
         </motion.div>
       ) : (
         children
