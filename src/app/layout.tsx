@@ -15,7 +15,7 @@ const fontSans = FontSans({
 });
 
 /* -------------------- constants -------------------- */
-const SITE_URL = "https://tauhidahmed.com"; // 👈 update to your real domain
+const SITE_URL = "https://tauhidahmed.vercel.app"; // 👈 update to your real domain
 const SITE_NAME = "Tauhid Ahmed";
 const GA_ID = "G-9Q3P6PP0LB";
 const isProd = process.env.NODE_ENV === "production";
