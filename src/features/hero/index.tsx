@@ -61,7 +61,7 @@ export function Hero() {
       <Container size="lg" className="w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Editorial Information */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+          <div className="lg:col-span-7 space-y-6 text-left mx-auto">
             {/* Status indicator badge */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -88,6 +88,53 @@ export function Hero() {
               </h1>
               <div className="text-2xl sm:text-3xl font-extrabold tracking-tight text-primary">
                 Full-Stack Developer
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1.02 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative w-full max-w-150 lg:hidden"
+            >
+              {/* Decorative background plate glow */}
+              <div className="absolute -inset-3 rounded-3xl bg-linear-to-tr from-primary/30 via-primary/10 to-transparent blur-2xl -z-10" />
+
+              <div className="relative overflow-hidden rounded-3xl border border-border/80 bg-card/90 p-2.5 sm:p-3.5">
+                {/* Photo frame */}
+                <div className="relative aspect-4/5 w-full overflow-hidden rounded-2xl bg-muted/40 shadow-inner">
+                  <Image
+                    src={meImg}
+                    alt={developer.name}
+                    fill
+                    priority
+                    sizes="(max-width: 640px) 380px, (max-width: 1024px) 440px, 510px"
+                    className="object-cover object-top filter contrast-[1.02] transition-transform duration-500 hover:scale-[1.02]"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/15 to-transparent" />
+
+                  {/* Overlaid caption */}
+                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 p-3.5 sm:p-4 rounded-xl border border-border/70 bg-card/90 backdrop-blur-md shadow-lg">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-xs sm:text-sm font-bold text-foreground">
+                          {developer.name}
+                        </p>
+                        <p className="text-[11px] sm:text-xs text-primary font-semibold">
+                          Full-Stack Developer
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-mono text-[10px] sm:text-[11px] text-muted-foreground uppercase">
+                          Stack
+                        </p>
+                        <p className="font-mono text-[11px] sm:text-xs font-bold text-foreground">
+                          Next.js • NestJS
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
 
@@ -203,7 +250,7 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1.02 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative w-full max-w-150"
+              className="relative w-full max-w-150 hidden lg:block"
             >
               {/* Decorative background plate glow */}
               <div className="absolute -inset-3 rounded-3xl bg-linear-to-tr from-primary/30 via-primary/10 to-transparent blur-2xl -z-10" />
