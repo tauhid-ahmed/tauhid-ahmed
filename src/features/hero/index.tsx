@@ -22,6 +22,7 @@ import {
   SiAnthropic,
 } from "react-icons/si";
 import { cn } from "@/lib/utils";
+import ResumeDownloadButton from "@/components/ResumeDownloadButton";
 
 const techPills = [
   { icon: SiReact, name: "React", color: "#61DAFB" },
@@ -194,18 +195,7 @@ export function Hero() {
                 </Link>
               </Button>
 
-              <Button asChild variant="outline">
-                <Link
-                  href={resumeDownloadPath}
-                  target="_blank"
-                  download="Tauhid_Ahmed_Full_Stack_Developer.pdf"
-                  className="group"
-                  title="Download Resume"
-                >
-                  <Download className="group-hover:scale-105 group-hover:text-primary" />
-                  <span className="hidden sm:inline">Resume</span>
-                </Link>
-              </Button>
+              <ResumeDownloadButton />
             </motion.div>
 
             {/* Direct Social Links */}
