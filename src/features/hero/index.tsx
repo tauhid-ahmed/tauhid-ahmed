@@ -187,7 +187,7 @@ export function Hero() {
               {/* Decorative background plate glow */}
               <div className="absolute -inset-3 rounded-3xl bg-linear-to-tr from-primary/30 via-primary/10 to-transparent blur-2xl -z-10" />
 
-              <div className="relative overflow-hidden rounded-3xl border border-border/80 bg-card/90 p-2.5 sm:p-3.5 shadow-2xl backdrop-blur-xs">
+              <div className="relative overflow-hidden rounded-3xl border border-border/80 bg-card/90 p-2.5 sm:p-3.5">
                 {/* Photo frame */}
                 <div className="relative aspect-4/5 w-full overflow-hidden rounded-2xl bg-muted/40 shadow-inner">
                   <Image
