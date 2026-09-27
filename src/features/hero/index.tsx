@@ -13,7 +13,24 @@ import meImgDark from "@/images/me/me-dark.jpg";
 import meImgLight from "@/images/me/me-light.jpeg";
 import { Button } from "@/components/ui/button";
 
-const techPills = ["React", "Next.js", "Node.js", "NestJS", "TypeScript", "AI"];
+import {
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiNestjs,
+  SiNodedotjs,
+  SiAnthropic,
+} from "react-icons/si";
+import { cn } from "@/lib/utils";
+
+const techPills = [
+  { icon: SiReact, name: "React", color: "#61DAFB" },
+  { icon: SiNextdotjs, name: "Next.js", color: "currentColor" },
+  { icon: SiNodedotjs, name: "Node.js", color: "#5FA04E" },
+  { icon: SiNestjs, name: "NestJS", color: "#E0234E" },
+  { icon: SiTypescript, name: "TypeScript", color: "#3178C6" },
+  { icon: SiAnthropic, name: "AI", color: "#D97757" },
+];
 
 export function Hero() {
   const { resolvedTheme } = useTheme();
@@ -83,14 +100,18 @@ export function Hero() {
             >
               {techPills.map((tech) => (
                 <span
-                  key={tech}
-                  className={`text-xs font-semibold px-3 py-1 rounded-md border transition-all ${
-                    tech === "NestJS"
+                  key={tech.name}
+                  className={`flex text-xs font-semibold p-2 md:px-3 md:py-1 rounded-md border transition-all flex items-center gap-1 ${
+                    tech.name === "NestJS"
                       ? "border-primary/40 bg-primary/10 text-primary font-bold shadow-xs"
                       : "border-border/80 bg-card text-foreground/90 hover:border-primary/30"
                   }`}
                 >
-                  {tech}
+                  <tech.icon
+                    className={cn("inline-block size-4 md:size-3 mr-1")}
+                    style={{ color: tech.color }}
+                  />
+                  <span className="hidden md:block">{tech.name}</span>
                 </span>
               ))}
             </motion.div>
