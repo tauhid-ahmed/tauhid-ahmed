@@ -59,14 +59,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <Analytics />
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${fontSans.variable} min-h-screen font-sans antialiased`}
       >
         <ThemeProvider>
           <LenisProvider>{children}</LenisProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
