@@ -38,7 +38,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative items-center justify-center overflow-hidden py-20 md:py-28"
+      className="relative items-center justify-center overflow-hidden py-12 md:py-20 lg:py-28"
     >
       {/* Full Screen Box Grid Pattern with Ambient Lighting */}
       <div
