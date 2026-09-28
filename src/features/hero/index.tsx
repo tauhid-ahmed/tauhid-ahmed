@@ -47,10 +47,10 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       >
         {/* Primary Ambient Lighting Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-130 bg-primary/15 rounded-full blur-[160px] opacity-80 dark:opacity-60" />
+        {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-130 bg-primary/15 rounded-full blur-[160px] opacity-80 dark:opacity-60" /> */}
 
         {/* Secondary Color Glow */}
-        <div className="absolute top-1/3 -right-20 w-125 h-100 bg-primary/10 rounded-full blur-[140px] opacity-60 dark:opacity-40" />
+        {/* <div className="absolute top-1/3 -right-20 w-125 h-100 bg-primary/10 rounded-full blur-[140px] opacity-60 dark:opacity-40" /> */}
 
         {/* Full-bleed Box Grid Layer */}
         {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[44px_44px] mask-[radial-gradient(ellipse_120%_90%_at_50%_40%,#000_65%,transparent_100%)] opacity-70 dark:opacity-45" /> */}
