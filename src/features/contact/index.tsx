@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import Link from "next/link";
-import SectionTitle from "@/components/section-title";
+import { SectionHeader } from "@/components/section-header";
 
 export function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -47,19 +47,13 @@ export function Contact() {
   return (
     <section id="contact" className="py-10 md:py-16 relative">
       <Container size="lg">
-        {/* Section Header */}
-        <div className="space-y-2 mb-10 text-left">
-          <div className="section-eyebrow">
-            <MessageSquare className="size-3.5" />
-            <span>Initiate Contact</span>
-          </div>
-          <SectionTitle>Get In Touch</SectionTitle>
-          <p className="text-base text-muted-foreground max-w-2xl leading-relaxed">
-            Whether exploring full-stack engineering opportunities, discussing
-            high-scale web applications, or inquiring about technical
-            collaboration.
-          </p>
-        </div>
+        <SectionHeader
+          icon={MessageSquare}
+          eyebrow="Initiate Contact"
+          title="Get In Touch"
+          description="Whether exploring full-stack engineering opportunities, discussing high-scale web applications, or inquiring about technical collaboration."
+          className="mb-10"
+        />
 
         <div className="grid lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Direct Channels & Information */}

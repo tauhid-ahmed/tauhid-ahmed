@@ -10,26 +10,23 @@ import {
   GraduationCap,
   MapPin,
 } from "lucide-react";
-import SectionTitle from "@/components/section-title";
+import {
+  SectionHeader,
+  SectionEyebrow,
+  SectionTitle,
+} from "@/components/section-header";
 
 export function Experience() {
   return (
     <section id="experience" className="py-10 md:py-16 relative">
       <Container size="lg">
-        {/* Section Header */}
-        <div className="space-y-2 mb-10 text-left">
-          <div className="section-eyebrow">
-            <Briefcase className="size-3.5" />
-            <span>Career History & Visual CV</span>
-          </div>
-          <SectionTitle>Professional Experience</SectionTitle>
-
-          <p className="text-base text-muted-foreground max-w-2xl leading-relaxed">
-            A track record of engineering full-stack production systems, leading
-            cross-functional teams, and delivering reliable software for
-            international businesses.
-          </p>
-        </div>
+        <SectionHeader
+          icon={Briefcase}
+          eyebrow="Career History & Visual CV"
+          title="Professional Experience"
+          description="A track record of engineering full-stack production systems, leading cross-functional teams, and delivering reliable software for international businesses."
+          className="mb-10"
+        />
 
         {/* Experience Timeline Grid */}
         <div className="space-y-8 relative">
@@ -127,13 +124,10 @@ export function Experience() {
 
         {/* Education & Continuous Learning */}
         <div className="mt-14 pt-12 border-t border-border/70">
-          <div className="section-eyebrow">
-            <GraduationCap className="size-5 text-primary" />
-            <span>Learning & Growth</span>
-          </div>
-          <div className="flex items-center gap-2.5 mb-6 text-foreground font-bold">
-            <SectionTitle>Education & Engineering Development</SectionTitle>
-          </div>
+          <SectionEyebrow icon={GraduationCap}>Learning & Growth</SectionEyebrow>
+          <SectionTitle as="h3" className="mb-6">
+            Education & Engineering Development
+          </SectionTitle>
 
           <div className="grid md:grid-cols-2 gap-6">
             {educationHistory.map((edu, index) => (

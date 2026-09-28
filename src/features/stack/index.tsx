@@ -56,7 +56,11 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import SectionTitle from "@/components/section-title";
+import {
+  SectionEyebrow,
+  SectionTitle,
+  SectionDescription,
+} from "@/components/section-header";
 
 type IconComponent = IconType | LucideIcon;
 
@@ -220,16 +224,13 @@ export function Stack() {
       <Container size="lg">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 text-left">
-          <div className="space-y-3 max-w-2xl">
-            <div className="section-eyebrow">
-              <Cpu className="size-3.5" />
-              <span>Technical Architecture</span>
-            </div>
+          <div className="space-y-2 max-w-2xl">
+            <SectionEyebrow icon={Cpu}>Technical Architecture</SectionEyebrow>
             <SectionTitle>Technologies & Engineering Stack</SectionTitle>
-            <p className="text-base text-muted-foreground leading-relaxed">
+            <SectionDescription>
               A production-tested blueprint of backend runtimes, interface
               architectures, resilient data pipelines, and agentic workflows.
-            </p>
+            </SectionDescription>
           </div>
 
           {/* Interactive Category Filter Pills */}
