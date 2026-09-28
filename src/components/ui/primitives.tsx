@@ -65,7 +65,7 @@ export function TechBadge({ children, className }: TechBadgeProps) {
   return (
     <span
       className={cn(
-        "text-[10px] font-mono px-2 py-0.5 rounded-md border border-border/70 bg-background/50 text-muted-foreground font-medium",
+        "text-[10px] font-mono px-2 py-0.5 rounded-md border border-primary/60 bg-background/50 text-muted-foreground font-medium",
         className,
       )}
     >

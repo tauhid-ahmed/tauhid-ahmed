@@ -57,7 +57,7 @@ export function Contact() {
       <div className="grid lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Direct Channels & Information */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="p-6 py-9 rounded-2xl border border-border/80 bg-card space-y-6">
+          <div className="p-6 py-9 rounded-2xl border border-border/80 bg-card space-y-6 hover:border-primary">
             <h3 className="text-lg font-bold text-foreground tracking-tight">
               Direct Contact
             </h3>
@@ -171,7 +171,7 @@ export function Contact() {
 
         {/* Right Column: Interactive Message Form */}
         <div className="lg:col-span-7">
-          <div className="p-6 sm:p-8 rounded-2xl border border-border/80 bg-card space-y-6">
+          <div className="p-6 sm:p-8 rounded-2xl border border-border/80 bg-card space-y-6 hover:border-primary">
             <h3 className="text-lg font-bold text-foreground tracking-tight">
               Send a Message
             </h3>

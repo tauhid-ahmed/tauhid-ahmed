@@ -31,7 +31,7 @@ export function Projects() {
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-semibold text-primary px-2.5 py-0.5 rounded-md bg-primary/10 border border-primary/20">
+                <span className="text-xs font-mono font-semibold text-primary px-2.5 py-0.5 rounded-md bg-primary/10 border border-primary/20 hover:border-primary">
                   {domain.scope}
                 </span>
                 <span className="font-mono text-xs text-muted-foreground">
@@ -64,4 +64,3 @@ export function Projects() {
     </Section>
   );
 }
-

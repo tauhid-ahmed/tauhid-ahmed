@@ -36,7 +36,7 @@ export function Experience() {
               key={exp.company}
               index={index}
               as="article"
-              className={`relative rounded-2xl border p-6 sm:p-8 transition-all ${
+              className={`relative rounded-2xl border hover:border-primary p-6 sm:p-8 transition-all ${
                 isCurrent
                   ? "border-primary/50 bg-card shadow-lg ring-1 ring-primary/20"
                   : "border-border/80 bg-card/60 hover:bg-card hover:border-border"
@@ -55,12 +55,12 @@ export function Experience() {
                     )}
                   </div>
 
-                  <div className="text-sm font-medium text-primary">
+                  <div className="text-md font-medium text-primary">
                     {exp.role}
                   </div>
 
                   {exp.leadHighlight && (
-                    <p className="text-xs font-mono font-medium text-muted-foreground">
+                    <p className="text-sm font-mono font-medium text-muted-foreground">
                       Focus: {exp.leadHighlight}
                     </p>
                   )}
@@ -80,16 +80,16 @@ export function Experience() {
 
               {/* Key Responsibilities */}
               <div className="space-y-3 mb-6">
-                <MonoLabel className="text-xs">
+                <MonoLabel className="text-base">
                   Key Responsibilities & Deliverables:
                 </MonoLabel>
-                <ul className="grid md:grid-cols-2 gap-3 text-sm text-foreground/90">
+                <ul className="grid md:grid-cols-2 gap-3 text-md text-foreground/90 mt-4">
                   {exp.responsibilities.map((resp, i) => (
                     <li
                       key={i}
                       className="flex items-start gap-2.5 leading-relaxed"
                     >
-                      <CheckCircle2 className="size-4 text-primary shrink-0 mt-0.5" />
+                      <CheckCircle2 className="size-4 text-primary shrink-0 mt-2" />
                       <span>{resp}</span>
                     </li>
                   ))}
@@ -102,7 +102,7 @@ export function Experience() {
                   Core Technologies:
                 </MonoLabel>
                 {exp.technologies.map((tech) => (
-                  <TechBadge key={tech} className="text-xs text-foreground/80">
+                  <TechBadge key={tech} className="text-xs text-primary/90">
                     {tech}
                   </TechBadge>
                 ))}
@@ -123,18 +123,18 @@ export function Experience() {
           {educationHistory.map((edu, index) => (
             <div
               key={index}
-              className="p-5 rounded-xl border border-border/70 bg-card/40 space-y-2 text-left"
+              className="p-5 rounded-xl border border-border/70 bg-card/40 space-y-2 text-left hover:border-primary"
             >
-              <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
+              <div className="flex items-center justify-between text-sm font-mono text-muted-foreground">
                 <span>{edu.period}</span>
               </div>
-              <h4 className="text-sm font-bold text-foreground">
+              <h4 className="text-base font-semibold text-foreground">
                 {edu.degree}
               </h4>
-              <p className="text-xs font-semibold text-primary">
+              <p className="text-md font-medium text-primary">
                 {edu.institution}
               </p>
-              <p className="text-xs text-muted-foreground leading-relaxed pt-1">
+              <p className="text-md text-muted-foreground leading-relaxed pt-1">
                 {edu.description}
               </p>
             </div>
