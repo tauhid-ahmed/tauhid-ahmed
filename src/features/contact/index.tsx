@@ -46,265 +46,265 @@ export function Contact() {
 
   return (
     <Section id="contact">
-        <SectionHeader
-          icon={MessageSquare}
-          eyebrow="Let's Connect"
-          title="Get In Touch"
-          description="Whether exploring full-stack engineering roles, discussing system architectures, or planning a new project — feel free to reach out anytime."
-          className="mb-10"
-        />
+      <SectionHeader
+        icon={MessageSquare}
+        eyebrow="Let's Connect"
+        title="Get In Touch"
+        description="Whether exploring full-stack engineering roles, discussing system architectures, or planning a new project — feel free to reach out anytime."
+        className="mb-10"
+      />
 
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Direct Channels & Information */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 rounded-2xl border border-border/80 bg-card space-y-6">
-              <h3 className="text-lg font-bold text-foreground tracking-tight">
-                Direct Contact
-              </h3>
+      <div className="grid lg:grid-cols-12 gap-8 items-start">
+        {/* Left Column: Direct Channels & Information */}
+        <div className="lg:col-span-5 space-y-6">
+          <div className="p-6 py-9 rounded-2xl border border-border/80 bg-card space-y-6">
+            <h3 className="text-lg font-bold text-foreground tracking-tight">
+              Direct Contact
+            </h3>
 
-              {/* Email Card with Copy button */}
-              <div className="p-4 rounded-xl border border-border/70 bg-background/60 flex items-center justify-between gap-3">
-                <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="size-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                    <Mail className="size-4" />
-                  </div>
-                  <div className="overflow-hidden">
-                    <p className="text-[10px] font-mono uppercase text-muted-foreground">
-                      Email
-                    </p>
-                    <a
-                      href={`mailto:${developer.email}`}
-                      className="text-xs sm:text-sm font-semibold text-foreground hover:text-primary transition-colors truncate block"
-                    >
-                      {developer.email}
-                    </a>
-                  </div>
-                </div>
-
-                <button
-                  onClick={handleCopyEmail}
-                  className="px-2.5 py-1.5 rounded-md border border-border/70 text-xs font-mono font-medium hover:border-primary/40 hover:text-primary transition-all shrink-0 flex items-center gap-1"
-                  title="Copy email to clipboard"
-                >
-                  {copiedEmail ? (
-                    <>
-                      <CheckCircle className="size-3 text-emerald-500" />
-                      <span className="text-emerald-500">Copied</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="size-3" />
-                      <span>Copy</span>
-                    </>
-                  )}
-                </button>
-              </div>
-
-              {/* Phone / WhatsApp */}
-              <div className="p-4 rounded-xl border border-border/70 bg-background/60 flex items-center gap-3">
+            {/* Email Card with Copy button */}
+            <div className="p-4 rounded-xl border border-border/70 bg-background/60 flex items-center justify-between gap-3">
+              <div className="flex items-center gap-3 overflow-hidden">
                 <div className="size-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                  <Phone className="size-4" />
+                  <Mail className="size-4" />
                 </div>
-                <div>
+                <div className="overflow-hidden">
                   <p className="text-[10px] font-mono uppercase text-muted-foreground">
-                    Phone / WhatsApp
+                    Email
                   </p>
                   <a
-                    href={`tel:${developer.phone}`}
-                    className="text-xs sm:text-sm font-semibold text-foreground hover:text-primary transition-colors"
+                    href={`mailto:${developer.email}`}
+                    className="text-xs sm:text-sm font-semibold text-foreground hover:text-primary transition-colors truncate block"
                   >
-                    {developer.phone}
+                    {developer.email}
                   </a>
                 </div>
               </div>
 
-              {/* Location */}
-              <div className="p-4 rounded-xl border border-border/70 bg-background/60 flex items-center gap-3">
-                <div className="size-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
-                  <MapPin className="size-4" />
-                </div>
-                <div>
-                  <p className="text-[10px] font-mono uppercase text-muted-foreground">
-                    Location & Timezone
-                  </p>
-                  <p className="text-xs sm:text-sm font-semibold text-foreground">
-                    {developer.location} (UTC+6)
-                  </p>
-                </div>
+              <button
+                onClick={handleCopyEmail}
+                className="px-2.5 py-1.5 rounded-md border border-border/70 text-xs font-mono font-medium hover:border-primary/40 hover:text-primary transition-all shrink-0 flex items-center gap-1"
+                title="Copy email to clipboard"
+              >
+                {copiedEmail ? (
+                  <>
+                    <CheckCircle className="size-3 text-emerald-500" />
+                    <span className="text-emerald-500">Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="size-3" />
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Phone / WhatsApp */}
+            <div className="p-4 rounded-xl border border-border/70 bg-background/60 flex items-center gap-3">
+              <div className="size-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
+                <Phone className="size-4" />
               </div>
-
-              {/* Professional Profiles */}
-              <div className="pt-4 border-t border-border/60 space-y-3">
-                <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
-                  Professional Networks
+              <div>
+                <p className="text-[10px] font-mono uppercase text-muted-foreground">
+                  Phone / WhatsApp
                 </p>
-                <div className="grid grid-cols-2 gap-3">
-                  <Link
-                    href={developer.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-xl border border-border/70 bg-background/60 hover:border-primary/40 hover:bg-card transition-all flex items-center justify-between group"
-                  >
-                    <span className="flex items-center gap-2 text-xs font-semibold text-foreground">
-                      <FaLinkedinIn className="size-3.5 text-primary" />
-                      LinkedIn
-                    </span>
-                    <ArrowUpRight className="size-3 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </Link>
+                <a
+                  href={`tel:${developer.phone}`}
+                  className="text-xs sm:text-sm font-semibold text-foreground hover:text-primary transition-colors"
+                >
+                  {developer.phone}
+                </a>
+              </div>
+            </div>
 
-                  <Link
-                    href={developer.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 rounded-xl border border-border/70 bg-background/60 hover:border-primary/40 hover:bg-card transition-all flex items-center justify-between group"
-                  >
-                    <span className="flex items-center gap-2 text-xs font-semibold text-foreground">
-                      <FaGithub className="size-3.5 text-primary" />
-                      GitHub
-                    </span>
-                    <ArrowUpRight className="size-3 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </Link>
-                </div>
+            {/* Location */}
+            <div className="p-4 rounded-xl border border-border/70 bg-background/60 flex items-center gap-3">
+              <div className="size-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary shrink-0">
+                <MapPin className="size-4" />
+              </div>
+              <div>
+                <p className="text-[10px] font-mono uppercase text-muted-foreground">
+                  Location & Timezone
+                </p>
+                <p className="text-xs sm:text-sm font-semibold text-foreground">
+                  {developer.location} (UTC+6)
+                </p>
+              </div>
+            </div>
+
+            {/* Professional Profiles */}
+            <div className="pt-4 border-t border-border/60 space-y-3">
+              <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+                Professional Networks
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                <Link
+                  href={developer.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-xl border border-border/70 bg-background/60 hover:border-primary/40 hover:bg-card transition-all flex items-center justify-between group"
+                >
+                  <span className="flex items-center gap-2 text-xs font-semibold text-foreground">
+                    <FaLinkedinIn className="size-3.5 text-primary" />
+                    LinkedIn
+                  </span>
+                  <ArrowUpRight className="size-3 text-muted-foreground group-hover:text-primary transition-colors" />
+                </Link>
+
+                <Link
+                  href={developer.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 rounded-xl border border-border/70 bg-background/60 hover:border-primary/40 hover:bg-card transition-all flex items-center justify-between group"
+                >
+                  <span className="flex items-center gap-2 text-xs font-semibold text-foreground">
+                    <FaGithub className="size-3.5 text-primary" />
+                    GitHub
+                  </span>
+                  <ArrowUpRight className="size-3 text-muted-foreground group-hover:text-primary transition-colors" />
+                </Link>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Right Column: Interactive Message Form */}
-          <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-2xl border border-border/80 bg-card space-y-6">
-              <h3 className="text-lg font-bold text-foreground tracking-tight">
-                Send a Message
-              </h3>
+        {/* Right Column: Interactive Message Form */}
+        <div className="lg:col-span-7">
+          <div className="p-6 sm:p-8 rounded-2xl border border-border/80 bg-card space-y-6">
+            <h3 className="text-lg font-bold text-foreground tracking-tight">
+              Send a Message
+            </h3>
 
-              {submitted ? (
-                <div className="p-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-center space-y-3">
-                  <CheckCircle className="size-10 text-emerald-500 mx-auto" />
-                  <h4 className="text-base font-bold text-foreground">
-                    Message Sent Successfully
-                  </h4>
-                  <p className="text-xs text-muted-foreground max-w-sm mx-auto">
-                    Thank you for reaching out. I will respond to your inquiry
-                    directly at {formData.email || "your email"} as soon as
-                    possible.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormData({
-                        name: "",
-                        email: "",
-                        subject: "",
-                        message: "",
-                      });
-                    }}
-                    className="mt-4 px-4 py-2 rounded-lg border border-border/70 text-xs font-semibold text-foreground hover:bg-card transition-all"
-                  >
-                    Send Another Message
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5 text-left">
-                      <label
-                        htmlFor="name"
-                        className="text-xs font-semibold text-foreground/90"
-                      >
-                        Your Name *
-                      </label>
-                      <input
-                        id="name"
-                        required
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) =>
-                          setFormData({ ...formData, name: e.target.value })
-                        }
-                        placeholder="e.g. John Doe"
-                        className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-border/80 bg-background text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
-                      />
-                    </div>
-
-                    <div className="space-y-1.5 text-left">
-                      <label
-                        htmlFor="email"
-                        className="text-xs font-semibold text-foreground/90"
-                      >
-                        Your Email *
-                      </label>
-                      <input
-                        id="email"
-                        required
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
-                        placeholder="your.email@example.com"
-                        className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-border/80 bg-background text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
-                      />
-                    </div>
-                  </div>
-
+            {submitted ? (
+              <div className="p-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 text-center space-y-3">
+                <CheckCircle className="size-10 text-emerald-500 mx-auto" />
+                <h4 className="text-base font-bold text-foreground">
+                  Message Sent Successfully
+                </h4>
+                <p className="text-xs text-muted-foreground max-w-sm mx-auto">
+                  Thank you for reaching out. I will respond to your inquiry
+                  directly at {formData.email || "your email"} as soon as
+                  possible.
+                </p>
+                <button
+                  onClick={() => {
+                    setSubmitted(false);
+                    setFormData({
+                      name: "",
+                      email: "",
+                      subject: "",
+                      message: "",
+                    });
+                  }}
+                  className="mt-4 px-4 py-2 rounded-lg border border-border/70 text-xs font-semibold text-foreground hover:bg-card transition-all"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5 text-left">
                     <label
-                      htmlFor="subject"
+                      htmlFor="name"
                       className="text-xs font-semibold text-foreground/90"
                     >
-                      Subject *
+                      Your Name *
                     </label>
                     <input
-                      id="subject"
+                      id="name"
                       required
                       type="text"
-                      value={formData.subject}
+                      value={formData.name}
                       onChange={(e) =>
-                        setFormData({ ...formData, subject: e.target.value })
+                        setFormData({ ...formData, name: e.target.value })
                       }
-                      placeholder="Project discussion / Full-stack engineering role"
+                      placeholder="e.g. John Doe"
                       className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-border/80 bg-background text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
                     />
                   </div>
 
                   <div className="space-y-1.5 text-left">
                     <label
-                      htmlFor="message"
+                      htmlFor="email"
                       className="text-xs font-semibold text-foreground/90"
                     >
-                      Message *
+                      Your Email *
                     </label>
-                    <textarea
-                      id="message"
+                    <input
+                      id="email"
                       required
-                      rows={5}
-                      value={formData.message}
+                      type="email"
+                      value={formData.email}
                       onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
+                        setFormData({ ...formData, email: e.target.value })
                       }
-                      placeholder="Share a brief overview of your project, scope, or timeline..."
-                      className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-border/80 bg-background text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-y"
+                      placeholder="your.email@example.com"
+                      className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-border/80 bg-background text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
                     />
                   </div>
+                </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition-all shadow-md disabled:opacity-50"
+                <div className="space-y-1.5 text-left">
+                  <label
+                    htmlFor="subject"
+                    className="text-xs font-semibold text-foreground/90"
                   >
-                    {isSubmitting ? (
-                      <span>Sending...</span>
-                    ) : (
-                      <>
-                        <span>Send Message</span>
-                        <Send className="size-4" />
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
-            </div>
+                    Subject *
+                  </label>
+                  <input
+                    id="subject"
+                    required
+                    type="text"
+                    value={formData.subject}
+                    onChange={(e) =>
+                      setFormData({ ...formData, subject: e.target.value })
+                    }
+                    placeholder="Project discussion / Full-stack engineering role"
+                    className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-border/80 bg-background text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
+                  />
+                </div>
+
+                <div className="space-y-1.5 text-left">
+                  <label
+                    htmlFor="message"
+                    className="text-xs font-semibold text-foreground/90"
+                  >
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    required
+                    rows={5}
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    placeholder="Share a brief overview of your project, scope, or timeline..."
+                    className="w-full px-3.5 py-3 text-xs sm:text-sm rounded-lg border border-border/80 bg-background text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-y"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition-all shadow-md disabled:opacity-50"
+                >
+                  {isSubmitting ? (
+                    <span>Sending...</span>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send className="size-4" />
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
           </div>
         </div>
+      </div>
     </Section>
   );
 }

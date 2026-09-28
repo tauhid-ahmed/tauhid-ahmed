@@ -45,7 +45,7 @@ export function Experience() {
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-6 pb-6 border-b border-border/60">
                 <div className="space-y-1.5">
                   <div className="flex flex-wrap items-center gap-2.5">
-                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+                    <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-foreground">
                       {exp.company}
                     </h3>
                     {isCurrent && (
@@ -102,10 +102,7 @@ export function Experience() {
                   Core Technologies:
                 </MonoLabel>
                 {exp.technologies.map((tech) => (
-                  <TechBadge
-                    key={tech}
-                    className="text-xs text-foreground/80"
-                  >
+                  <TechBadge key={tech} className="text-xs text-foreground/80">
                     {tech}
                   </TechBadge>
                 ))}
@@ -147,5 +144,3 @@ export function Experience() {
     </Section>
   );
 }
-
-

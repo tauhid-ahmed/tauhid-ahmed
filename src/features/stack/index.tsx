@@ -225,201 +225,206 @@ export function Stack() {
           <SectionEyebrow icon={Wrench}>Tools & Technologies</SectionEyebrow>
           <SectionTitle>The Stack I Work With Daily</SectionTitle>
           <SectionDescription>
-            A curated overview of backend runtimes, frontend architecture, databases, and development tooling I rely on to build fast, dependable products.
+            A curated overview of backend runtimes, frontend architecture,
+            databases, and development tooling I rely on to build fast,
+            dependable products.
           </SectionDescription>
         </div>
       </div>
 
       {/* Bento Grid Technical Matrix */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5">
-          {sortedMatrix.map((item, index) => {
-            const visual = categoryVisuals[item.category] || {
-              icon: Code,
-              iconWrap: "bg-muted text-foreground border-border/60",
-              accentGlow: "from-muted/20 to-transparent",
-              bentoClass: "lg:col-span-4",
-              filterGroup: "all",
-            };
+        {sortedMatrix.map((item, index) => {
+          const visual = categoryVisuals[item.category] || {
+            icon: Code,
+            iconWrap: "bg-muted text-foreground border-border/60",
+            accentGlow: "from-muted/20 to-transparent",
+            bentoClass: "lg:col-span-4",
+            filterGroup: "all",
+          };
 
-            const Icon = visual.icon;
-            const isBackend = item.category === "Backend";
-            const isAI = item.category === "AI & Agentic Engineering";
-            const isLanguages = item.category === "Languages";
+          const Icon = visual.icon;
+          const isBackend = item.category === "Backend";
+          const isAI = item.category === "AI & Agentic Engineering";
+          const isLanguages = item.category === "Languages";
 
-            // Check if card matches active filter
-            const isMatch =
-              activeFilter === "all" || visual.filterGroup === activeFilter;
+          // Check if card matches active filter
+          const isMatch =
+            activeFilter === "all" || visual.filterGroup === activeFilter;
 
-            return (
-              <motion.div
-                key={item.category}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ amount: 0.15, once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.04,
-                  ease: "easeOut",
-                }}
+          return (
+            <motion.div
+              key={item.category}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ amount: 0.15, once: true }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.04,
+                ease: "easeOut",
+              }}
+              className={cn(
+                visual.bentoClass,
+                "relative rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
+                isMatch ? "opacity-100" : "opacity-35 hover:opacity-90",
+                isBackend
+                  ? "border-primary/50 bg-card/90 shadow-lg shadow-primary/5 ring-1 ring-primary/20"
+                  : "border-border/80 bg-card/75 hover:bg-card hover:border-primary/35 hover:shadow-md transition-all",
+              )}
+            >
+              {/* Ambient Top Glow Plate */}
+              <div
                 className={cn(
-                  visual.bentoClass,
-                  "relative rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
-                  isMatch ? "opacity-100" : "opacity-35 hover:opacity-90",
-                  isBackend
-                    ? "border-primary/50 bg-card/90 shadow-lg shadow-primary/5 ring-1 ring-primary/20"
-                    : "border-border/80 bg-card/75 hover:bg-card hover:border-primary/35 hover:shadow-md transition-all",
+                  "absolute -top-12 -right-12 size-36 rounded-full bg-gradient-to-bl blur-3xl opacity-20 pointer-events-none group-hover:opacity-40 transition-opacity duration-500",
+                  visual.accentGlow,
                 )}
-              >
-                {/* Ambient Top Glow Plate */}
-                <div
-                  className={cn(
-                    "absolute -top-12 -right-12 size-36 rounded-full bg-gradient-to-bl blur-3xl opacity-20 pointer-events-none group-hover:opacity-40 transition-opacity duration-500",
-                    visual.accentGlow,
-                  )}
-                />
+              />
 
-                <div>
-                  {/* Category Header */}
-                  <div className="flex items-center justify-between gap-3 mb-4">
-                    <div className="flex items-center gap-3">
-                      <div
-                        className={cn(
-                          "size-9 rounded-xl flex items-center justify-center border shadow-2xs transition-transform duration-300 group-hover:scale-105",
-                          visual.iconWrap,
-                        )}
-                      >
-                        <Icon className="size-4.5" />
-                      </div>
-                      <div>
-                        <h3 className="text-base font-bold text-foreground tracking-tight flex items-center gap-2">
-                          {item.category}
-                        </h3>
-                      </div>
+              <div>
+                {/* Category Header */}
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={cn(
+                        "size-9 rounded-xl flex items-center justify-center border shadow-2xs transition-transform duration-300 group-hover:scale-105",
+                        visual.iconWrap,
+                      )}
+                    >
+                      <Icon className="size-4.5" />
                     </div>
-
-                    {/* Prominent Core Focus Badge */}
-                    {isBackend && (
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30 shadow-2xs">
-                        <span className="size-1.5 rounded-full bg-primary" />
-                        Core Focus
-                      </span>
-                    )}
-
-                    {isAI && (
-                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30">
-                        AI Workflows
-                      </span>
-                    )}
+                    <div>
+                      <h3 className="text-base font-bold text-foreground tracking-tight flex items-center gap-2">
+                        {item.category}
+                      </h3>
+                    </div>
                   </div>
 
-                  <p className="text-xs text-muted-foreground leading-relaxed mb-5">
-                    {item.description}
-                  </p>
-
-                  {/* Backend Highlight Banner */}
+                  {/* Prominent Core Focus Badge */}
                   {isBackend && (
-                    <div className="mb-4 p-3 rounded-xl bg-primary/5 border border-primary/20 flex items-center gap-3">
-                      <div className="size-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center shrink-0">
-                        <SiNestjs className="size-4 text-[#E0234E]" />
-                      </div>
-                      <div className="text-xs">
-                        <span className="font-bold text-foreground">
-                          NestJS Architecture
-                        </span>
-                        <p className="text-[11px] text-muted-foreground">
-                          Modular services, dependency injection, and clean REST/RPC APIs
-                        </p>
-                      </div>
-                    </div>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30 shadow-2xs">
+                      <span className="size-1.5 rounded-full bg-primary" />
+                      Core Focus
+                    </span>
                   )}
 
-                  {/* Languages Highlight Detail */}
-                  {isLanguages && (
-                    <div className="mb-4 p-3 rounded-xl bg-primary/5 border border-primary/20 text-xs">
-                      <span className="font-semibold text-foreground flex items-center gap-1.5 mb-1">
-                        <CheckCircle2 className="size-3.5 text-primary" />
-                        Strict Type Safety
+                  {isAI && (
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30">
+                      AI Workflows
+                    </span>
+                  )}
+                </div>
+
+                <p className="text-xs text-muted-foreground leading-relaxed mb-5">
+                  {item.description}
+                </p>
+
+                {/* Backend Highlight Banner */}
+                {isBackend && (
+                  <div className="mb-4 p-3 rounded-xl bg-primary/5 border border-primary/20 flex items-center gap-3">
+                    <div className="size-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center shrink-0">
+                      <SiNestjs className="size-4 text-[#E0234E]" />
+                    </div>
+                    <div className="text-xs">
+                      <span className="font-bold text-foreground">
+                        NestJS Architecture
                       </span>
-                      <p className="text-[11px] text-muted-foreground leading-relaxed">
-                        End-to-end typed contracts spanning frontend and backend codebases.
+                      <p className="text-[11px] text-muted-foreground">
+                        Modular services, dependency injection, and clean
+                        REST/RPC APIs
                       </p>
                     </div>
-                  )}
-
-                  {/* Skills Pills Grid */}
-                  <div className="flex flex-wrap gap-2">
-                    {item.skills.map((skill) => {
-                      const meta = skillIconMap[skill.name];
-                      const SkillIcon = meta?.icon;
-                      const isNest = skill.name === "NestJS";
-
-                      return (
-                        <div
-                          key={skill.name}
-                          className={cn(
-                            "group/pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 cursor-default select-none border",
-                            isNest
-                              ? "bg-primary text-primary-foreground font-bold border-primary/50 shadow-md shadow-primary/25 scale-[1.04]"
-                              : skill.isPillar
-                                ? "bg-card text-foreground font-semibold border-primary/35 shadow-2xs hover:border-primary hover:bg-card/90 hover:scale-[1.02]"
-                                : "bg-background/80 text-muted-foreground hover:text-foreground border-border/70 hover:border-border hover:bg-card hover:scale-[1.02]",
-                          )}
-                        >
-                          {SkillIcon && (
-                            <SkillIcon
-                              className={cn(
-                                "size-3.5 shrink-0 transition-transform duration-200 group-hover/pill:scale-115",
-                                isNest
-                                  ? "text-primary-foreground"
-                                  : meta?.color || "text-foreground",
-                              )}
-                            />
-                          )}
-                          <span>{skill.name}</span>
-                        </div>
-                      );
-                    })}
                   </div>
-                </div>
+                )}
 
-                {/* Card Footer Metric Bar */}
-                <div className="mt-6 pt-3.5 border-t border-border/50 flex items-center justify-between text-[11px] font-mono text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
-                    <span className="size-1.5 rounded-full bg-primary/70" />
-                    {item.skills.length} Technologies
-                  </span>
-                  <span className="text-[10px] uppercase font-semibold text-muted-foreground/75 tracking-wider">
-                    {isBackend
-                      ? "Enterprise Ready"
-                      : isAI
-                        ? "Modern Tooling"
-                        : "Production Tested"}
-                  </span>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
+                {/* Languages Highlight Detail */}
+                {isLanguages && (
+                  <div className="mb-4 p-3 rounded-xl bg-primary/5 border border-primary/20 text-xs">
+                    <span className="font-semibold text-foreground flex items-center gap-1.5 mb-1">
+                      <CheckCircle2 className="size-3.5 text-primary" />
+                      Strict Type Safety
+                    </span>
+                    <p className="text-[11px] text-muted-foreground leading-relaxed">
+                      End-to-end typed contracts spanning frontend and backend
+                      codebases.
+                    </p>
+                  </div>
+                )}
 
-        {/* Engineering Philosophy Callout */}
-        <div className="mt-8 p-6 sm:p-7 rounded-2xl border border-border/80 bg-card/80 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-5">
-          <div className="flex items-center gap-4">
-            <div className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary">
-              <Code className="size-5" />
-            </div>
-            <div>
-              <h4 className="text-sm sm:text-base font-bold text-foreground">
-                Pragmatic Engineering & Tooling Mindset
-              </h4>
-              <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
-                I prioritize clean modular architecture, strict TypeScript typing, and real-world performance over hype. I adopt modern AI developer tools (Claude Code, Cursor) to automate tedious tasks while keeping code reviews, system design, and security strictly engineer-driven.
-              </p>
-            </div>
+                {/* Skills Pills Grid */}
+                <div className="flex flex-wrap gap-2">
+                  {item.skills.map((skill) => {
+                    const meta = skillIconMap[skill.name];
+                    const SkillIcon = meta?.icon;
+                    const isNest = skill.name === "NestJS";
+
+                    return (
+                      <div
+                        key={skill.name}
+                        className={cn(
+                          "group/pill inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 cursor-default select-none border",
+                          isNest
+                            ? "bg-primary text-primary-foreground font-bold border-primary/50 shadow-md shadow-primary/25 scale-[1.04]"
+                            : skill.isPillar
+                              ? "bg-card text-foreground font-semibold border-primary/35 shadow-2xs hover:border-primary hover:bg-card/90 hover:scale-[1.02]"
+                              : "bg-background/80 text-muted-foreground hover:text-foreground border-border/70 hover:border-border hover:bg-card hover:scale-[1.02]",
+                        )}
+                      >
+                        {SkillIcon && (
+                          <SkillIcon
+                            className={cn(
+                              "size-3.5 shrink-0 transition-transform duration-200 group-hover/pill:scale-115",
+                              isNest
+                                ? "text-primary-foreground"
+                                : meta?.color || "text-foreground",
+                            )}
+                          />
+                        )}
+                        <span>{skill.name}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Card Footer Metric Bar */}
+              <div className="mt-6 pt-3.5 border-t border-border/50 flex items-center justify-between text-[11px] font-mono text-muted-foreground">
+                <span className="flex items-center gap-1.5">
+                  <span className="size-1.5 rounded-full bg-primary/70" />
+                  {item.skills.length} Technologies
+                </span>
+                <span className="text-[10px] uppercase font-semibold text-muted-foreground/75 tracking-wider">
+                  {isBackend
+                    ? "Enterprise Ready"
+                    : isAI
+                      ? "Modern Tooling"
+                      : "Production Tested"}
+                </span>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Engineering Philosophy Callout */}
+      <div className="mt-8 p-6 md:p-10 rounded-2xl border border-border/80 bg-card/80 shadow-xs flex flex-col gap-4 sm:gap-5 sm:flex-row sm:items-start md:items-center sm:justify-between">
+        <div className="flex items-start gap-3 sm:gap-4 min-w-0">
+          <div className="size-9 sm:size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary">
+            <Code className="size-4 sm:size-5" />
           </div>
-          <span className="font-mono text-xs font-semibold text-primary px-3.5 py-1.5 rounded-lg bg-primary/10 border border-primary/25 shrink-0 text-center self-start sm:self-center">
-            Human-Guided Craft
-          </span>
+          <div className="min-w-0">
+            <h4 className="text-sm sm:text-base font-bold text-foreground leading-snug">
+              Pragmatic Engineering &amp; Tooling Mindset
+            </h4>
+            <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed">
+              I prioritize clean modular architecture, strict TypeScript typing,
+              and real-world performance over hype. I adopt modern AI developer
+              tools (Claude Code, Cursor) to automate tedious tasks while
+              keeping code reviews, system design, and security strictly
+              engineer-driven.
+            </p>
+          </div>
         </div>
+      </div>
     </Section>
   );
 }
