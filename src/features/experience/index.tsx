@@ -66,12 +66,12 @@ export function Experience() {
                   )}
                 </div>
 
-                <div className="flex flex-wrap sm:flex-col sm:items-end gap-2 text-xs font-mono text-muted-foreground shrink-0">
-                  <span className="inline-flex items-center gap-1.5 font-bold text-foreground bg-muted/60 px-3 py-1 rounded-md border border-border/50">
+                <div className="flex flex sm:flex-col sm:items-end gap-1 text-xs font-mono text-muted-foreground shrink-0">
+                  <span className="inline-flex items-center gap-1.5 font-bold text-foreground bg-muted/60 px-3 py-1 rounded-md border border-border/50 whitespace-nowrap">
                     <Calendar className="size-3.5 text-primary" />
                     {exp.period}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-muted-foreground">
+                  <span className="inline-flex items-center gap-1.5 text-muted-foreground whitespace-nowrap">
                     <MapPin className="size-3.5" />
                     {exp.location}
                   </span>
