@@ -55,7 +55,7 @@ export function Experience() {
                     )}
                   </div>
 
-                  <div className="text-md font-medium text-primary">
+                  <div className="text-md font-medium text-primary -mt-1.5">
                     {exp.role}
                   </div>
 
@@ -102,7 +102,7 @@ export function Experience() {
                   Core Technologies:
                 </MonoLabel>
                 {exp.technologies.map((tech) => (
-                  <TechBadge key={tech} className="text-xs text-primary/90">
+                  <TechBadge key={tech} className="text-xs text-primary/80">
                     {tech}
                   </TechBadge>
                 ))}
@@ -131,7 +131,7 @@ export function Experience() {
               <h4 className="text-base font-semibold text-foreground">
                 {edu.degree}
               </h4>
-              <p className="text-md font-medium text-primary">
+              <p className="text-md font-medium text-primary -mt-1">
                 {edu.institution}
               </p>
               <p className="text-md text-muted-foreground leading-relaxed pt-1">
