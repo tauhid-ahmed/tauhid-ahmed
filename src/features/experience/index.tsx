@@ -55,7 +55,7 @@ export function Experience() {
                     )}
                   </div>
 
-                  <div className="text-base font-medium text-primary">
+                  <div className="text-sm font-medium text-primary">
                     {exp.role}
                   </div>
 
