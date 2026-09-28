@@ -53,7 +53,7 @@ export function Hero() {
         <div className="absolute top-1/3 -right-20 w-125 h-100 bg-primary/10 rounded-full blur-[140px] opacity-60 dark:opacity-40" />
 
         {/* Full-bleed Box Grid Layer */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[44px_44px] mask-[radial-gradient(ellipse_120%_90%_at_50%_40%,#000_65%,transparent_100%)] opacity-70 dark:opacity-45" />
+        {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[44px_44px] mask-[radial-gradient(ellipse_120%_90%_at_50%_40%,#000_65%,transparent_100%)] opacity-70 dark:opacity-45" /> */}
 
         {/* Smooth Bottom Fade Transition */}
         <div className="absolute inset-x-0 bottom-0 h-36 bg-linear-to-t from-background to-transparent" />
