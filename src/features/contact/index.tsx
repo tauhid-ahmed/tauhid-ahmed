@@ -21,6 +21,7 @@ export function Contact() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -34,14 +35,36 @@ export function Contact() {
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate swift submission or mailto fallback
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(
+          result.error || "Failed to submit message. Please try again."
+        );
+      }
+
       setSubmitted(true);
-    }, 600);
+    } catch (err: unknown) {
+      const msg =
+        err instanceof Error
+          ? err.message
+          : "An unexpected error occurred. Please try again or email directly.";
+      setErrorMessage(msg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -286,13 +309,29 @@ export function Contact() {
                   />
                 </div>
 
+                {errorMessage && (
+                  <div className="p-3.5 rounded-lg border border-destructive/30 bg-destructive/10 text-xs text-destructive flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <span>{errorMessage}</span>
+                    <a
+                      href={`mailto:${developer.email}?subject=${encodeURIComponent(
+                        formData.subject || "Contact from Portfolio"
+                      )}&body=${encodeURIComponent(
+                        `Hi Tauhid,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+                      )}`}
+                      className="underline font-semibold hover:opacity-80 shrink-0 text-foreground"
+                    >
+                      Send via Email Directly →
+                    </a>
+                  </div>
+                )}
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:opacity-95 transition-all shadow-md disabled:opacity-50"
                 >
                   {isSubmitting ? (
-                    <span>Sending...</span>
+                    <span>Sending to Google Sheet...</span>
                   ) : (
                     <>
                       <span>Send Message</span>

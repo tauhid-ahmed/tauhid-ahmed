@@ -2,7 +2,9 @@ import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
 export const env = createEnv({
-  server: {},
+  server: {
+    GOOGLE_SHEETS_SCRIPT_URL: z.string().url().optional(),
+  },
 
   client: {
     NEXT_PUBLIC_AUTHOR_NAME: z.string().default("Tauhid Ahmed"),
@@ -40,5 +42,6 @@ export const env = createEnv({
     NEXT_PUBLIC_AUTHOR_LOCATION: process.env.NEXT_PUBLIC_AUTHOR_LOCATION,
     NEXT_PUBLIC_AUTHOR_BIO: process.env.NEXT_PUBLIC_AUTHOR_BIO,
     NEXT_PUBLIC_AUTHOR_LIVE_RESUME: process.env.NEXT_PUBLIC_AUTHOR_LIVE_RESUME,
+    GOOGLE_SHEETS_SCRIPT_URL: process.env.GOOGLE_SHEETS_SCRIPT_URL,
   },
 });
