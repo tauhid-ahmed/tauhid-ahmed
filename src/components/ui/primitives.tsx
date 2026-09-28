@@ -65,7 +65,7 @@ export function TechBadge({ children, className }: TechBadgeProps) {
   return (
     <span
       className={cn(
-        "text-[11px] font-mono px-2.5 py-0.5 rounded-md border border-border/70 bg-background/50 text-muted-foreground font-medium",
+        "text-[10px] font-mono px-2 py-0.5 rounded-md border border-border/70 bg-background/50 text-muted-foreground font-medium",
         className,
       )}
     >
@@ -107,11 +107,7 @@ type BulletListProps = {
   className?: string;
 };
 
-export function BulletList({
-  items,
-  columns = 1,
-  className,
-}: BulletListProps) {
+export function BulletList({ items, columns = 1, className }: BulletListProps) {
   return (
     <ul
       className={cn(

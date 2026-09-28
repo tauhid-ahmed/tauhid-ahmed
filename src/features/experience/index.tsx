@@ -97,8 +97,8 @@ export function Experience() {
               </div>
 
               {/* Technologies */}
-              <div className="pt-4 border-t border-border/40 flex flex-wrap items-center gap-1.5">
-                <MonoLabel className="text-xs mr-2">
+              <div className="pt-4 border-t border-border/40 flex flex-wrap items-center gap-1">
+                <MonoLabel className="text-xs mr-1">
                   Core Technologies:
                 </MonoLabel>
                 {exp.technologies.map((tech) => (
