@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { technicalMatrix } from "@/data/portfolio-data";
-import { Container } from "@/components/layout/container";
+import { Section } from "@/components/section";
 import { cn } from "@/lib/utils";
 import type { IconType } from "react-icons";
 import {
@@ -217,27 +217,23 @@ export function Stack() {
   });
 
   return (
-    <section
-      id="stack"
-      className="py-10 md:py-16 relative bg-card/25 border-y border-border/60"
-    >
-      <Container size="lg">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 text-left">
-          <div className="space-y-2 max-w-2xl">
-            <SectionEyebrow icon={Cpu}>Technical Architecture</SectionEyebrow>
-            <SectionTitle>Technologies & Engineering Stack</SectionTitle>
-            <SectionDescription>
+    <Section id="stack" className="bg-card/25 border-y border-border/60">
+      {/* Section Header */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 text-left">
+        <div className="space-y-2 max-w-2xl">
+          <SectionEyebrow icon={Cpu}>Technical Architecture</SectionEyebrow>
+          <SectionTitle>Technologies & Engineering Stack</SectionTitle>
+          <SectionDescription>
               A production-tested blueprint of backend runtimes, interface
               architectures, resilient data pipelines, and agentic workflows.
-            </SectionDescription>
-          </div>
-
-          {/* Interactive Category Filter Pills */}
+          </SectionDescription>
         </div>
 
-        {/* Bento Grid Technical Matrix */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5">
+        {/* Interactive Category Filter Pills */}
+      </div>
+
+      {/* Bento Grid Technical Matrix */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5">
           {sortedMatrix.map((item, index) => {
             const visual = categoryVisuals[item.category] || {
               icon: Code,
@@ -436,7 +432,6 @@ export function Stack() {
             Pragmatic Engineering
           </span>
         </div>
-      </Container>
-    </section>
+    </Section>
   );
 }

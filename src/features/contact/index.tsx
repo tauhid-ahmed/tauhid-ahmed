@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { developer } from "@/data/portfolio-data";
-import { Container } from "@/components/layout/container";
+import { Section } from "@/components/section";
 import {
   Mail,
   Phone,
@@ -45,8 +45,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-10 md:py-16 relative">
-      <Container size="lg">
+    <Section id="contact">
         <SectionHeader
           icon={MessageSquare}
           eyebrow="Initiate Contact"
@@ -306,7 +305,6 @@ export function Contact() {
             </div>
           </div>
         </div>
-      </Container>
-    </section>
+    </Section>
   );
 }
