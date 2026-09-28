@@ -49,13 +49,13 @@ export function Experience() {
                       {exp.company}
                     </h3>
                     {isCurrent && (
-                      <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-primary/15 text-primary border border-primary/30">
+                      <span className="text-[10px] font-medium uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-primary/15 text-primary border border-primary/30">
                         Current Role
                       </span>
                     )}
                   </div>
 
-                  <div className="text-base sm:text-lg font-semibold text-primary">
+                  <div className="text-base font-medium text-primary">
                     {exp.role}
                   </div>
 
