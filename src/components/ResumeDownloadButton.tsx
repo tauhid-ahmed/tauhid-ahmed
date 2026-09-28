@@ -5,7 +5,7 @@ import { resumeDownloadPath } from "@/paths";
 
 export default function ResumeDownloadButton() {
   return (
-    <Button asChild variant="outline">
+    <Button asChild variant="ghost">
       <Link
         href={resumeDownloadPath}
         target="_blank"

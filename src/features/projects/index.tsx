@@ -16,9 +16,9 @@ export function Projects() {
     <Section id="projects">
       <SectionHeader
         icon={Layers}
-        eyebrow="Engineering Showcase"
-        title="Selected Projects & Domain Experience"
-        description="Visual evidence of production web applications, edge architectures, and real-world domain engineering across enterprise domains."
+        eyebrow="Featured Systems & Domains"
+        title="Domain Systems & Engineered Workflows"
+        description="A look at core architectures, operational platforms, and production systems I've designed and delivered across key business areas."
         className="mb-10"
       />
 
@@ -27,15 +27,15 @@ export function Projects() {
           <AnimatedCard
             key={domain.domain}
             index={index}
-            className="group p-6 rounded-2xl border border-border/70 bg-card/60 hover:bg-card hover:border-primary/40 transition-all flex flex-col justify-between"
+            className="group p-6 sm:p-7 rounded-2xl border border-border/80 bg-card/70 hover:bg-card hover:border-primary/40 transition-all flex flex-col justify-between hover:shadow-lg hover:shadow-primary/5"
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-primary px-2.5 py-0.5 rounded-md bg-primary/10 border border-primary/20">
+                <span className="text-xs font-mono font-semibold text-primary px-2.5 py-0.5 rounded-md bg-primary/10 border border-primary/20">
                   {domain.scope}
                 </span>
                 <span className="font-mono text-xs text-muted-foreground">
-                  0{index + 2}
+                  0{index + 1}
                 </span>
               </div>
 
@@ -48,7 +48,7 @@ export function Projects() {
               </p>
 
               <div className="space-y-1.5 pt-2">
-                <MonoLabel>Key Technical Focus:</MonoLabel>
+                <MonoLabel>Key Architectural Focus:</MonoLabel>
                 <BulletList items={domain.architecturalFocus} />
               </div>
             </div>

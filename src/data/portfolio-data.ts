@@ -32,8 +32,8 @@ export const developer = {
   firstName: env.NEXT_PUBLIC_AUTHOR_FIRST_NAME || "Tauhid",
   lastName: env.NEXT_PUBLIC_AUTHOR_LAST_NAME || "Ahmed",
   title: "Full-Stack Developer",
-  techStackText: "React • Next.js • Node.js • NestJS • TypeScript • AI",
-  bio: "Full-Stack Developer specializing in high-performance web applications, scalable backends with Node.js and NestJS, and modern AI/LLM integrations. Experienced in engineering leadership, cross-functional collaboration, and delivering production software for global users.",
+  techStackText: "React • Next.js • Node.js • NestJS • TypeScript • AI Tooling",
+  bio: "I build reliable full-stack web applications, clean API architectures, and scalable backends. Currently focused on React, Next.js, Node.js, and NestJS — bridging solid engineering fundamentals with pragmatic modern tooling to create fast, user-friendly digital products.",
   location: env.NEXT_PUBLIC_AUTHOR_LOCATION || "Pabna, Bangladesh",
   email: env.NEXT_PUBLIC_AUTHOR_EMAIL || "tauhidxtauhid@gmail.com",
   phone: env.NEXT_PUBLIC_AUTHOR_PHONE || "+8801670012716",
@@ -55,27 +55,27 @@ export const professionalSnapshot: SnapshotItem[] = [
   {
     number: "4+ Years",
     label: "Experience",
-    detail: "Full lifecycle web & enterprise development",
+    detail: "Building & shipping production web applications",
   },
   {
     number: "Full-Stack",
-    label: "Engineering",
+    label: "Core Focus",
     detail: "React & Next.js frontend to NestJS & Node.js backend",
   },
   {
-    number: "Frontend → Backend",
-    label: "Core Architecture",
-    detail: "Type-safe APIs, edge databases & secure authentication",
+    number: "End-to-End",
+    label: "Architecture",
+    detail: "Type-safe APIs, PostgreSQL schemas & secure auth",
   },
   {
-    number: "AI / LLM",
-    label: "Integration",
-    detail: "Agentic workflows, model APIs & AI-augmented tooling",
+    number: "Modern Tooling",
+    label: "Productivity",
+    detail: "Pragmatic AI workflows, automated testing & CI/CD",
   },
   {
-    number: "Client & Team",
+    number: "Team Lead",
     label: "Collaboration",
-    detail: "Strategic client communication & delivery assurance",
+    detail: "Engineering leadership, code reviews & client delivery",
   },
 ];
 
@@ -95,12 +95,12 @@ export const workExperience: ExperienceRecord[] = [
     role: "Full-Stack Developer & Team Leader (Assistant Manager, Operations)",
     period: "2025 – Present",
     location: "Dhaka, Bangladesh",
-    leadHighlight: "Leading cross-functional delivery & engineering strategy",
+    leadHighlight: "Leading engineering squad & architectural direction",
     responsibilities: [
-      "Direct end-to-end team management and cross-functional collaboration across engineering, AI research, and design teams.",
-      "Lead client communication, technical requirements gathering, and strategic architectural proposals.",
-      "Manage project timelines, engineering milestones, and delivery assurance for mission-critical web applications.",
-      "Standardize full-stack development best practices, code review standards, and CI/CD deployment routines.",
+      "Lead frontend and backend development teams, guiding architectural decisions, code quality standards, and feature delivery.",
+      "Design and maintain scalable backend services with NestJS, Node.js, and PostgreSQL for client platforms.",
+      "Communicate directly with clients and stakeholders to gather technical requirements, scope projects, and provide engineering solutions.",
+      "Mentor developers, conduct structured code reviews, and streamline deployment routines with GitHub Actions and Vercel.",
     ],
     technologies: [
       "Next.js",
@@ -108,8 +108,8 @@ export const workExperience: ExperienceRecord[] = [
       "Node.js",
       "NestJS",
       "TypeScript",
-      "AI APIs & LLMs",
       "PostgreSQL",
+      "AI APIs",
       "Team Leadership",
     ],
   },
@@ -119,9 +119,9 @@ export const workExperience: ExperienceRecord[] = [
     period: "2024 – 2025",
     location: "Dhaka, Bangladesh",
     responsibilities: [
-      "Engineered enterprise-grade web applications in close collaboration with UI/UX designers and backend teams.",
-      "Accelerated feature delivery cycles by 25% by architecting reusable React, TypeScript, and Tailwind CSS design systems.",
-      "Built resilient client-side state models and responsive UI components tested for high accessibility and cross-browser fidelity.",
+      "Built reusable, accessible UI component libraries using React, Next.js, TypeScript, and Tailwind CSS.",
+      "Integrated frontend state stores with RESTful backend endpoints, reducing client latency and unnecessary re-renders.",
+      "Collaborated with cross-functional design and QA teams to maintain visual fidelity and accessibility compliance.",
       "Enforced code quality standards with automated linting, unit testing, and structured PR reviews.",
     ],
     technologies: [
@@ -140,10 +140,10 @@ export const workExperience: ExperienceRecord[] = [
     period: "2021 – 2024",
     location: "Remote / International",
     responsibilities: [
-      "Delivered full lifecycle web applications for diverse international clients from initial architectural design to live production deployment.",
-      "Constructed modern responsive user interfaces with Next.js, React, Node.js, and REST APIs backed by automated Vercel CI/CD pipelines.",
-      "Optimized Core Web Vitals, SEO metadata, and bundle sizes, consistently achieving high-performance Lighthouse scores.",
-      "Integrated secure authentication, third-party APIs, payment gateways, and content management workflows.",
+      "Delivered custom web applications for international clients from initial scoping through to deployment.",
+      "Constructed modern responsive user interfaces with Next.js, React, Node.js, and third-party API integrations.",
+      "Optimized page load speeds, SEO metadata, and Core Web Vitals to consistently improve performance scores.",
+      "Integrated secure authentication, third-party payment workflows, and headless CMS solutions.",
     ],
     technologies: [
       "Next.js",
@@ -240,14 +240,14 @@ export interface DomainExperience {
 
 export const domainExperiences: DomainExperience[] = [
   {
-    domain: "CRM & Business Management",
-    scope: "Enterprise Operations",
+    domain: "Operations & Admin Dashboards",
+    scope: "Internal Tools & CRM",
     description:
-      "Architected customer relation pipelines, role-based organizational hierarchies, audit trails, and multi-tenant admin dashboards to streamline enterprise operations.",
+      "Engineered multi-role administration portals, customer relation pipelines, and real-time operational data tables built for high team productivity.",
     architecturalFocus: [
-      "Role-Based Access Control (RBAC)",
-      "Real-time pipeline analytics & KPI summaries",
-      "Granular data filtering & export pipelines",
+      "Role-Based Access Control (RBAC) & granular permissions",
+      "High-density data tables with instant filtering & sorting",
+      "Export pipelines and activity audit logging",
     ],
     keyTechnologies: [
       "Next.js",
@@ -258,26 +258,26 @@ export const domainExperiences: DomainExperience[] = [
     ],
   },
   {
-    domain: "Logistics & Supply Operations",
-    scope: "Fulfillment & Tracking",
+    domain: "Order Fulfillment & Logistics",
+    scope: "Supply Chain & Tracking",
     description:
-      "Engineered inventory reconciliation, multi-stage shipment status tracking, and automated reporting systems for high-throughput fulfillment workflows.",
+      "Built inventory tracking, multi-stage shipment reconciliation, and automated dispatch status workflows designed for reliable operations.",
     architecturalFocus: [
-      "Shipment status state-machines",
-      "Automated inventory alerting & batch processing",
-      "High-reliability transactional integrity",
+      "Order lifecycle state machines & transition safety",
+      "Automated status notifications & batch processing",
+      "PostgreSQL transactional consistency for stock levels",
     ],
     keyTechnologies: ["Node.js", "NestJS", "PostgreSQL", "Redis", "TypeScript"],
   },
   {
-    domain: "Project Management & Collaboration",
-    scope: "Productivity Systems",
+    domain: "Team Productivity & Workflow Apps",
+    scope: "Collaboration Systems",
     description:
-      "Developed agile tracking boards, task assignment workflows, time tracking, and team activity feeds inspired by modern developer productivity platforms.",
+      "Crafted agile task boards, timeline tracking, and activity feeds with optimistic UI updates and zero-friction interactions.",
     architecturalFocus: [
-      "Interactive Kanban state transitions",
-      "Optimistic UI updates for zero-latency interactions",
-      "Collaborative task assignment workflows",
+      "Interactive Kanban boards with drag-and-drop state",
+      "Optimistic client-side updates for snappy response",
+      "Structured workspace permissions and team assignments",
     ],
     keyTechnologies: [
       "React",
@@ -288,21 +288,21 @@ export const domainExperiences: DomainExperience[] = [
     ],
   },
   {
-    domain: "AI-Integrated Applications",
-    scope: "Agentic Workflows & LLMs",
+    domain: "AI-Augmented Applications",
+    scope: "LLM APIs & Developer Tools",
     description:
-      "Integrated modern LLM APIs, prompt engineering frameworks, and agentic workflows to build intelligent assistants, automated summarizers, and developer velocity tools.",
+      "Integrated intelligent features, streaming chat interfaces, and automated workflows that utilize modern language models to solve real user tasks.",
     architecturalFocus: [
       "Streaming LLM response handling & UI hydration",
       "Structured output validation with Zod schemas",
-      "Agentic coding tool workflows (Claude Code, Cursor)",
+      "AI-assisted developer velocity (Claude Code, Cursor)",
     ],
     keyTechnologies: [
       "LLM APIs",
-      "Agentic Workflows",
       "TypeScript",
       "Next.js",
       "Zod",
+      "Anthropic / OpenAI",
     ],
   },
 ];

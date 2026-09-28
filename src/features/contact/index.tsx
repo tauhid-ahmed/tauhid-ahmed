@@ -48,9 +48,9 @@ export function Contact() {
     <Section id="contact">
         <SectionHeader
           icon={MessageSquare}
-          eyebrow="Initiate Contact"
+          eyebrow="Let's Connect"
           title="Get In Touch"
-          description="Whether exploring full-stack engineering opportunities, discussing high-scale web applications, or inquiring about technical collaboration."
+          description="Whether exploring full-stack engineering roles, discussing system architectures, or planning a new project — feel free to reach out anytime."
           className="mb-10"
         />
 
@@ -59,7 +59,7 @@ export function Contact() {
           <div className="lg:col-span-5 space-y-6">
             <div className="p-6 rounded-2xl border border-border/80 bg-card space-y-6">
               <h3 className="text-lg font-bold text-foreground tracking-tight">
-                Direct Communication Channels
+                Direct Contact
               </h3>
 
               {/* Email Card with Copy button */}
@@ -240,7 +240,7 @@ export function Contact() {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        placeholder="[EMAIL_ADDRESS]"
+                        placeholder="your.email@example.com"
                         className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-border/80 bg-background text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
                       />
                     </div>
@@ -261,7 +261,7 @@ export function Contact() {
                       onChange={(e) =>
                         setFormData({ ...formData, subject: e.target.value })
                       }
-                      placeholder="Full-Stack Engineer Role / Project Inquiry"
+                      placeholder="Project discussion / Full-stack engineering role"
                       className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-border/80 bg-background text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all"
                     />
                   </div>
@@ -281,7 +281,7 @@ export function Contact() {
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
                       }
-                      placeholder="Brief overview of project scope, timelines, or role expectations..."
+                      placeholder="Share a brief overview of your project, scope, or timeline..."
                       className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-border/80 bg-background text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-y"
                     />
                   </div>

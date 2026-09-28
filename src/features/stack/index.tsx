@@ -45,7 +45,8 @@ import {
   GitBranch,
   Bot,
   Code,
-  Sparkles,
+  Wrench,
+  Terminal,
   Lock,
   Globe,
   Gauge,
@@ -114,7 +115,7 @@ const skillIconMap: Record<string, SkillMeta> = {
   "Claude Code": { icon: SiAnthropic, color: "text-[#D97757]" },
   Codex: { icon: SiOpenai, color: "text-foreground" },
   "GitHub Copilot": { icon: SiGithub, color: "text-[#8957e5]" },
-  Cursor: { icon: Sparkles, color: "text-amber-400" },
+  Cursor: { icon: Terminal, color: "text-foreground" },
 };
 
 const categoryVisuals: Record<
@@ -129,57 +130,57 @@ const categoryVisuals: Record<
 > = {
   Backend: {
     icon: Server,
-    iconWrap: "bg-primary/15 text-primary border-primary/30",
-    accentGlow: "from-primary/20 via-primary/5 to-transparent",
+    iconWrap: "bg-primary/10 text-primary border-primary/25",
+    accentGlow: "from-primary/15 via-primary/5 to-transparent",
     bentoClass: "lg:col-span-6",
     filterGroup: "backend",
   },
   Frontend: {
     icon: Layers,
-    iconWrap: "bg-cyan-500/15 text-cyan-400 border-cyan-500/30",
-    accentGlow: "from-cyan-500/15 via-blue-500/5 to-transparent",
+    iconWrap: "bg-primary/10 text-primary border-primary/25",
+    accentGlow: "from-primary/15 via-primary/5 to-transparent",
     bentoClass: "lg:col-span-6",
     filterGroup: "frontend",
   },
   "AI & Agentic Engineering": {
     icon: Bot,
-    iconWrap: "bg-purple-500/15 text-purple-400 border-purple-500/30",
-    accentGlow: "from-purple-500/15 via-indigo-500/5 to-transparent",
+    iconWrap: "bg-primary/10 text-primary border-primary/25",
+    accentGlow: "from-primary/15 via-primary/5 to-transparent",
     bentoClass: "lg:col-span-4",
     filterGroup: "ai",
   },
   "Databases & ORM": {
     icon: Database,
-    iconWrap: "bg-emerald-500/15 text-emerald-400 border-emerald-500/30",
-    accentGlow: "from-emerald-500/15 via-teal-500/5 to-transparent",
+    iconWrap: "bg-primary/10 text-primary border-primary/25",
+    accentGlow: "from-primary/15 via-primary/5 to-transparent",
     bentoClass: "lg:col-span-4",
     filterGroup: "data",
   },
   "APIs & Architecture": {
     icon: Cpu,
-    iconWrap: "bg-indigo-500/15 text-indigo-400 border-indigo-500/30",
-    accentGlow: "from-indigo-500/15 via-blue-500/5 to-transparent",
+    iconWrap: "bg-primary/10 text-primary border-primary/25",
+    accentGlow: "from-primary/15 via-primary/5 to-transparent",
     bentoClass: "lg:col-span-4",
     filterGroup: "backend",
   },
   Languages: {
     icon: Code,
-    iconWrap: "bg-sky-500/15 text-sky-400 border-sky-500/30",
-    accentGlow: "from-sky-500/15 via-primary/5 to-transparent",
+    iconWrap: "bg-primary/10 text-primary border-primary/25",
+    accentGlow: "from-primary/15 via-primary/5 to-transparent",
     bentoClass: "lg:col-span-4",
     filterGroup: "core",
   },
   "Authentication & Security": {
     icon: Shield,
-    iconWrap: "bg-amber-500/15 text-amber-400 border-amber-500/30",
-    accentGlow: "from-amber-500/15 via-orange-500/5 to-transparent",
+    iconWrap: "bg-primary/10 text-primary border-primary/25",
+    accentGlow: "from-primary/15 via-primary/5 to-transparent",
     bentoClass: "lg:col-span-4",
     filterGroup: "backend",
   },
   "DevOps & Production": {
     icon: GitBranch,
-    iconWrap: "bg-teal-500/15 text-teal-400 border-teal-500/30",
-    accentGlow: "from-teal-500/15 via-emerald-500/5 to-transparent",
+    iconWrap: "bg-primary/10 text-primary border-primary/25",
+    accentGlow: "from-primary/15 via-primary/5 to-transparent",
     bentoClass: "lg:col-span-4",
     filterGroup: "data",
   },
@@ -221,15 +222,12 @@ export function Stack() {
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 text-left">
         <div className="space-y-2 max-w-2xl">
-          <SectionEyebrow icon={Cpu}>Technical Architecture</SectionEyebrow>
-          <SectionTitle>Technologies & Engineering Stack</SectionTitle>
+          <SectionEyebrow icon={Wrench}>Tools & Technologies</SectionEyebrow>
+          <SectionTitle>The Stack I Work With Daily</SectionTitle>
           <SectionDescription>
-              A production-tested blueprint of backend runtimes, interface
-              architectures, resilient data pipelines, and agentic workflows.
+            A curated overview of backend runtimes, frontend architecture, databases, and development tooling I rely on to build fast, dependable products.
           </SectionDescription>
         </div>
-
-        {/* Interactive Category Filter Pills */}
       </div>
 
       {/* Bento Grid Technical Matrix */}
@@ -268,16 +266,14 @@ export function Stack() {
                   "relative rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 group overflow-hidden",
                   isMatch ? "opacity-100" : "opacity-35 hover:opacity-90",
                   isBackend
-                    ? "border-primary/60 bg-gradient-to-br from-card via-card to-primary/5 shadow-xl shadow-primary/5 ring-1 ring-primary/25"
-                    : isAI
-                      ? "border-purple-500/40 bg-gradient-to-br from-card via-card to-purple-500/5 shadow-lg shadow-purple-500/5"
-                      : "border-border/80 bg-card/65 hover:bg-card hover:border-border hover:shadow-lg hover:shadow-black/5",
+                    ? "border-primary/50 bg-card/90 shadow-lg shadow-primary/5 ring-1 ring-primary/20"
+                    : "border-border/80 bg-card/75 hover:bg-card hover:border-primary/35 hover:shadow-md transition-all",
                 )}
               >
                 {/* Ambient Top Glow Plate */}
                 <div
                   className={cn(
-                    "absolute -top-12 -right-12 size-36 rounded-full bg-gradient-to-bl blur-3xl opacity-30 pointer-events-none group-hover:opacity-60 transition-opacity duration-500",
+                    "absolute -top-12 -right-12 size-36 rounded-full bg-gradient-to-bl blur-3xl opacity-20 pointer-events-none group-hover:opacity-40 transition-opacity duration-500",
                     visual.accentGlow,
                   )}
                 />
@@ -288,7 +284,7 @@ export function Stack() {
                     <div className="flex items-center gap-3">
                       <div
                         className={cn(
-                          "size-9 rounded-xl flex items-center justify-center border shadow-xs transition-transform duration-300 group-hover:scale-105",
+                          "size-9 rounded-xl flex items-center justify-center border shadow-2xs transition-transform duration-300 group-hover:scale-105",
                           visual.iconWrap,
                         )}
                       >
@@ -301,21 +297,17 @@ export function Stack() {
                       </div>
                     </div>
 
-                    {/* Prominent Core Focus Radar Badge */}
+                    {/* Prominent Core Focus Badge */}
                     {isBackend && (
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30 shadow-xs">
-                        <span className="relative flex size-1.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                          <span className="relative inline-flex rounded-full size-1.5 bg-primary" />
-                        </span>
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30 shadow-2xs">
+                        <span className="size-1.5 rounded-full bg-primary" />
                         Core Focus
                       </span>
                     )}
 
                     {isAI && (
-                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-purple-500/15 text-purple-400 border border-purple-500/30">
-                        <Sparkles className="size-2.5" />
-                        Next-Gen
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-primary/15 text-primary border border-primary/30">
+                        AI Workflows
                       </span>
                     )}
                   </div>
@@ -332,11 +324,10 @@ export function Stack() {
                       </div>
                       <div className="text-xs">
                         <span className="font-bold text-foreground">
-                          NestJS Enterprise Architecture
+                          NestJS Architecture
                         </span>
                         <p className="text-[11px] text-muted-foreground">
-                          Scalable microservices, dependency injection &
-                          REST/RPC modules
+                          Modular services, dependency injection, and clean REST/RPC APIs
                         </p>
                       </div>
                     </div>
@@ -344,14 +335,13 @@ export function Stack() {
 
                   {/* Languages Highlight Detail */}
                   {isLanguages && (
-                    <div className="mb-4 p-3 rounded-xl bg-sky-500/5 border border-sky-500/20 text-xs">
+                    <div className="mb-4 p-3 rounded-xl bg-primary/5 border border-primary/20 text-xs">
                       <span className="font-semibold text-foreground flex items-center gap-1.5 mb-1">
-                        <CheckCircle2 className="size-3.5 text-sky-400" />
-                        Strict Type Safety by Default
+                        <CheckCircle2 className="size-3.5 text-primary" />
+                        Strict Type Safety
                       </span>
                       <p className="text-[11px] text-muted-foreground leading-relaxed">
-                        End-to-end typed contracts spanning front-to-back
-                        runtimes without any runtime drift.
+                        End-to-end typed contracts spanning frontend and backend codebases.
                       </p>
                     </div>
                   )}
@@ -402,7 +392,7 @@ export function Stack() {
                     {isBackend
                       ? "Enterprise Ready"
                       : isAI
-                        ? "Agentic Stack"
+                        ? "Modern Tooling"
                         : "Production Tested"}
                   </span>
                 </div>
@@ -411,25 +401,23 @@ export function Stack() {
           })}
         </div>
 
-        {/* AI Capability & Engineering Velocity Callout */}
-        <div className="mt-8 p-6 rounded-2xl border border-border/80 bg-gradient-to-r from-card via-card to-primary/5 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        {/* Engineering Philosophy Callout */}
+        <div className="mt-8 p-6 sm:p-7 rounded-2xl border border-border/80 bg-card/80 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-5">
           <div className="flex items-center gap-4">
-            <div className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
-              <Sparkles className="size-5 text-primary" />
+            <div className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary">
+              <Code className="size-5" />
             </div>
             <div>
               <h4 className="text-sm sm:text-base font-bold text-foreground">
-                AI Engineering & Autonomous Tooling Velocity
+                Pragmatic Engineering & Tooling Mindset
               </h4>
               <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
-                Seamlessly orchestrating LLM APIs, prompt engineering,
-                structured validation, and next-generation AI coding tools
-                (Claude Code, Cursor) into production development.
+                I prioritize clean modular architecture, strict TypeScript typing, and real-world performance over hype. I adopt modern AI developer tools (Claude Code, Cursor) to automate tedious tasks while keeping code reviews, system design, and security strictly engineer-driven.
               </p>
             </div>
           </div>
-          <span className="font-mono text-xs font-bold text-primary px-3.5 py-1.5 rounded-lg bg-primary/10 border border-primary/25 shrink-0 text-center self-start sm:self-center">
-            Pragmatic Engineering
+          <span className="font-mono text-xs font-semibold text-primary px-3.5 py-1.5 rounded-lg bg-primary/10 border border-primary/25 shrink-0 text-center self-start sm:self-center">
+            Human-Guided Craft
           </span>
         </div>
     </Section>

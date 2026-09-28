@@ -5,7 +5,7 @@
     background: linear-gradient(
       to bottom right,
       var(--card),
-      color-mix(in srgb, var(--card), var(--primary) 4%)
+      color-mix(in srgb, var(--card), var(--primary) 3%)
     );
     box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.04),
       0 1px 3px -1px rgba(0, 0, 0, 0.02);
@@ -15,30 +15,30 @@
     background: linear-gradient(
       to bottom right,
       var(--card),
-      color-mix(in srgb, var(--card), var(--primary) 7%)
+      color-mix(in srgb, var(--card), var(--primary) 5%)
     );
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4),
       0 4px 10px -2px rgba(0, 0, 0, 0.3);
   }
 
   .modern-card:hover {
-    border-color: color-mix(in srgb, var(--primary) 40%, transparent);
-    box-shadow: 0 20px 30px -10px color-mix(in srgb, var(--primary) 12%, transparent);
+    border-color: color-mix(in srgb, var(--primary) 35%, transparent);
+    box-shadow: 0 16px 28px -10px color-mix(in srgb, var(--primary) 10%, transparent);
   }
 
   .dark .modern-card:hover {
-    border-color: color-mix(in srgb, var(--primary) 50%, transparent);
-    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.6),
-      0 0 25px -5px color-mix(in srgb, var(--primary) 20%, transparent);
+    border-color: color-mix(in srgb, var(--primary) 45%, transparent);
+    box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.5),
+      0 0 20px -5px color-mix(in srgb, var(--primary) 18%, transparent);
   }
 
-  /* Gradient text */
+  /* Refined Purple Gradient text */
   .gradient-text {
     @apply bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent;
   }
 
   .accent-gradient-text {
-    @apply bg-gradient-to-r from-primary via-indigo-400 to-purple-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 dark:from-purple-400 dark:via-violet-300 dark:to-purple-300 bg-clip-text text-transparent font-extrabold;
   }
 
   /* Glass panel utility */
@@ -48,8 +48,13 @@
 
   /* Editorial Section Headers */
   .section-eyebrow {
-    @apply text-xs font-semibold uppercase tracking-widest text-primary inline-flex items-center gap-2;
+    @apply text-xs font-semibold uppercase tracking-wider text-primary inline-flex items-center gap-2;
   }
+}
+
+::selection {
+  background-color: color-mix(in srgb, var(--primary) 28%, transparent);
+  color: inherit;
 }
 
 /* Custom modern scrollbar */

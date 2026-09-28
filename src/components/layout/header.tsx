@@ -113,7 +113,7 @@ export function Header() {
           </nav>
 
           {/* Actions: Social + Theme */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-1">
             <Link
               href={developer.github}
               target="_blank"
@@ -143,7 +143,7 @@ export function Header() {
               <ResumeDownloadButton />
             </span>
             <Button
-              variant="outline"
+              variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"

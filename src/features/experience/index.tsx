@@ -21,9 +21,9 @@ export function Experience() {
     <Section id="experience">
       <SectionHeader
         icon={Briefcase}
-        eyebrow="Career History & Visual CV"
+        eyebrow="Career & Background"
         title="Professional Experience"
-        description="A track record of engineering full-stack production systems, leading cross-functional teams, and delivering reliable software for international businesses."
+        description="A track record of building full-stack web applications, leading developer teams, and delivering reliable software for companies and global clients."
         className="mb-10"
       />
 
@@ -81,7 +81,7 @@ export function Experience() {
               {/* Key Responsibilities */}
               <div className="space-y-3 mb-6">
                 <MonoLabel className="text-xs">
-                  Key Deliverables & Responsibilities:
+                  Key Responsibilities & Deliverables:
                 </MonoLabel>
                 <ul className="grid md:grid-cols-2 gap-3 text-sm text-foreground/90">
                   {exp.responsibilities.map((resp, i) => (

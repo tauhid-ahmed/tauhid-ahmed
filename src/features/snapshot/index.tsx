@@ -3,10 +3,10 @@
 import { motion } from "motion/react";
 import { professionalSnapshot } from "@/data/portfolio-data";
 import { Container } from "@/components/layout/container";
-import { Layers, Terminal, Sparkles, Users, Cpu } from "lucide-react";
+import { Layers, Terminal, Database, Workflow, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const icons = [Layers, Terminal, Cpu, Sparkles, Users];
+const icons = [Layers, Terminal, Database, Workflow, Users];
 
 export function ProfessionalSnapshot() {
   return (
