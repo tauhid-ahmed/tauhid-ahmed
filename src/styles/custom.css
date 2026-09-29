@@ -32,6 +32,116 @@
       0 0 20px -5px color-mix(in srgb, var(--primary) 18%, transparent);
   }
 
+  /* ── Card lift — subtle translateY + shadow elevation on hover ── */
+  .card-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  .card-lift:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 20px 40px -12px color-mix(in srgb, var(--primary) 14%, transparent),
+      0 8px 16px -4px rgba(0, 0, 0, 0.08);
+  }
+  .dark .card-lift:hover {
+    box-shadow:
+      0 20px 40px -12px color-mix(in srgb, var(--primary) 20%, transparent),
+      0 8px 20px -4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* ── Shimmer overlay — place ::after on a positioned parent ── */
+  .shimmer-on-hover {
+    @apply relative overflow-hidden;
+  }
+  .shimmer-on-hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 35%,
+      color-mix(in srgb, var(--primary) 18%, white) 50%,
+      transparent 65%
+    );
+    transform: translateX(-100%) skewX(-12deg);
+    transition: none;
+    pointer-events: none;
+  }
+  .shimmer-on-hover:hover::after {
+    animation: shimmer 0.75s ease forwards;
+  }
+
+  /* ── Glow border ring on hover ── */
+  .glow-border {
+    @apply transition-all duration-300;
+  }
+  .glow-border:hover {
+    border-color: color-mix(in srgb, var(--primary) 60%, transparent) !important;
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--primary) 20%, transparent),
+      0 0 16px -2px color-mix(in srgb, var(--primary) 25%, transparent);
+  }
+
+  /* ── Magnetic-feel button — pair with JS transform ── */
+  .btn-magnetic {
+    @apply relative overflow-hidden transition-transform duration-150 ease-out;
+  }
+  .btn-magnetic::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at var(--mx, 50%) var(--my, 50%),
+      color-mix(in srgb, var(--primary) 20%, transparent) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  .btn-magnetic:hover::before {
+    opacity: 1;
+  }
+
+  /* ── Underline link — animated draw from left ── */
+  .link-underline {
+    @apply relative;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* ── Tech badge interactive pill ── */
+  .tech-pill {
+    @apply relative overflow-hidden inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md
+           border border-border/70 bg-card text-xs font-mono font-medium text-muted-foreground
+           transition-all duration-200 cursor-default select-none;
+  }
+  .tech-pill:hover {
+    border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+    color: var(--foreground);
+    transform: translateY(-1px) scale(1.03);
+    box-shadow: 0 4px 10px -2px color-mix(in srgb, var(--primary) 18%, transparent);
+  }
+
+  /* ── Focus ring for interactive cards ── */
+  .focus-card:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
   /* Refined Purple Gradient text */
   .gradient-text {
     @apply bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent;

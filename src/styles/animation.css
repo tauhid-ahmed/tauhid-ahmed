@@ -30,4 +30,66 @@
       transform: translateY(calc((100% - 240px) * -1));
     }
   }
+
+  /* ── Shimmer sweep across a surface ── */
+  --animate-shimmer: shimmer 2.4s linear infinite;
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) skewX(-12deg);
+    }
+    100% {
+      transform: translateX(250%) skewX(-12deg);
+    }
+  }
+
+  /* ── Soft pulsing glow ring ── */
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary) 0%, transparent);
+    }
+    50% {
+      box-shadow: 0 0 0 8px color-mix(in srgb, var(--primary) 12%, transparent);
+    }
+  }
+
+  /* ── Subtle float bob ── */
+  --animate-float: float 4s ease-in-out infinite;
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-6px); }
+  }
+
+  /* ── Slow continuous spin ── */
+  --animate-spin-slow: spin-slow 12s linear infinite;
+  @keyframes spin-slow {
+    to { transform: rotate(360deg); }
+  }
+
+  /* ── Animated conic-gradient border ── */
+  --animate-border-flow: border-flow 4s linear infinite;
+  @keyframes border-flow {
+    to { --border-angle: 360deg; }
+  }
+
+  /* ── Live dot breath ── */
+  --animate-breath: breath 2.5s ease-in-out infinite;
+  @keyframes breath {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50%       { opacity: 1;   transform: scale(1.15); }
+  }
+
+  /* ── Slide-in from bottom ── */
+  --animate-slide-up: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0);    }
+  }
+
+  /* ── Draw underline left-to-right ── */
+  --animate-underline-draw: underline-draw 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  @keyframes underline-draw {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
 }

@@ -1,26 +1,26 @@
 "use client";
 
-import { motion, type Variants, type Transition } from "motion/react";
+import { motion, type Variants, type Transition, useMotionValue, useSpring, useTransform } from "motion/react";
+import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 /* ------------------------------------------------------------------ */
-/*  AnimatedCard — motion.div with whileInView fade-in                 */
+/*  AnimatedCard — scroll-triggered fade + lift, whileHover glow lift  */
 /* ------------------------------------------------------------------ */
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
+  hidden: { opacity: 0, y: 4 },
+  visible: { opacity: 1, y: 0 },
 };
 
 type AnimatedCardProps = {
-  /** Stagger index — used to calculate animation delay */
   index?: number;
-  /** How much of the element must be visible to trigger (0–1) */
   threshold?: number;
-  /** HTML tag to render (default: div) */
   as?: "div" | "article";
   className?: string;
   children: React.ReactNode;
+  /** Enable 3-D tilt on hover (default false) */
+  tilt?: boolean;
 };
 
 export function AnimatedCard({
@@ -29,22 +29,47 @@ export function AnimatedCard({
   as = "div",
   className,
   children,
+  tilt = false,
 }: AnimatedCardProps) {
+  const ref = useRef<HTMLDivElement>(null);
   const Tag = as === "article" ? motion.article : motion.div;
+
+  /* tilt values */
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [4, -4]), { stiffness: 200, damping: 20 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-4, 4]), { stiffness: 200, damping: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!tilt || !ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
 
   const transition: Transition = {
     duration: 0.5,
-    delay: index * 0.04,
-    ease: "easeOut",
+    delay: index * 0.06,
+    ease: [0.16, 1, 0.3, 1],
   };
 
   return (
     <Tag
+      ref={ref as React.RefObject<HTMLDivElement & HTMLElement>}
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
+      whileHover={{ y: tilt ? 0 : -4 }}
       viewport={{ amount: threshold, once: true }}
       transition={transition}
+      style={tilt ? { rotateX, rotateY, transformStyle: "preserve-3d" } : {}}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className={className}
     >
       {children}
@@ -53,7 +78,7 @@ export function AnimatedCard({
 }
 
 /* ------------------------------------------------------------------ */
-/*  TechBadge — the repeated mono tech pill                            */
+/*  TechBadge — mono tech pill with hover shimmer + lift               */
 /* ------------------------------------------------------------------ */
 
 type TechBadgeProps = {
@@ -63,19 +88,21 @@ type TechBadgeProps = {
 
 export function TechBadge({ children, className }: TechBadgeProps) {
   return (
-    <span
+    <motion.span
+      whileHover={{ y: -2, scale: 1.06 }}
+      transition={{ type: "spring", stiffness: 400, damping: 20 }}
       className={cn(
-        "text-[10px] font-mono px-2 py-0.5 rounded-md border border-primary/50 bg-background/50 text-muted-foreground font-medium",
+        "tech-pill text-[10px] px-2 py-0.5",
         className,
       )}
     >
       {children}
-    </span>
+    </motion.span>
   );
 }
 
 /* ------------------------------------------------------------------ */
-/*  MonoLabel — uppercase mono caption (e.g. "Core Technologies:")      */
+/*  MonoLabel — uppercase mono caption                                 */
 /* ------------------------------------------------------------------ */
 
 type MonoLabelProps = {
@@ -97,19 +124,32 @@ export function MonoLabel({ children, className }: MonoLabelProps) {
 }
 
 /* ------------------------------------------------------------------ */
-/*  BulletList — check-marked list (experience responsibilities, etc.) */
+/*  BulletList — animated stagger on scroll                           */
 /* ------------------------------------------------------------------ */
 
 type BulletListProps = {
   items: string[];
-  /** Grid columns on md+ screens */
   columns?: 1 | 2;
   className?: string;
 };
 
+const listVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.06, delayChildren: 0.05 } },
+};
+
+const listItemVariants: Variants = {
+  hidden: { opacity: 0, x: -10 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } },
+};
+
 export function BulletList({ items, columns = 1, className }: BulletListProps) {
   return (
-    <ul
+    <motion.ul
+      variants={listVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1 }}
       className={cn(
         "space-y-3 text-sm text-foreground/90",
         columns === 2 && "grid md:grid-cols-2 gap-3 space-y-0",
@@ -117,35 +157,39 @@ export function BulletList({ items, columns = 1, className }: BulletListProps) {
       )}
     >
       {items.map((item, i) => (
-        <li key={i} className="flex items-start gap-2.5 leading-relaxed">
-          <span className="size-1.5 rounded-full bg-primary shrink-0 mt-2" />
+        <motion.li key={i} variants={listItemVariants} className="flex items-start gap-2.5 leading-relaxed">
+          <motion.span
+            className="size-1.5 rounded-full bg-primary shrink-0 mt-2"
+            whileInView={{ scale: [0, 1.4, 1] }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.06, duration: 0.35 }}
+          />
           <span>{item}</span>
-        </li>
+        </motion.li>
       ))}
-    </ul>
+    </motion.ul>
   );
 }
 
 /* ------------------------------------------------------------------ */
-/*  StatusBadge — small pill with optional ping dot                    */
+/*  StatusBadge — pill with optional pinging live dot + shimmer        */
 /* ------------------------------------------------------------------ */
 
 type StatusBadgeProps = {
   children: React.ReactNode;
-  /** Shows a pinging live dot when true */
   live?: boolean;
   className?: string;
 };
 
-export function StatusBadge({
-  children,
-  live = false,
-  className,
-}: StatusBadgeProps) {
+export function StatusBadge({ children, live = false, className }: StatusBadgeProps) {
   return (
-    <span
+    <motion.span
+      initial={{ opacity: 0, scale: 0.88 }}
+      animate={{ opacity: 1, scale: 1 }}
+      whileHover={{ scale: 1.04 }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        "inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/70 bg-card/80 backdrop-blur-sm text-xs font-medium text-foreground",
+        "inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/70 bg-card/80 backdrop-blur-sm text-xs font-medium text-foreground shimmer-on-hover",
         className,
       )}
     >
@@ -156,6 +200,6 @@ export function StatusBadge({
         </span>
       )}
       {children}
-    </span>
+    </motion.span>
   );
 }

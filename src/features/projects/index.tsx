@@ -10,6 +10,7 @@ import {
   MonoLabel,
   BulletList,
 } from "@/components/ui/primitives";
+import { motion } from "motion/react";
 
 export function Projects() {
   return (
@@ -27,25 +28,47 @@ export function Projects() {
           <AnimatedCard
             key={domain.domain}
             index={index}
-            className="group p-6 sm:p-7 rounded-2xl border border-border/80 bg-card/70 hover:bg-card hover:border-primary/40 transition-all flex flex-col justify-between hover:shadow-lg hover:shadow-primary/5"
+            tilt={true}
+            className="group relative p-6 sm:p-7 rounded-2xl border border-border/80 bg-card/70 hover:bg-card hover:border-primary/40 transition-all flex flex-col justify-between hover:shadow-xl hover:shadow-primary/8 overflow-hidden"
           >
+            {/* Animated ambient glow */}
+            <div className="absolute -top-10 -right-10 size-32 rounded-full bg-primary/8 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+            {/* Animated border line */}
+            <motion.div
+              className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary via-primary/60 to-transparent"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.12 + 0.4, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              style={{ transformOrigin: "left" }}
+            />
+
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-semibold text-primary px-2.5 py-0.5 rounded-md bg-primary/10 border border-primary/20 hover:border-primary">
+                <motion.span
+                  whileHover={{ scale: 1.06, y: -1 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  className="text-xs font-mono font-semibold text-primary px-2.5 py-0.5 rounded-md bg-primary/10 border border-primary/20 hover:border-primary/50 transition-colors shimmer-on-hover"
+                >
                   {domain.scope}
-                </span>
-                <span className="font-mono text-xs text-muted-foreground">
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.12 + 0.2 }}
+                  className="font-mono text-xs text-muted-foreground"
+                >
                   0{index + 1}
-                </span>
+                </motion.span>
               </div>
 
-              <h4 className="text-lg font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+              <h4 className="text-lg font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-200">
                 {domain.domain}
               </h4>
 
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                {domain.description}
-              </p>
+              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{domain.description}</p>
 
               <div className="space-y-1.5 pt-2">
                 <MonoLabel>Key Architectural Focus:</MonoLabel>
