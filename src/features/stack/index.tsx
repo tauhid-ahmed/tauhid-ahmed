@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform, useInView } from "motion/react";
 import { technicalMatrix } from "@/data/portfolio-data";
 import { Section } from "@/components/section";
 import { cn } from "@/lib/utils";
@@ -204,24 +204,44 @@ const BENTO_ORDER = [
   "DevOps & Production",
 ];
 
-/* ── Tilt card wrapper ── */
-function TiltCard({
+/* ── Stack card — tilt + scroll entrance + filter visibility ── */
+function StackCard({
   children,
   className,
+  isMatch,
+  index,
 }: {
   children: React.ReactNode;
   className?: string;
+  isMatch: boolean;
+  index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const hasEntered = useInView(ref, { once: true, amount: 0.1 });
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [3, -3]), { stiffness: 200, damping: 22 });
   const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-3, 3]), { stiffness: 200, damping: 22 });
 
+  // Combine entrance + filter into one animate target
+  const opacity = hasEntered ? (isMatch ? 1 : 0.25) : 0;
+  const y = hasEntered ? 0 : 16;
+  const scale = hasEntered ? (isMatch ? 1 : 0.97) : 0.95;
+
   return (
     <motion.div
       ref={ref}
+      layout
       style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      animate={{ opacity, y, scale }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{
+        layout: { type: "spring", stiffness: 300, damping: 30 },
+        opacity: { duration: 0.3 },
+        y: { duration: 0.45, delay: hasEntered ? 0 : index * 0.04, ease: [0.16, 1, 0.3, 1] },
+        scale: { duration: 0.3 },
+      }}
       onMouseMove={(e) => {
         if (!ref.current) return;
         const rect = ref.current.getBoundingClientRect();
@@ -239,11 +259,27 @@ function TiltCard({
 export function Stack() {
   const [activeFilter, setActiveFilter] = useState<string>("all");
 
-  const sortedMatrix = [...technicalMatrix].sort((a, b) => {
+  // Base order from BENTO_ORDER
+  const baseMatrix = [...technicalMatrix].sort((a, b) => {
     const idxA = BENTO_ORDER.indexOf(a.category);
     const idxB = BENTO_ORDER.indexOf(b.category);
     return (idxA === -1 ? 99 : idxA) - (idxB === -1 ? 99 : idxB);
   });
+
+  // When a filter is active, matched cards float to the top
+  const sortedMatrix =
+    activeFilter === "all"
+      ? baseMatrix
+      : [
+          ...baseMatrix.filter((item) => {
+            const v = categoryVisuals[item.category];
+            return v && v.filterGroup === activeFilter;
+          }),
+          ...baseMatrix.filter((item) => {
+            const v = categoryVisuals[item.category];
+            return !v || v.filterGroup !== activeFilter;
+          }),
+        ];
 
   return (
     <Section id="stack" className="bg-card/25 border-y border-border/60">
@@ -308,21 +344,17 @@ export function Stack() {
           const isLanguages = item.category === "Languages";
           const isMatch = activeFilter === "all" || visual.filterGroup === activeFilter;
 
+          // When filtering, use uniform 4-col spans so the grid never breaks
+          const colSpan = activeFilter === "all" ? visual.bentoClass : "lg:col-span-4";
+
           return (
-            <TiltCard
+            <StackCard
               key={item.category}
-              className={cn(visual.bentoClass, "group")}
+              index={index}
+              isMatch={isMatch}
+              className={cn(colSpan, "group")}
             >
-              <motion.div
-                initial={{ opacity: 0, y: 4 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ amount: 0.1, once: true }}
-                animate={{ opacity: isMatch ? 1 : 0.3, scale: isMatch ? 1 : 0.98 }}
-                transition={{
-                  duration: 0.45,
-                  delay: index * 0.04,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
+              <div
                 className={cn(
                   "relative rounded-2xl border p-6 flex flex-col justify-between overflow-hidden h-full",
                   "transition-colors duration-300",
@@ -468,8 +500,8 @@ export function Stack() {
                     {isBackend ? "Enterprise Ready" : isAI ? "Modern Tooling" : "Production Tested"}
                   </span>
                 </div>
-              </motion.div>
-            </TiltCard>
+              </div>
+            </StackCard>
           );
         })}
       </div>
