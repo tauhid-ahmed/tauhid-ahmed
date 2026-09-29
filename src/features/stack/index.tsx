@@ -296,35 +296,41 @@ export function Stack() {
         </div>
       </div>
 
-      {/* Filter Tabs */}
-      <div className="relative flex flex-wrap gap-2 mb-8">
-        {FILTER_TABS.map((tab) => {
-          const isActive = activeFilter === tab.id;
-          return (
-            <motion.button
-              key={tab.id}
-              onClick={() => setActiveFilter(tab.id)}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              className={cn(
-                "relative px-4 py-1.5 rounded-full text-xs font-semibold border transition-colors duration-200",
-                isActive
-                  ? "text-primary-foreground border-primary/70"
-                  : "text-muted-foreground border-border/70 bg-card/60 hover:text-foreground hover:border-primary/40",
-              )}
-            >
-              {isActive && (
-                <motion.span
-                  layoutId="stackFilterPill"
-                  className="absolute inset-0 bg-primary rounded-full -z-10"
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                />
-              )}
-              {tab.label}
-            </motion.button>
-          );
-        })}
+      {/* Filter Tabs — horizontal scroll on mobile, no wrap */}
+      <div className="relative mb-8">
+        {/* Fade edges to hint scrollability */}
+        <div className="absolute left-0 top-0 bottom-0 w-6 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none md:hidden" />
+        <div className="absolute right-0 top-0 bottom-0 w-6 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none md:hidden" />
+
+        <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none px-1 py-1 rounded-full border border-border/60 bg-card/50 backdrop-blur-sm w-fit max-w-full">
+          {FILTER_TABS.map((tab) => {
+            const isActive = activeFilter === tab.id;
+            return (
+              <motion.button
+                key={tab.id}
+                onClick={() => setActiveFilter(tab.id)}
+                whileHover={{ scale: isActive ? 1 : 1.04 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                className={cn(
+                  "relative px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-colors duration-200 shrink-0",
+                  isActive
+                    ? "text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="stackFilterPill"
+                    className="absolute inset-0 bg-primary rounded-full -z-10 shadow-sm shadow-primary/30"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+                {tab.label}
+              </motion.button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Bento Grid */}
