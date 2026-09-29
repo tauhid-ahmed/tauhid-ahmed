@@ -55,7 +55,7 @@ export function Experience() {
                     )}
                   </div>
 
-                  <div className="text-md font-medium text-primary -mt-1.5">
+                  <div className="text-md font-medium text-primary -mt-0.5">
                     {exp.role}
                   </div>
 
@@ -131,7 +131,7 @@ export function Experience() {
               <h4 className="text-base font-semibold text-foreground">
                 {edu.degree}
               </h4>
-              <p className="text-md font-medium text-primary -mt-1">
+              <p className="text-md font-medium text-primary -mt-0.5">
                 {edu.institution}
               </p>
               <p className="text-md text-muted-foreground leading-relaxed pt-1">
