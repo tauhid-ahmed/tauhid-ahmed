@@ -266,9 +266,9 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center gap-2.5 pt-2 text-xs text-muted-foreground flex-wrap"
+              className="flex items-center gap-2 pt-2 text-xs text-muted-foreground flex-nowrap"
             >
-              <span className="font-mono uppercase tracking-wider text-[11px] text-muted-foreground/60 shrink-0">
+              <span className="font-mono uppercase tracking-wider text-[11px] text-muted-foreground/60 shrink-0 align-middle">
                 Connect:
               </span>
 
@@ -300,7 +300,7 @@ export function Hero() {
 
               <span className="text-border/60 select-none">•</span>
 
-              <span className="font-mono text-muted-foreground whitespace-nowrap shrink-0">
+              <span className="font-mono text-muted-foreground whitespace-nowrap shrink-0 align-middle">
                 Pabna, Bangladesh
               </span>
             </motion.div>
