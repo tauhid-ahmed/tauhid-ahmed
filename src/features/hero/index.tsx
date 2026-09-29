@@ -224,20 +224,20 @@ export function Hero() {
               {developer.bio}
             </motion.p>
 
-            {/* CTA Buttons — magnetic + shimmer */}
+            {/* CTA Buttons — all three on one row, no wrap */}
             <motion.div
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-3 pt-2"
+              className="flex items-center gap-2 pt-2"
             >
               <MagneticButton>
-                <Button asChild className="shimmer-on-hover">
+                <Button asChild className="shimmer-on-hover shrink-0">
                   <Link className="group" href="#projects">
-                    <span>View Projects</span>
+                    <span className="hidden sm:inline">View Projects</span>
+                    <span className="sm:hidden">Projects</span>
                     <motion.span
                       className="inline-flex"
-                      initial={{ x: 0 }}
                       whileHover={{ x: 4 }}
                       transition={{ type: "spring", stiffness: 400, damping: 20 }}
                     >
@@ -248,12 +248,12 @@ export function Hero() {
               </MagneticButton>
 
               <MagneticButton>
-                <Button asChild variant="outline" className="group shimmer-on-hover">
+                <Button asChild variant="outline" className="shimmer-on-hover shrink-0">
                   <Link href="#contact">
                     <motion.span whileHover={{ scale: 1.15, rotate: -8 }} transition={{ type: "spring", stiffness: 400 }}>
                       <Mail className="text-primary size-4" />
                     </motion.span>
-                    <span>Contact Me</span>
+                    <span className="hidden sm:inline">Contact Me</span>
                   </Link>
                 </Button>
               </MagneticButton>
@@ -266,27 +266,43 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center gap-2 md:gap-4 pt-2 text-xs text-muted-foreground"
+              className="flex items-center gap-2.5 pt-2 text-xs text-muted-foreground flex-wrap"
             >
-              <span className="font-mono uppercase tracking-wider text-[11px] text-muted-foreground/80">Connect:</span>
-              {[
-                { href: developer.github, icon: FaGithub, label: "GitHub" },
-                { href: developer.linkedin, icon: FaLinkedinIn, label: "LinkedIn" },
-              ].map((s, i) => (
-                <motion.div key={s.label} whileHover={{ y: -2 }} transition={{ type: "spring", stiffness: 400, damping: 20 }}>
-                  <Link
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-medium hover:text-foreground transition-colors link-underline"
-                  >
-                    <s.icon className="size-3.5" />
-                    <span>{s.label}</span>
-                  </Link>
-                </motion.div>
-              ))}
-              <span className="text-border">•</span>
-              <span className="font-mono text-muted-foreground whitespace-nowrap">Pabna, Bangladesh</span>
+              <span className="font-mono uppercase tracking-wider text-[11px] text-muted-foreground/60 shrink-0">
+                Connect:
+              </span>
+
+              <motion.a
+                href={developer.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                className="inline-flex items-center gap-1.5 font-medium text-muted-foreground hover:text-foreground transition-colors link-underline shrink-0"
+              >
+                <FaGithub className="size-3.5 shrink-0" />
+                <span>GitHub</span>
+              </motion.a>
+
+              <span className="text-border/60 select-none">•</span>
+
+              <motion.a
+                href={developer.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ y: -1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                className="inline-flex items-center gap-1.5 font-medium text-muted-foreground hover:text-foreground transition-colors link-underline shrink-0"
+              >
+                <FaLinkedinIn className="size-3.5 shrink-0" />
+                <span>LinkedIn</span>
+              </motion.a>
+
+              <span className="text-border/60 select-none">•</span>
+
+              <span className="font-mono text-muted-foreground whitespace-nowrap shrink-0">
+                Pabna, Bangladesh
+              </span>
             </motion.div>
           </div>
 

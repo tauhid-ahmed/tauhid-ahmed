@@ -14,7 +14,6 @@ import meImgDark from "@/images/me/me-dark.jpg";
 import meImgLight from "@/images/me/me-light.jpeg";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import ResumeDownloadButton from "../ResumeDownloadButton";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -139,9 +138,6 @@ export function Header() {
           {/* Mobile Actions & Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
             <ThemeToggle />
-            <span className="lg:hidden">
-              <ResumeDownloadButton />
-            </span>
             <Button
               variant="ghost"
               size="icon"

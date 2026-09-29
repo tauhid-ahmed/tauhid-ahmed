@@ -514,31 +514,90 @@ export function Stack() {
 
       {/* Engineering Philosophy Callout */}
       <motion.div
-        initial={{ opacity: 0, y: 4 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="mt-8 p-6 md:p-10 rounded-2xl border border-border/80 bg-card/80 shadow-xs flex flex-col gap-4 sm:gap-5 sm:flex-row sm:items-start md:items-center sm:justify-between hover:border-primary/40 hover:shadow-md transition-all duration-300"
+        transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+        className="mt-10 relative overflow-hidden rounded-2xl border border-border/70 bg-card"
       >
-        <div className="flex items-start gap-3 sm:gap-4 min-w-0">
-          <motion.div
-            whileHover={{ rotate: 15, scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 360, damping: 18 }}
-            className="size-9 sm:size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary"
-          >
-            <Code className="size-4 sm:size-5" />
-          </motion.div>
-          <div className="min-w-0">
-            <h4 className="text-sm sm:text-base font-bold text-foreground leading-snug">
-              Pragmatic Engineering &amp; Tooling Mindset
-            </h4>
-            <p className="text-xs sm:text-sm text-muted-foreground mt-1 leading-relaxed">
-              I prioritize clean modular architecture, strict TypeScript typing,
-              and real-world performance over hype. I adopt modern AI developer
-              tools (Claude Code, Cursor) to automate tedious tasks while
-              keeping code reviews, system design, and security strictly
-              engineer-driven.
-            </p>
+        {/* Background decoration */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-16 -right-16 size-48 rounded-full bg-primary/10 blur-3xl opacity-60" />
+          <div className="absolute -bottom-10 -left-10 size-36 rounded-full bg-primary/8 blur-2xl opacity-40" />
+          {/* Subtle grid */}
+          <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,var(--foreground)_1px,transparent_1px),linear-gradient(to_bottom,var(--foreground)_1px,transparent_1px)] bg-[size:28px_28px]" />
+        </div>
+
+        <div className="relative p-6 md:p-8 lg:p-10">
+          <div className="grid md:grid-cols-12 gap-6 md:gap-10 items-center">
+
+            {/* Left: icon + title */}
+            <div className="md:col-span-5 flex flex-col gap-4">
+              <div className="flex items-center gap-3">
+                <motion.div
+                  whileHover={{ rotate: 15, scale: 1.12 }}
+                  transition={{ type: "spring", stiffness: 360, damping: 18 }}
+                  className="size-10 rounded-xl bg-primary/15 border border-primary/25 flex items-center justify-center shrink-0 text-primary shadow-sm"
+                >
+                  <Code className="size-5" />
+                </motion.div>
+                <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-primary">
+                  Engineering Philosophy
+                </span>
+              </div>
+
+              <h4 className="text-xl sm:text-2xl font-bold text-foreground leading-snug tracking-tight">
+                Pragmatic Engineering &amp;{" "}
+                <span className="accent-gradient-text">Tooling Mindset</span>
+              </h4>
+
+              {/* Divider */}
+              <motion.div
+                className="h-px w-16 bg-gradient-to-r from-primary/60 to-transparent rounded-full"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                style={{ transformOrigin: "left" }}
+              />
+            </div>
+
+            {/* Right: principles */}
+            <div className="md:col-span-7 space-y-3">
+              {[
+                {
+                  label: "Clean Architecture",
+                  detail: "Modular services, strict TypeScript contracts, and clear separation of concerns across every layer.",
+                },
+                {
+                  label: "Performance First",
+                  detail: "Real-world CWV scores, optimized queries, and production-tested patterns — not just benchmarks.",
+                },
+                {
+                  label: "AI-Augmented Workflow",
+                  detail: "Claude Code and Cursor handle tedious scaffolding; code reviews, system design, and security stay engineer-driven.",
+                },
+              ].map((principle, i) => (
+                <motion.div
+                  key={principle.label}
+                  initial={{ opacity: 0, x: 4 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 + i * 0.1, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-start gap-3 p-3.5 rounded-xl border border-border/50 bg-background/40 hover:border-primary/30 hover:bg-background/70 transition-all duration-200 group"
+                >
+                  <div className="size-1.5 rounded-full bg-primary shrink-0 mt-2" />
+                  <div>
+                    <span className="text-xs font-bold text-foreground group-hover:text-primary transition-colors">
+                      {principle.label}
+                    </span>
+                    <p className="text-xs text-muted-foreground leading-relaxed mt-0.5">
+                      {principle.detail}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </motion.div>
